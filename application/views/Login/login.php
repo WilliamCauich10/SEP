@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="/SEP/assets/css/form-elements.css">
         <link rel="stylesheet" href="/SEP/assets/css/style.css">
         <!-- Favicon and touch icons -->
-        <link rel="shortcut icon" href="/SEP/assets/ico/favicon.png">
+        <link rel="shortcut icon" href="/SEP/img/iconoSEP.png">
         <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/SEP/assets/ico/apple-touch-icon-144-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/SEP/assets/ico/apple-touch-icon-114-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/SEP/assets/ico/apple-touch-icon-72-precomposed.png">
@@ -52,7 +52,7 @@
                                 </div>
                             </div>
                             <div class="form-bottom">
-                            <?= form_open("/index.php/Login/comprobar",$attributes) ?>
+                            <?= form_open("/Login/comprobar",$attributes) ?>
                                     <div class="form-group">
                                         <label class="sr-only" for="form-username">Usuario</label>
                                         <?= form_input($Usr) ?>
@@ -75,8 +75,12 @@
         <script src="/SEP/assets/bootstrap/js/bootstrap.min.js"></script>
         <!-- <script src="/SEP/assets/js/jquery.backstretch.min.js"></script> -->
         <script src="/SEP/assets/js/scripts.js"></script>
+<!-- <img src="/SEP/img/SEPbanner.png"> -->
 
-        <div class="backstretch" style="left: 0px; top: 0px; overflow: hidden; margin: 0px; padding: 0px; height: 790px; width: 1005px; z-index: -999999; position: fixed;"><img src="/SEP/assets/img/backgrounds/1.jpg" style="position: absolute; margin: 0px; padding: 0px; border: none; width: 1185px; height: 790px; max-height: none; max-width: none; z-index: -999999; left: -90px; top: 0px;"></div>
+        <div class="backstretch" style="left: 0px; top: 0px; overflow: hidden; margin: 0px; padding: 0px; height: 790px; width: 106%; z-index: -999999; position: fixed;"><img src="/SEP/assets/img/backgrounds/1.jpg" style="position: absolute; margin: 0px; padding: 0px; border: none; width: 100%; height: 100%; max-height: none; max-width: none; z-index: -9; left: -90px; top: 0px;">
+        <img src="/SEP/img/SEPbanner.png" style="width: 1460px;">
+        </div>
+       <!--  <img src="/SEP/img/SEPbanner.png"> -->
     </body>
 
 </html>

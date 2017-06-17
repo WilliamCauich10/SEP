@@ -2,6 +2,9 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 /**
  * Controlador de inicio de sesion
+ * -Verifica que el usuario y contraseña coinsidan
+ * con los de la base de datos y lo redirecciona
+ * a su pagina dependiendo de su rol
  *
  * Este controlador fue diseñado por 
  * el alumno William Jesus Cauich Martin
@@ -41,7 +44,7 @@ class Login extends CI_Controller {
 		            break;
 		        case 'Nivel2':
 		            $datos['Nivel']='Nivel4';
-		     		$this->load->view('Nivel1/principal',$datos);
+		     		$this->load->view('Nivel4/principal',$datos);
 		            break;
     		}
 		}else{
