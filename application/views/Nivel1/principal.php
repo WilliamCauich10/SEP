@@ -14,14 +14,8 @@
       <a class="navbar-brand"><?= $usr ?> </a>
     </div>
     <ul class="nav navbar-nav" style="padding-top: 10px;">
-		<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-pencil"></span>   Consulta  <span class="caret"></span></a>
-      <ul class="dropdown-menu">
-          <li><a href="/SEP/index.php/Niv4/Indicadores">EMS</a></li>
-          <li><a href="#">IES</a></li>
-        </ul>
-    </li>
-    <li><a href="#"><span class="glyphicon glyphicon-plus-sign"></span>Informacion General</a></li>
-		<li><a href="#"><span class="glyphicon glyphicon-align-justify"></span> Avances</a></li>
+		<li><a href="##"><span class="glyphicon glyphicon-pencil"></span>Consulta</a></li>
+    <li><a href="/SEP/index.php/Niv1/Captura"><span class="glyphicon glyphicon-plus-sign"></span>Captura</a></li>
     <li><a href="/SEP"><span class="glyphicon  glyphicon-log-out"></span> Salir </a></li>
 	</ul>
 </div>
