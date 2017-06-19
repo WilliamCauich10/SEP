@@ -5,6 +5,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/SEP/css/indicadores.php" media="screen">
 </head>
 <body>
 <nav class="navbar  navbar-default navbar-fixed-top" style="height: 76px;">
@@ -37,21 +38,36 @@
       <td style="width: 300px;">
         <label>
           Indicador 1
-          <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#Indicador1">Ver</button>
+          <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#Indicador1">Ver</button>
         </label>
       </td>
       <td style="width: 300px;"></td>
     </tr>
     <tr>
-      <td>dos</td>
+      <td>
+        <label>
+          Indicador 2
+          <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#Indicador1">Ver</button>
+        </label>
+      </td>
       <td>Reporte</td>
     </tr>
     <tr>
-      <td>trres</td>
+      <td>
+        <label>
+          Indicador 3
+          <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#Indicador1">Ver</button>
+        </label>
+      </td>
       <td>historico</td>
     </tr>
     <tr>
-      <td>cuatro</td>
+      <td>
+        <label>
+          Indicador 4
+          <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#Indicador1">Ver</button>
+        </label>
+      </td>
       <td></td>
     </tr>
   </table>
@@ -67,48 +83,94 @@
         <h4 class="modal-title">Selecciona el filtrado </h4>
       </div>
       <div class="modal-body">
+      <label>Selecionar escuela </label>
+      <select name="city" class="materias">
+            <option value="none" selected="selected">Escuelas</option>
+              <option value="Bachilleres"> Bachilleres 1</option>
+          </select>
+      <br>
        <label>
         Todos 
         <?= form_checkbox('Todos','semarnat',true) ?>
       </label>
       <br>
-      <label>
-        Genero 
-        <?= form_checkbox('Genero','semarnat',false) ?>
-      </label>
-      <label>
-        Edad 
-        <?= form_checkbox('Edad','semarnat',false) ?>
-      </label>
-      <br>
-      <label style="position: relative;">
-        Becario 
-        <?= form_checkbox('Becario','semarnat',false) ?>
-      </label>
-      <label>
-        Indigena 
-        <?= form_checkbox('Indigena','semarnat',false) ?>
-      </label>
-      <label>
-        NEE 
-        <?= form_checkbox('NEE','semarnat',false) ?>
-      </label>
-      <label>
-        Trabajo remunerado 
-        <?= form_checkbox('Trabajo','semarnat',false) ?>
-      </label>
-      <label>
-        Modalidad 
-        <?= form_checkbox('Modalidad','semarnat',false) ?>
-      </label>
-      <label>
-        Turno 
-        <?= form_checkbox('Turno','semarnat',false) ?>
-      </label>
-      <label>
-        Promedio Ciclo anterior
-        <?= form_checkbox('Promedio','semarnat',false) ?>
-      </label>
+      <center>
+        <table>
+          <tr>
+            <td style="width: 250px;">
+              <label>
+                Genero 
+                <?= form_checkbox('Genero','semarnat',false) ?>
+              </label>
+            </td>
+            <td style="width: 250px;">
+              <label>
+                Grado 
+                <?= form_checkbox('Grado','semarnat',false) ?>
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td>
+                <label>
+                  Edad 
+                  <?= form_checkbox('Edad','semarnat',false) ?>
+                </label>      
+            </td>
+            <td>
+              <label>
+                Becario 
+                <?= form_checkbox('Becario','semarnat',false) ?>
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>
+                Indigena 
+                <?= form_checkbox('Indigena','semarnat',false) ?>
+              </label>  
+            </td>
+            <td>
+              <label>
+                NEE 
+                <?= form_checkbox('NEE','semarnat',false) ?>
+              </label>      
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>
+                Trabajo remunerado 
+                <?= form_checkbox('Trabajo','semarnat',false) ?>
+              </label>
+            </td>
+            <td>
+              <label>
+                Modalidad 
+                <?= form_checkbox('Modalidad','semarnat',false) ?>
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>
+                Turno 
+                <?= form_checkbox('Turno','semarnat',false) ?>
+              </label>
+            </td>
+            <td>
+              <label>
+                Promedio Ciclo anterior
+                <?= form_checkbox('Promedio','semarnat',false) ?>
+              </label>
+            </td>
+          </tr>
+        </table>
+      </center>
+      <center>
+        <button type="button" class="btn btn-success">Imprimir</button>
+      </center>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
