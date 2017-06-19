@@ -36,13 +36,13 @@ class Login extends CI_Controller {
 		            break;
 		        case 'Nivel2':
 		            $datos['Nivel']='Nivel2';
-		     		$this->load->view('Nivel1/principal',$datos);
+		     		$this->load->view('Nivel2/principal',$datos);
 		            break;
-		        case 'Nivel2':
+		        case 'Nivel3':
 		            $datos['Nivel']='Nivel3';
-		     		$this->load->view('Nivel1/principal',$datos);
+		     		$this->load->view('Nivel3/principal',$datos);
 		            break;
-		        case 'Nivel2':
+		        case 'Nivel4':
 		            $datos['Nivel']='Nivel4';
 		     		$this->load->view('Nivel4/principal',$datos);
 		            break;
