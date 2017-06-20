@@ -47,7 +47,7 @@
       <td>
         <label>
           Indicador 2
-          <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#Indicador1">Ver</button>
+          <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#Indicador2">Ver</button>
         </label>
       </td>
       <td>Reporte</td>
@@ -56,7 +56,7 @@
       <td>
         <label>
           Indicador 3
-          <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#Indicador1">Ver</button>
+          <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#Indicador3">Ver</button>
         </label>
       </td>
       <td>historico</td>
@@ -65,7 +65,7 @@
       <td>
         <label>
           Indicador 4
-          <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#Indicador1">Ver</button>
+          <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#Indicador4">Ver</button>
         </label>
       </td>
       <td></td>
@@ -80,97 +80,99 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Selecciona el filtrado </h4>
+        <h4 class="modal-title">Selecciona el filtrado Indicador 1</h4>
       </div>
       <div class="modal-body">
-      <label>Selecionar escuela </label>
-      <select name="city" class="materias">
-            <option value="none" selected="selected">Escuelas</option>
-              <option value="Bachilleres"> Bachilleres 1</option>
-          </select>
-      <br>
-       <label>
-        Todos 
-        <?= form_checkbox('Todos','semarnat',true) ?>
-      </label>
-      <br>
-      <center>
-        <table>
-          <tr>
-            <td style="width: 250px;">
-              <label>
-                Genero 
-                <?= form_checkbox('Genero','semarnat',false) ?>
-              </label>
-            </td>
-            <td style="width: 250px;">
-              <label>
-                Grado 
-                <?= form_checkbox('Grado','semarnat',false) ?>
-              </label>
-            </td>
-          </tr>
-          <tr>
-            <td>
+      <?= form_open("Niv4/Filtros1") ?>
+        <label>Selecionar escuela </label>
+        <select name="city" class="materias">
+              <option value="none" selected="selected">Escuelas</option>
+                <option value="Bachilleres"> Bachilleres 1</option>
+            </select>
+        <br>
+         <label>
+          Todos 
+          <?= form_checkbox('Todos','Todos',true) ?>
+        </label>
+        <br>
+        <center>
+          <table>
+            <tr>
+              <td style="width: 250px;">
                 <label>
-                  Edad 
-                  <?= form_checkbox('Edad','semarnat',false) ?>
+                  <?= form_checkbox('Genero','Genero',false) ?>
+                  Genero 
+                </label>
+              </td>
+              <td style="width: 250px;">
+                <label>
+                  <?= form_checkbox('Grado','Grado',false) ?>
+                  Grado 
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                  <label>
+                    <?= form_checkbox('Edad','Edad',false) ?>
+                    Edad 
+                  </label>      
+              </td>
+              <td>
+                <label>
+                  <?= form_checkbox('Becario','Becario',false) ?>
+                  Becario 
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label>
+                  <?= form_checkbox('Indigena','Indigena',false) ?>
+                  Indigena 
+                </label>  
+              </td>
+              <td>
+                <label>
+                  <?= form_checkbox('NEE','NEE',false) ?>
+                  NEE 
                 </label>      
-            </td>
-            <td>
-              <label>
-                Becario 
-                <?= form_checkbox('Becario','semarnat',false) ?>
-              </label>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <label>
-                Indigena 
-                <?= form_checkbox('Indigena','semarnat',false) ?>
-              </label>  
-            </td>
-            <td>
-              <label>
-                NEE 
-                <?= form_checkbox('NEE','semarnat',false) ?>
-              </label>      
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <label>
-                Trabajo remunerado 
-                <?= form_checkbox('Trabajo','semarnat',false) ?>
-              </label>
-            </td>
-            <td>
-              <label>
-                Modalidad 
-                <?= form_checkbox('Modalidad','semarnat',false) ?>
-              </label>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <label>
-                Turno 
-                <?= form_checkbox('Turno','semarnat',false) ?>
-              </label>
-            </td>
-            <td>
-              <label>
-                Promedio Ciclo anterior
-                <?= form_checkbox('Promedio','semarnat',false) ?>
-              </label>
-            </td>
-          </tr>
-        </table>
-      </center>
-      <center>
-        <button type="button" class="btn btn-success">Imprimir</button>
-      </center>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label>
+                  <?= form_checkbox('Trabajo','Trabajo',false) ?>
+                  Trabajo remunerado 
+                </label>
+              </td>
+              <td>
+                <label>
+                  <?= form_checkbox('Modalidad','Modalidad',false) ?>
+                  Modalidad 
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label>
+                  <?= form_checkbox('Turno','Turno',false) ?>
+                  Turno 
+                </label>
+              </td>
+              <td>
+                <label>
+                  <?= form_checkbox('Promedio','Promedio',false) ?>
+                  Promedio Ciclo anterior
+                </label>
+              </td>
+            </tr>
+          </table>
+        </center>
+        <center>
+          <button type="Submit" class="btn btn-success">Imprimir</button>
+        </center>
+      <?= form_close() ?>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -179,5 +181,262 @@
 
   </div>
 </div>
+<!-- fin Indicador 1 -->
+<!-- Indicador 2  -->
+<div id="Indicador2" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Selecciona el filtrado </h4>
+      </div>
+      <div class="modal-body">
+      <?= form_open("Niv4/Filtros2") ?>
+        <label>Selecionar escuela </label>
+        <select name="city" class="materias">
+              <option value="none" selected="selected">Escuelas</option>
+                <option value="Bachilleres"> Bachilleres 1</option>
+            </select>
+        <br>
+         <label>
+          Todos 
+          <?= form_checkbox('Todos2','Todos2',true) ?>
+        </label>
+        <br>
+        <center>
+          <table>
+            <tr>
+              <td style="width: 250px;">
+                <label>
+                  <?= form_checkbox('Escuela','Escuela',false) ?>
+                  Escuela 
+                </label>
+              </td>
+              <td style="width: 250px;">
+                <label>
+                  <?= form_checkbox('Turno','Turno',false) ?>
+                  Turno 
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                  <label>
+                    <?= form_checkbox('Edad2','Edad2',false) ?>
+                    Edad
+                  </label>      
+              </td>
+              <td>
+                <label>
+                  <?= form_checkbox('Nivel','Nivel',false) ?>
+                  Nivel de estudios
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label>
+                  <?= form_checkbox('Años','Años',false) ?>
+                  Años como docente 
+                </label>  
+              </td>
+              <td>
+                <label>
+                  <?= form_checkbox('Asignatura','Asignatura',false) ?>
+                  Asignatura 1 y 2
+                </label>      
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label>
+                  <?= form_checkbox('Empleo','Empleo',false) ?>
+                  Otro Empleo
+                </label>
+              </td>
+              <td>
+              </td>
+            </tr>
+          </table>
+        </center>
+        <center>
+          <button type="button" class="btn btn-success">Imprimir</button>
+        </center>
+      <?= form_close() ?>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- Fin  indicador 2 -->
+<!-- Indicador 3  -->
+<div id="Indicador3" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Selecciona el filtrado </h4>
+      </div>
+      <div class="modal-body">
+      <?= form_open() ?>
+        <label>Selecionar escuela </label>
+        <select name="city" class="materias">
+              <option value="none" selected="selected">Escuelas</option>
+                <option value="Bachilleres"> Bachilleres 1</option>
+            </select>
+        <br>
+         <label>
+          Todos 
+          <?= form_checkbox('Todos3','semarnat',true) ?>
+        </label>
+        <br>
+        <center>
+          <table>
+            <tr>
+              <td style="width: 250px;">
+                <label>
+                  <?= form_checkbox('Escuela3','semarnat',false) ?>
+                  Escuela 
+                </label>
+              </td>
+              <td style="width: 250px;">
+                <label>
+                  <?= form_checkbox('Turno3','semarnat',false) ?>
+                  Turno 
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                  <label>
+                    <?= form_checkbox('Edadind3','semarnat',false) ?>
+                    Edad
+                  </label>      
+              </td>
+              <td>
+                <label>
+                  <?= form_checkbox('Nivel3','semarnat',false) ?>
+                  Nivel de estudios
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label>
+                  <?= form_checkbox('Años3','semarnat',false) ?>
+                  Años como directivo
+                </label>  
+              </td>
+              <td>
+                <label>
+                  <?= form_checkbox('Empleo3','semarnat',false) ?>
+                  Otro Empleo
+                </label>
+              </td>
+            </tr>
+          </table>
+        </center>
+        <center>
+          <button type="button" class="btn btn-success">Imprimir</button>
+        </center>
+      <?= form_close() ?>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- Fin indicador 3 -->
+<!-- Indicador 4  -->
+<div id="Indicador3" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Selecciona el filtrado </h4>
+      </div>
+      <div class="modal-body">
+      <?= form_open() ?>
+        <label>Selecionar escuela </label>
+        <select name="city" class="materias">
+              <option value="none" selected="selected">Escuelas</option>
+                <option value="Bachilleres"> Bachilleres 1</option>
+            </select>
+        <br>
+         <label>
+          Todos 
+          <?= form_checkbox('Todos3','semarnat',true) ?>
+        </label>
+        <br>
+        <center>
+          <table>
+            <tr>
+              <td style="width: 250px;">
+                <label>
+                  <?= form_checkbox('Escuela3','semarnat',false) ?>
+                  Escuela 
+                </label>
+              </td>
+              <td style="width: 250px;">
+                <label>
+                  <?= form_checkbox('Turno3','semarnat',false) ?>
+                  Turno 
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                  <label>
+                    <?= form_checkbox('Edadind3','semarnat',false) ?>
+                    Edad
+                  </label>      
+              </td>
+              <td>
+                <label>
+                  <?= form_checkbox('Nivel3','semarnat',false) ?>
+                  Nivel de estudios
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label>
+                  <?= form_checkbox('Años3','semarnat',false) ?>
+                  Años como directivo
+                </label>  
+              </td>
+              <td>
+                <label>
+                  <?= form_checkbox('Empleo3','semarnat',false) ?>
+                  Otro Empleo
+                </label>
+              </td>
+            </tr>
+          </table>
+        </center>
+        <center>
+          <button type="button" class="btn btn-success">Imprimir</button>
+        </center>
+      <?= form_close() ?>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- Fin indicador 4 -->
 </body>
 </html>
