@@ -6,7 +6,6 @@
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" media="screen" href="/SEP/css/margen_indicadoresN1.php">
-    <link rel="stylesheet" media="screen" href="/SEP/css/despliegueN1captura.php">
 </head>
 <body>
 <nav class="navbar  navbar-default navbar-fixed-top" style="height: 76px;">
@@ -31,11 +30,17 @@
       <tr>
         <label>
 
-          <div class="container">
+          
       <th>
-      Indicador 1
+      <div class="container">
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Indicador 1</button>
+          <div id="demo" class="collapse">
+              
+          </div>
+            </div>
       </th>
       <th>
+      <div class="container">
       <a href="#"  data-toggle="popover" title="Indicador 1" data-content="Contiene informacion del indicador para saber que se requiere" class="navbar-brand" data-placement="bottom"> 
        <span class="glyphicon glyphicon-question-sign"></span> 
        </a>
@@ -46,11 +51,17 @@
        <tr>
         <label>
 
-          <div class="container">
+          
       <th>
-      Indicador 2
+      <div class="container">
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Indicador 2</button>
+          <div id="demo" class="collapse">
+              
+          </div>
+            </div>
       </th>
       <th>
+      <div class="container">
       <a href="#"  data-toggle="popover" title="Indicador 2" data-content="Contiene informacion del indicador para saber que se requiere" class="navbar-brand" data-placement="bottom"> 
        <span class="glyphicon glyphicon-question-sign"></span> 
        </a>
@@ -61,11 +72,17 @@
         <tr>
         <label>
 
-          <div class="container">
+          
       <th>
-      Indicador 3
+          <div class="container">
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Indicador 3</button>
+          <div id="demo" class="collapse">
+             
+          </div>
+            </div>
       </th>
       <th>
+      <div class="container">
       <a href="#"  data-toggle="popover" title="Indicador 3" data-content="Contiene informacion del indicador para saber que se requiere" class="navbar-brand" data-placement="bottom"> 
        <span class="glyphicon glyphicon-question-sign"></span> 
        </a>
@@ -77,11 +94,18 @@
       <tr>
         <label>
 
-          <div class="container">
+          
       <th>
-      Indicador 4
+      <div class="container">
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Indicador 4</button>
+          <div id="demo" class="collapse">
+          asjdkaj
+             <input type="text" name="nombredelacaja"> 
+          </div>
+            </div>
       </th>
       <th>
+      <div class="container">
       <a href="#"  data-toggle="popover" title="Indicador 4" data-content="Contiene informacion del indicador para saber que se requiere" class="navbar-brand" data-placement="bottom"> 
        <span class="glyphicon glyphicon-question-sign"></span> 
        </a>

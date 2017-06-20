@@ -1,6 +1,6 @@
 <?php
 header("Content-type: text/css");
 ?>
-li{
+th{
     height: 30px;
 }
