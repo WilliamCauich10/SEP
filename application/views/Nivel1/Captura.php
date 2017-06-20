@@ -5,6 +5,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" media="screen" href="/SEP/css/margen _indicadoresN1.php">
 </head>
 <body>
 <nav class="navbar  navbar-default navbar-fixed-top" style="height: 76px;">
@@ -25,30 +26,46 @@
 </div>
 <br>
 <br>
-<center>
-  <table >
-    <tr>
-      <td style="width: 300px;">
+
+  <ul>
+    <li>
         <label>
           Indicador 1
+          <div class="navbar-header">
+          <a href="#" data-toggle="popover" title="Indicador 1" data-content="Contiene informacion del indicador para saber que se requiere" class="navbar-brand" data-placement="bottom" style="padding-top: 0px;"><img src="/SEP/img/interrogacion.png" style="width: 20px;height: 20px;"> </a>
+
+    </div>
         </label>
-      </td>
-      <td style="width: 300px;"></td>
-    </tr>
-    <tr>
-      <td>dos</td>
-      <td>Reporte</td>
-    </tr>
-    <tr>
-      <td>trres</td>
-      <td>historico</td>
-    </tr>
-    <tr>
-      <td>cuatro</td>
-      <td></td>
-    </tr>
-  </table>
-</center>
+     </li>
+    <li>
+        <label>
+          Indicador 2
+          <div class="navbar-header">
+          <a href="#" data-toggle="popover" title="Indicador 2" data-content="Contiene informacion del indicador para saber que se requiere" class="navbar-brand" data-placement="bottom" style="padding-top: 0px;"><img src="/SEP/img/interrogacion.png" style="width: 20px;height: 20px;"> </a>
+    </div>
+        </label>
+    </li>
+    
+    <li>
+        <label>
+      Indicador 3
+        <div class="navbar-header">
+        <a href="#" data-toggle="popover" title="Indicador 3" data-content="Contiene informacion del indicador para saber que se requiere" class="navbar-brand" data-placement="bottom" style="padding-top: 0px;"><img src="/SEP/img/interrogacion.png" style="width: 20px;height: 20px;"> </a>
+    </div>
+         </label>
+
+    </li>
+    <li>
+      <label>
+      Indicador 4
+      <div class="navbar-header">
+      <a href="#" data-toggle="popover" title="Indicador 4" data-content="Contiene informacion del indicador para saber que se requiere" class="navbar-brand" data-placement="bottom" style="padding-top: 0px;"><img src="/SEP/img/interrogacion.png" style="width: 20px;height: 20px;"> </a>
+    </div>
+       </label> 
+    </li>
+      
+  </ul>
+
 <!-- Indicador 1 -->
 <div id="Indicador1" class="modal fade" role="dialog">
   <div class="modal-dialog">
@@ -57,4 +74,9 @@
   </div>
 </div>
 </body>
+    <script>
+      $(document).ready(function(){
+      $('[data-toggle="popover"]').popover();   
+      });
+    </script>
 </html>

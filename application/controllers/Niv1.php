@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * 
  *
  * Este controlador fue diseñado por 
- * el alumno William Jesus Cauich Martin
+ * el alumno Jose Ernesto Diaz Escobar
  * del Instituto Tecnologico de Chetumal
  * para la Secretaria de Educación Publica
 */
