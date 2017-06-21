@@ -122,6 +122,65 @@
 
   </div>
 </div>
+<h1>Parte de insertar wil</h1>
+<!-- <button type="button" class="btn btn-warning" data-toggle="collapse" data-target="#Directivos">Directivos</button> -->
+<!-- <button type="button" class="btn btn-warning" data-toggle="collapse" data-target="#Escuelas">Escuelas</button> -->
+<!--  -->
+<div class="panel-group" id="accordion">
+  <div class="panel panel-default" style="border-color: white;" >
+    <div class="panel-heading" style="background: white;">
+    <a data-toggle="collapse" data-parent="#accordion" href="#Estudiantes">
+    <button type="button" class="btn btn-warning">Estudiantes</button></a>
+    </div>
+<!--  -->
+  <div id="Estudiantes" class="collapse">
+    <form action="importar" enctype="multipart/form-data" method="post">
+       <input id="archivo" accept=".csv" name="archivo" type="file" /> 
+       <input name="MAX_FILE_SIZE" type="hidden" value="20000" /> 
+       <input name="enviar" type="submit" value="Importar" />
+    </form>
+  </div>
+</div>
+<div class="panel panel-default" style="border-color: white;" >
+    <div class="panel-heading" style="background: white;">
+    <a data-toggle="collapse" data-parent="#accordion" href="#Docentes">
+    <button type="button" class="btn btn-warning">Docentes</button></a>
+    </div>
+  <div id="Docentes" class="collapse">
+    <form action="importar" enctype="multipart/form-data" method="post">
+       <input id="archivo" accept=".csv" name="archivo" type="file" /> 
+       <input name="MAX_FILE_SIZE" type="hidden" value="20000" /> 
+       <input name="enviar" type="submit" value="Importar" />
+   </form>
+  </div>
+</div>
+<div class="panel panel-default" style="border-color: white;" >
+    <div class="panel-heading" style="background: white;">
+    <a data-toggle="collapse" data-parent="#accordion" href="#Directivos">
+    <button type="button" class="btn btn-warning">Directivos</button></a>
+    </div>
+  <div id="Directivos" class="collapse">
+    <form action="importar" enctype="multipart/form-data" method="post">
+       <input id="archivo" accept=".csv" name="archivo" type="file" /> 
+       <input name="MAX_FILE_SIZE" type="hidden" value="20000" /> 
+       <input name="enviar" type="submit" value="Importar" />
+   </form>
+  </div>
+</div>
+<div class="panel panel-default" style="border-color: white;" >
+    <div class="panel-heading" style="background: white;">
+    <a data-toggle="collapse" data-parent="#accordion" href="#Escuelas">
+    <button type="button" class="btn btn-warning">Escuelas</button></a>
+    </div>
+  <div id="Escuelas" class="collapse">
+    <form action="importar" enctype="multipart/form-data" method="post">
+       <input id="archivo" accept=".csv" name="archivo" type="file" /> 
+       <input name="MAX_FILE_SIZE" type="hidden" value="20000" /> 
+       <input name="enviar" type="submit" value="Importar" />
+   </form>
+  </div>
+  </div>
+<!--  -->
 </body>
     
     <script>

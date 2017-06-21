@@ -85,8 +85,8 @@
       <div class="modal-body">
       <?= form_open("Niv4/Filtros1") ?>
         <label>Selecionar escuela </label>
-        <select name="city" class="materias">
-              <option value="none" selected="selected">Escuelas</option>
+        <select name="Escuelas1" class="materias">
+              <option value="Todos" selected="selected">Todas</option>
                 <option value="Bachilleres"> Bachilleres 1</option>
             </select>
         <br>
@@ -195,8 +195,8 @@
       <div class="modal-body">
       <?= form_open("Niv4/Filtros2") ?>
         <label>Selecionar escuela </label>
-        <select name="city" class="materias">
-              <option value="none" selected="selected">Escuelas</option>
+        <select name="Escuelas2" class="materias">
+              <option value="Todos" selected="selected">Todas</option>
                 <option value="Bachilleres"> Bachilleres 1</option>
             </select>
         <br>
@@ -262,7 +262,7 @@
           </table>
         </center>
         <center>
-          <button type="button" class="btn btn-success">Imprimir</button>
+          <button type="Submit" class="btn btn-success">Imprimir</button>
         </center>
       <?= form_close() ?>
       </div>
@@ -285,16 +285,16 @@
         <h4 class="modal-title">Selecciona el filtrado </h4>
       </div>
       <div class="modal-body">
-      <?= form_open() ?>
+      <?= form_open("Niv4/Filtros3") ?>
         <label>Selecionar escuela </label>
-        <select name="city" class="materias">
-              <option value="none" selected="selected">Escuelas</option>
+        <select name="Escuelas3" class="materias">
+              <option value="Todos" selected="selected">Todas</option>
                 <option value="Bachilleres"> Bachilleres 1</option>
             </select>
         <br>
          <label>
           Todos 
-          <?= form_checkbox('Todos3','semarnat',true) ?>
+          <?= form_checkbox('Todos3','Todos3',true) ?>
         </label>
         <br>
         <center>
@@ -302,13 +302,13 @@
             <tr>
               <td style="width: 250px;">
                 <label>
-                  <?= form_checkbox('Escuela3','semarnat',false) ?>
+                  <?= form_checkbox('Escuela3','Escuela3',false) ?>
                   Escuela 
                 </label>
               </td>
               <td style="width: 250px;">
                 <label>
-                  <?= form_checkbox('Turno3','semarnat',false) ?>
+                  <?= form_checkbox('Turno3','Turno3',false) ?>
                   Turno 
                 </label>
               </td>
@@ -316,13 +316,13 @@
             <tr>
               <td>
                   <label>
-                    <?= form_checkbox('Edadind3','semarnat',false) ?>
+                    <?= form_checkbox('Edad3','Edad3',false) ?>
                     Edad
                   </label>      
               </td>
               <td>
                 <label>
-                  <?= form_checkbox('Nivel3','semarnat',false) ?>
+                  <?= form_checkbox('Nivel3','Nivel3',false) ?>
                   Nivel de estudios
                 </label>
               </td>
@@ -330,13 +330,13 @@
             <tr>
               <td>
                 <label>
-                  <?= form_checkbox('Años3','semarnat',false) ?>
+                  <?= form_checkbox('Años3','Años3',false) ?>
                   Años como directivo
                 </label>  
               </td>
               <td>
                 <label>
-                  <?= form_checkbox('Empleo3','semarnat',false) ?>
+                  <?= form_checkbox('Empleo3','Empleo3',false) ?>
                   Otro Empleo
                 </label>
               </td>
@@ -344,7 +344,7 @@
           </table>
         </center>
         <center>
-          <button type="button" class="btn btn-success">Imprimir</button>
+          <button type="Submit" class="btn btn-success">Imprimir</button>
         </center>
       <?= form_close() ?>
       </div>
@@ -357,7 +357,7 @@
 </div>
 <!-- Fin indicador 3 -->
 <!-- Indicador 4  -->
-<div id="Indicador3" class="modal fade" role="dialog">
+<div id="Indicador4" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -367,16 +367,16 @@
         <h4 class="modal-title">Selecciona el filtrado </h4>
       </div>
       <div class="modal-body">
-      <?= form_open() ?>
+      <?= form_open("Niv4/Filtros4") ?>
         <label>Selecionar escuela </label>
-        <select name="city" class="materias">
-              <option value="none" selected="selected">Escuelas</option>
+        <select name="Escuelas4" class="materias">
+              <option value="Todos" selected="selected">Todas</option>
                 <option value="Bachilleres"> Bachilleres 1</option>
             </select>
         <br>
          <label>
           Todos 
-          <?= form_checkbox('Todos3','semarnat',true) ?>
+          <?= form_checkbox('Todos4','Todos4',true) ?>
         </label>
         <br>
         <center>
@@ -384,49 +384,49 @@
             <tr>
               <td style="width: 250px;">
                 <label>
-                  <?= form_checkbox('Escuela3','semarnat',false) ?>
-                  Escuela 
+                  <?= form_checkbox('Localidad','Localidad',false) ?>
+                  Localidad (tamaño)
                 </label>
               </td>
               <td style="width: 250px;">
                 <label>
-                  <?= form_checkbox('Turno3','semarnat',false) ?>
-                  Turno 
+                  <?= form_checkbox('Municipio','Municipio',false) ?>
+                  Municipio 
                 </label>
               </td>
             </tr>
             <tr>
               <td>
                   <label>
-                    <?= form_checkbox('Edadind3','semarnat',false) ?>
-                    Edad
+                    <?= form_checkbox('Aulas','Aulas',false) ?>
+                    Cantidad de Aulas
                   </label>      
               </td>
               <td>
                 <label>
-                  <?= form_checkbox('Nivel3','semarnat',false) ?>
-                  Nivel de estudios
+                  <?= form_checkbox('Pupitres','Pupitres',false) ?>
+                  Cantidad de pupitres
                 </label>
               </td>
             </tr>
             <tr>
               <td>
                 <label>
-                  <?= form_checkbox('Años3','semarnat',false) ?>
-                  Años como directivo
+                  <?= form_checkbox('Planea','Planea',false) ?>
+                  Planea
                 </label>  
               </td>
               <td>
                 <label>
-                  <?= form_checkbox('Empleo3','semarnat',false) ?>
-                  Otro Empleo
+                  <?= form_checkbox('Ceneval','Ceneval',false) ?>
+                  Ceneval
                 </label>
               </td>
             </tr>
           </table>
         </center>
         <center>
-          <button type="button" class="btn btn-success">Imprimir</button>
+          <button type="Submit" class="btn btn-success">Imprimir</button>
         </center>
       <?= form_close() ?>
       </div>
