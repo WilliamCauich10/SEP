@@ -123,6 +123,8 @@
   </div>
 </div>
 <h1>Parte de insertar wil</h1>
+<!-- <button type="button" class="btn btn-warning" data-toggle="collapse" data-target="#Estudiantes">Estudiantes</button> -->
+<!-- <button type="button" class="btn btn-warning" data-toggle="collapse" data-target="#Docentes">Docentes</button> -->
 <!-- <button type="button" class="btn btn-warning" data-toggle="collapse" data-target="#Directivos">Directivos</button> -->
 <!-- <button type="button" class="btn btn-warning" data-toggle="collapse" data-target="#Escuelas">Escuelas</button> -->
 <!--  -->
