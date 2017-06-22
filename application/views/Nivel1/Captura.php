@@ -140,7 +140,7 @@
        <input id="archivo" accept=".csv" name="archivo" type="file" /> 
        <input name="MAX_FILE_SIZE" type="hidden" value="20000" /> 
        <input name="enviar" type="submit" value="Subir" />
-       <a href="" data-toggle="popover" title="Información" data-content="Para poder subir el archivo correctamente la extensión debe de ser .CSV" ><span class="glyphicon glyphicon-question-sign"></span> </a>
+       <a  data-toggle="popover" title="Información" data-content="Para poder subir el archivo correctamente la extensión debe de ser .CSV" ><span class="glyphicon glyphicon-question-sign"></span> </a>
     </form>
   </div>
 </div>
@@ -155,7 +155,7 @@
        <input id="archivo" accept=".csv" name="archivo" type="file" /> 
        <input name="MAX_FILE_SIZE" type="hidden" value="20000" /> 
        <input name="enviar" type="submit" value="Importar" />
-       <a href="" data-toggle="popover" title="Información" data-content="Para poder subir el archivo correctamente la extensión debe de ser .CSV" ><span class="glyphicon glyphicon-question-sign"></span> </a>
+       <a data-toggle="popover" title="Información" data-content="Para poder subir el archivo correctamente la extensión debe de ser .CSV" ><span class="glyphicon glyphicon-question-sign"></span> </a>
    </form>
   </div>
 </div>
@@ -170,7 +170,7 @@
        <input id="archivo" accept=".csv" name="archivo" type="file" /> 
        <input name="MAX_FILE_SIZE" type="hidden" value="20000" /> 
        <input name="enviar" type="submit" value="Importar" />
-       <a href="" data-toggle="popover" title="Información" data-content="Para poder subir el archivo correctamente la extensión debe de ser .CSV" ><span class="glyphicon glyphicon-question-sign"></span> </a>
+       <a data-toggle="popover" title="Información" data-content="Para poder subir el archivo correctamente la extensión debe de ser .CSV" ><span class="glyphicon glyphicon-question-sign"></span> </a>
    </form>
   </div>
 </div>
@@ -185,7 +185,7 @@
        <input id="archivo" accept=".csv" name="archivo" type="file" /> 
        <input name="MAX_FILE_SIZE" type="hidden" value="20000" /> 
        <input name="enviar" type="submit" value="Importar" />
-       <a href="" data-toggle="popover" title="Información" data-content="Para poder subir el archivo correctamente la extensión debe de ser .CSV" ><span class="glyphicon glyphicon-question-sign"></span> </a>
+       <a data-toggle="popover" title="Información" data-content="Para poder subir el archivo correctamente la extensión debe de ser .CSV" ><span class="glyphicon glyphicon-question-sign"></span> </a>
    </form>
   </div>
   </div>
