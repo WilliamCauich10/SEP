@@ -26,97 +26,111 @@
 </div>
 <br>
 <br>
-  <table align="center">
-      <tr>
-        <label>
-
-          
-      <th>
-      <div class="container">
-          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Indicador 1</button>
-          <div id="demo" class="collapse">
-              
-          </div>
-            </div>
-      </th>
-      <th>
-      <div class="container">
-      <a href="#"  data-toggle="popover" title="Indicador 1" data-content="Contiene informacion del indicador para saber que se requiere" class="navbar-brand" data-placement="bottom"> 
-       <span class="glyphicon glyphicon-question-sign"></span> 
-       </a>
-       </th>
-          </div>
-        </label>
-      </tr>
-       <tr>
-        <label>
-
-          
-      <th>
-      <div class="container">
-          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Indicador 2</button>
-          <div id="demo" class="collapse">
-              
-          </div>
-            </div>
-      </th>
-      <th>
-      <div class="container">
-      <a href="#"  data-toggle="popover" title="Indicador 2" data-content="Contiene informacion del indicador para saber que se requiere" class="navbar-brand" data-placement="bottom"> 
-       <span class="glyphicon glyphicon-question-sign"></span> 
-       </a>
-       </th>
-          </div>
-        </label>
-      </tr>
-        <tr>
-        <label>
-
-          
-      <th>
-          <div class="container">
-          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Indicador 3</button>
-          <div id="demo" class="collapse">
-             
-          </div>
-            </div>
-      </th>
-      <th>
-      <div class="container">
-      <a href="#"  data-toggle="popover" title="Indicador 3" data-content="Contiene informacion del indicador para saber que se requiere" class="navbar-brand" data-placement="bottom"> 
-       <span class="glyphicon glyphicon-question-sign"></span> 
-       </a>
-       </th>
-          </div>
-        </label>
-      </tr>
-
-      <tr>
-        <label>
-
-          
-      <th>
-      <div class="container">
-          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Indicador 4</button>
-          <div id="demo" class="collapse">
-          asjdkaj
-             <input type="text" name="nombredelacaja"> 
-          </div>
-            </div>
-      </th>
-      <th>
-      <div class="container">
-      <a href="#"  data-toggle="popover" title="Indicador 4" data-content="Contiene informacion del indicador para saber que se requiere" class="navbar-brand" data-placement="bottom"> 
-       <span class="glyphicon glyphicon-question-sign"></span> 
-       </a>
-       </th>
-          </div>
-        </label>
-      </tr> 
-  </table>
+  <div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Indicador 1</a>
+        </h4>
+      </div>
+      <div id="collapse1" class="panel-collapse collapse in">
+        <div class="panel-body">Caja de texto<input type="text" name="nombredelacaja"></div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Indicador 2</a>
+        </h4>
+      </div>
+      <div id="collapse2" class="panel-collapse collapse">
+        <div class="panel-body">Caja de texto<input type="text" name="nombredelacaja"></div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Indicador 3</a>
+        </h4>
+      </div>
+      <div id="collapse3" class="panel-collapse collapse">
+        <div class="panel-body">Caja de texto<input type="text" name="nombredelacaja"></div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">Indicador 4</a>
+        </h4>
+      </div>
+      <div id="collapse4" class="panel-collapse collapse">
+        <div class="panel-body">Caja de texto<input type="text" name="nombredelacaja"></div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">Indicador 5</a>
+        </h4>
+      </div>
+      <div id="collapse5" class="panel-collapse collapse">
+        <div class="panel-body">Caja de texto<input type="text" name="nombredelacaja"></div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse6">Indicador 6</a>
+        </h4>
+      </div>
+      <div id="collapse6" class="panel-collapse collapse">
+        <div class="panel-body">Caja de texto<input type="text" name="nombredelacaja"></div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse7">Indicador 7</a>
+        </h4>
+      </div>
+      <div id="collapse7" class="panel-collapse collapse">
+        <div class="panel-body">Caja de texto<input type="text" name="nombredelacaja"></div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse8">Indicador 8</a>
+        </h4>
+      </div>
+      <div id="collapse8" class="panel-collapse collapse">
+        <div class="panel-body">Caja de texto<input type="text" name="nombredelacaja"></div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse9">Indicador 9</a>
+        </h4>
+      </div>
+      <div id="collapse9" class="panel-collapse collapse">
+        <div class="panel-body">Caja de texto<input type="text" name="nombredelacaja"></div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse10">Indicador 10</a>
+        </h4>
+      </div>
+      <div id="collapse10" class="panel-collapse collapse">
+        <div class="panel-body">Caja de texto<input type="text" name="nombredelacaja"></div>
+      </div>
+    </div>
+  </div> 
+</div>  
 <!-- Indicador 1 -->
-<div id="Indicador1" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+
 
     <!-- Modal content-->
 
