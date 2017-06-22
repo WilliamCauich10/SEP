@@ -83,7 +83,7 @@ class Login extends CI_Controller {
 				'profesion' => $profesion
 				);
 		 		// la insertamos mediante el modelo
-		       // $this-> Ingresalogin_model-> insertar($data);
+		       $this-> Ingresalogin_model-> insertar($data);
 		       //cerramos condición
 		   }
 		 
@@ -91,7 +91,7 @@ class Login extends CI_Controller {
 		   entraremos en la condición, de esta manera conseguimos que no lea la primera línea.*/
 		   $i++;
 		}//foreach
-		$this->load->view('Nivel1/Captura');       
+		// $this->load->view('Nivel1/Captura');       
 	}
 
 }
