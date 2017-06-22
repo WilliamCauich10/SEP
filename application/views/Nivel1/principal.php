@@ -14,8 +14,13 @@
       <a class="navbar-brand"><?= $usr ?> </a>
     </div>
     <ul class="nav navbar-nav" style="padding-top: 10px;">
-		<li><a href="##"><span class="glyphicon glyphicon-pencil"></span>Consulta</a></li>
-    <li><a href="/SEP/index.php/Niv1/Captura"><span class="glyphicon glyphicon-plus-sign"></span>Captura</a></li>
+		<li><a href="/SEP/index.php/Niv1/ConsultaNi1"><span class="glyphicon glyphicon-search"></span> Consulta</a></li>
+    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-pencil"></span>   Captura <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+          <li><a href="/SEP/index.php/Niv1/Captura">Indicadores</a></li>
+          <li><a href="/SEP/index.php/Niv1/Captura2">Indicadores Academicos</a></li>
+        </ul>
+    </li>
     <li><a href="/SEP"><span class="glyphicon  glyphicon-log-out"></span> Salir </a></li>
 	</ul>
 </div>
