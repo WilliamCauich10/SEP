@@ -21,4 +21,12 @@ class Ingresalogin_model extends CI_Controller {
 		if ($query -> num_rows()>0) return $query;
 		else return false; 
 	}
+	function insertar($data){
+		$this-> db-> insert(
+			'pruebacargar',array(
+			'Nombre'=>$data['nombre'],
+			'Edad'=>$data['edad'],
+			'Profesion'=> $data['profesion']
+			)); 
+	}
 }

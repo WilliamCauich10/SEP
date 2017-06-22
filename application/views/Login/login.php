@@ -71,10 +71,10 @@
             </div>
         </div>
         <!-- Javascript -->
-        <script src="/SEP/assets/js/jquery-1.11.1.min.js"></script>
-        <script src="/SEP/assets/bootstrap/js/bootstrap.min.js"></script>
+        <!-- <script src="/SEP/assets/js/jquery-1.11.1.min.js"></script> -->
+        <!-- <script src="/SEP/assets/bootstrap/js/bootstrap.min.js"></script> -->
         <!-- <script src="/SEP/assets/js/jquery.backstretch.min.js"></script> -->
-        <script src="/SEP/assets/js/scripts.js"></script>
+        <!-- <script src="/SEP/assets/js/scripts.js"></script> -->
 <!-- <img src="/SEP/img/SEPbanner.png"> -->
 
         <div class="backstretch" style="left: 0px; top: 0px; overflow: hidden; margin: 0px; padding: 0px; height: 790px; width: 106%; z-index: -999999; position: fixed;"><img src="/SEP/assets/img/backgrounds/1.jpg" style="position: absolute; margin: 0px; padding: 0px; border: none; width: 100%; height: 100%; max-height: none; max-width: none; z-index: -9; left: -90px; top: 0px;">
