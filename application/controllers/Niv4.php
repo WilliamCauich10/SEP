@@ -18,6 +18,9 @@ class Niv4 extends CI_Controller {
 	function Indicadores(){
 		$this->load->view('Nivel4/indicadores');
 	}
+	function Inicio(){
+		$this->load->view('Nivel4/principal');	
+	}
 	function Filtros1(){
 		$WhereEscuela =$this->input->post('Escuelas1');
 		$Todos = $this->input->post('Todos');
