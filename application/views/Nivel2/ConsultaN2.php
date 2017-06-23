@@ -23,8 +23,6 @@
 <div class="container" style="margin-top:50px;height: 230px;">   
 
 </div>
-<h1>hola <?= $usr ?></h1>
-<h1>contraseña  <?= $pw ?></h1>
-<h1>Nivel <?= $Nivel ?></h1>
+
 </body>
 </html>

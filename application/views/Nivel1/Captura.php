@@ -58,9 +58,6 @@
       </div>
     </div>
       </td>
-  </tr>
-
-      <tr>
         <td>
     <div class="panel panel-default">
       <div class="panel-heading">
@@ -113,8 +110,6 @@
       </div>
     </div>
         </td>
-      </tr>
-      <tr>
         <td>
     <div class="panel panel-default">
       <div class="panel-heading">
