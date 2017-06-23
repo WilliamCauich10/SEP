@@ -15,60 +15,75 @@
   <img src="/SEP/img/BanerFinal.png" style="position: absolute; margin: 0px; padding: 0px; border: none; width: 100%; height: 100%; max-height: none; max-width: none; z-index: -9; left: -90px; top: 0px;">
   <img src="/SEP/img/SEPbanner.png" style="position: absolute;top: -10;bottom: 0px;width: 500px;height: 200px;right: 0px;left: 35%">
 </div>
+  <div class="container-fluid">
     <ul class="nav navbar-nav">
-    <li><a href="/SEP/index.php/Niv1/Inicio"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
-    <li><a href="/SEP/index.php/Niv1/ConsultaNi1"><span class="glyphicon glyphicon-search"></span> Consulta</a></li>
-    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-pencil"></span>   Captura <span class="caret"></span></a>
-      <ul class="dropdown-menu"  style="padding-top: 0px;padding-bottom: 0px;">
-          <li><a href="/SEP/index.php/Niv1/Captura">Indicadores</a></li>
-          <li><a href="/SEP/index.php/Niv1/Captura2">Indicadores Academicos</a></li>
+    <li><a href="/SEP/index.php/Niv4/Inicio"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
+		<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-search"></span>   Consulta  <span class="caret"></span></a>
+      <ul class="dropdown-menu" style="padding-top: 0px;padding-bottom: 0px;">
+          <li><a href="/SEP/index.php/Niv4/Indicadores">EMS</a></li>
+          <li><a href="/SEP/index.php/Niv4/IES">IES</a></li>
         </ul>
     </li>
+    <li><a href="#"><span class="glyphicon glyphicon-plus-sign"></span> Informacion General</a></li>
     <li><a href="/SEP"><span class="glyphicon  glyphicon-log-out"></span> Salir </a></li>
-  </ul>
+	</ul>
 </div>
 </nav>
-  
-<div class="container" style="margin-top:50px;height: 230px;">  
+  <!-- va a fuerza -->
+<div class="container" style="margin-top:50px;height: 225px;">  
 
 </div>
 <br>
 <br>
 <center>
   <table >
-    <tr>
-      <td style="width: 300px;">
+   <tr>
+    <th colspan="3"> <center>Indicadores Calculados</center></th>
+  </tr>
+  <tr>
+    <th colspan="3"><center> Indicadores Por Institución</center></th>
+  </tr>
+    <tr class="IndicadorTamaño">
+      <td class="Indicador">
         <label>
-          Indicador 1
-          <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#Indicador1">Ver</button>
+          Indicador Alumnos
         </label>
       </td>
-      <td style="width: 300px;"></td>
+      <td class="Botones">
+         <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#Indicador1">Ver</button>
+      </td>
+      <td class="Reportes"></td>
     </tr>
-    <tr>
+    <tr class="IndicadorTamaño">
       <td>
         <label>
-          Indicador 2
-          <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#Indicador2">Ver</button>
+          Indicador Docentes
         </label>
+      </td>
+      <td>
+        <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#Indicador2">Ver</button>
       </td>
       <td>Reporte</td>
     </tr>
-    <tr>
+    <tr class="IndicadorTamaño">
       <td>
         <label>
-          Indicador 3
-          <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#Indicador3">Ver</button>
+          Indicador Directivos
         </label>
+      </td>
+      <td>
+        <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#Indicador3">Ver</button>
       </td>
       <td>historico</td>
     </tr>
-    <tr>
+    <tr class="IndicadorTamaño">
       <td>
         <label>
-          Indicador 4
-          <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#Indicador4">Ver</button>
+          Indicador Escuela 
         </label>
+      </td>
+      <td>
+        <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#Indicador4">Ver</button>
       </td>
       <td></td>
     </tr>
@@ -82,10 +97,15 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Selecciona el filtrado Indicador 1</h4>
+        <h4 class="modal-title">Selecciona el filtrado Alumnos</h4>
       </div>
       <div class="modal-body">
-      <?= form_open("Niv1/Filtros1") ?>
+      <?= form_open("Niv4/Filtros1") ?>
+        <label>Selecionar escuela </label>
+        <select name="Escuelas1" class="materias">
+              <option value="Todos" selected="selected">Todas</option>
+                <option value="Tecnologico Chetumal"> Tecnologico Chetumal</option>
+            </select>
         <br>
          <label>
           Todos 
@@ -187,10 +207,15 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Selecciona el filtrado </h4>
+        <h4 class="modal-title">Selecciona el filtrado Docentes </h4>
       </div>
       <div class="modal-body">
-      <?= form_open("Niv1/Filtros2") ?>
+      <?= form_open("Niv4/Filtros2") ?>
+        <label>Selecionar escuela </label>
+        <select name="Escuelas2" class="materias">
+              <option value="Todos" selected="selected">Todas</option>
+                <option value="Tecnologico Chetumal"> Tecnologico Chetumal</option>
+            </select>
         <br>
          <label>
           Todos 
@@ -274,10 +299,15 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Selecciona el filtrado </h4>
+        <h4 class="modal-title">Selecciona el filtrado Directivos</h4>
       </div>
       <div class="modal-body">
-      <?= form_open("Niv1/Filtros3") ?>
+      <?= form_open("Niv4/Filtros3") ?>
+        <label>Selecionar escuela </label>
+        <select name="Escuelas3" class="materias">
+              <option value="Todos" selected="selected">Todas</option>
+                <option value="Tecnologico Chetumal"> Tecnologico Chetumal</option>
+            </select>
         <br>
          <label>
           Todos 
@@ -351,11 +381,15 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Selecciona el filtrado </h4>
+        <h4 class="modal-title">Selecciona el filtrado Esculas</h4>
       </div>
       <div class="modal-body">
-      <?= form_open("Niv1/Filtros4") ?>
-        
+      <?= form_open("Niv4/Filtros4") ?>
+        <label>Selecionar escuela </label>
+        <select name="Escuelas4" class="materias">
+              <option value="Todos" selected="selected">Todas</option>
+                <option value="Tecnologico Chetumal"> Tecnologico Chetumal</option>
+            </select>
         <br>
          <label>
           Todos 
@@ -421,6 +455,7 @@
   </div>
 </div>
 <!-- Fin indicador 4 -->
+
 <!-- Pie de pagina -->
 <footer>
   <div class="PiePag" >

@@ -18,6 +18,9 @@ class Niv4 extends CI_Controller {
 	function Indicadores(){
 		$this->load->view('Nivel4/indicadores');
 	}
+	function IES(){
+		$this->load->view('Nivel4/IES');
+	}
 	function Inicio(){
 		$this->load->view('Nivel4/principal');	
 	}

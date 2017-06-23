@@ -26,6 +26,9 @@ class Niv1 extends CI_Controller {
 		$this->load->view('Nivel1/ConsultaNi1');
 
 	}
+	function Inicio(){
+		$this->load->view('Nivel1/principal');	
+	}
 	function importar(){
 		//obtenemos el archivo .csv
 		$tipo = $_FILES['archivo']['type'];
