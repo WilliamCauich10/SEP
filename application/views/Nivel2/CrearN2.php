@@ -19,10 +19,43 @@
 	</ul>
 </div>
 </nav>
-  
-<div class="container" style="margin-top:50px;height: 230px;">   
-
-</div>
-
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+<div class="container" style="margin-top:50px;height: 230px;">          
+             <form>
+             <div class="form-group row">
+                    <div class="col-xs-3">
+                      <label for="ex1">Nombre</label>
+                      <input class="form-control" id="ex1" type="text">
+                    </div>
+                <div class="col-xs-3">
+                      <label for="ex2">Usuario</label>
+                      <input class="form-control" id="ex2" type="text">
+                </div>
+                <div class="col-xs-3">
+                      <label for="ex3">Contraseña</label>
+                      <input class="form-control" id="ex3" type="password">
+                </div>
+                <div class="col-xs-3">
+                      <label for="sel1">Select list:</label>
+                      <select class="form-control" id="sel1">
+                          <option>Nivel1</option>
+                          <option>Nivel3</option>
+                          <option>Nivel4</option>
+                      </select>
+                </div>
+            </div>
+            </form>
+  </div>
 </body>
 </html>
