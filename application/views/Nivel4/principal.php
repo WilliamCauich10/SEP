@@ -17,8 +17,8 @@
   <div class="container-fluid">
     <ul class="nav navbar-nav" >
     <li><a href="/SEP/index.php/Niv4/Inicio"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
-		<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-search"></span>   Consulta  <span class="caret"></span></a>
-      <ul class="dropdown-menu" style="padding-top: 0px;padding-bottom: 0px;">
+		<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-search"></span>   Consulta  <span class="caret"></span></a>
+      <ul class="dropdown-menu" style="padding-top: 0px;padding-bottom: 0px; ">
           <li><a href="/SEP/index.php/Niv4/Indicadores">EMS</a></li>
           <li><a href="/SEP/index.php/Niv4/IES">IES</a></li>
         </ul>
@@ -36,13 +36,18 @@
 <?= $pw ?>
 <?= $Nivel ?>
  -->
+<!-- <a href="/SEP/index2.php"> asdasd</a> 
 
 <form action="importar" enctype="multipart/form-data" method="post">
    <input id="archivo" accept=".csv" name="archivo" type="file" /> 
    <input name="MAX_FILE_SIZE" type="hidden" value="20000" /> 
    <input name="enviar" type="submit" value="Importar" />
-</form>
-
+</form> -->
+<div style="position: relative;">
+<?php 
+include_once('index2.php');
+?>
+</div>
 <footer>
   <div class="PiePag" >
     <p>Av. Armada de México N° 176</p>

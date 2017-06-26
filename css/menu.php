@@ -12,7 +12,12 @@ header("Content-type: text/css");
 .navbar-default .navbar-nav>li>a:hover{
 	background-color: black;
 	color:white;
+
 }
+.navbar-nav>li:hover>.dropdown-menu{
+display:block;
+}
+
 .dropdown-menu li a{
 	background-color: #393c3e;
 	color:white;	

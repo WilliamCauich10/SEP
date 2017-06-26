@@ -462,7 +462,7 @@
     <p>Av. Armada de México N° 176</p>
     <p>Esq. Presa de la Amistad Col. Campestre C.P. 77040  Chetumal, Q. Roo.</p>
     <p>Teléfono:(01 983) 832 79 25 Fax: 832 32 91</p>
-    <p> <a href="delegacion.qroo@nube.sep.gob.mx">delegacion.qroo@nube.sep.gob.mx</a></p>
+    <p> <a href="">delegacion.qroo@nube.sep.gob.mx</a></p>
   </div>
 </footer>
 </body>

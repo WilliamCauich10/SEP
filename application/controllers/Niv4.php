@@ -13,6 +13,7 @@ class Niv4 extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this-> load-> helper('form');
+		$this-> load-> database();
 		$this-> load-> model('Ingresalogin_model');
 	}
 	function Indicadores(){
@@ -23,6 +24,8 @@ class Niv4 extends CI_Controller {
 	}
 	function Inicio(){
 		$this->load->view('Nivel4/principal');	
+		// $this->load->view('index2.php')
+		// include_once('index2.php');
 	}
 	function Filtros1(){
 		$WhereEscuela =$this->input->post('Escuelas1');

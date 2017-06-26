@@ -29,4 +29,12 @@ class Ingresalogin_model extends CI_Controller {
 			'Profesion'=> $data['profesion']
 			)); 
 	}
+	function prue($currentDate){
+		$query = $this-> db->select('title');
+        $query = $this-> db->where('date',$currentDate);
+        $query = $this-> db->where('status','1');
+        $query = $this-> db->get('events');
+        if ($query -> num_rows()>0) return $query;
+		else return false; 
+	}
 }
