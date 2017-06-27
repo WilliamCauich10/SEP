@@ -43,7 +43,7 @@
    <input name="MAX_FILE_SIZE" type="hidden" value="20000" /> 
    <input name="enviar" type="submit" value="Importar" />
 </form> -->
-<div style="position: relative;">
+<div style="position: relative; width: 100px;">
 <?php 
 include_once('index2.php');
 ?>

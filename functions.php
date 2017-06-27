@@ -20,6 +20,8 @@ if(isset($_POST['func']) && !empty($_POST['func'])){
  */
 function getCalender($year = '',$month = '')
 {
+    $dias = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sábado");
+    $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"); 
     $dateYear = ($year != '')?$year:date("Y");
     $dateMonth = ($month != '')?$month:date("m");
     $date = $dateYear.'-'.$dateMonth.'-01';
@@ -27,6 +29,14 @@ function getCalender($year = '',$month = '')
     $totalDaysOfMonth = cal_days_in_month(CAL_GREGORIAN,$dateMonth,$dateYear);
     $totalDaysOfMonthDisplay = ($currentMonthFirstDay == 7)?($totalDaysOfMonth):($totalDaysOfMonth + $currentMonthFirstDay);
     $boxDisplay = ($totalDaysOfMonthDisplay <= 35)?35:42;
+    // echo date("Y-m-d");
+    // echo date("r"); 
+    $fecha=time(); 
+    $movhoras = -7; 
+    $fecha = $fecha+($movhoras * 60 * 60); 
+    // $fecha = date("Y-m-d", $fecha );
+    // echo "<br>";
+    // echo $fecha;
 ?>
     <div id="calender_section">
         <h2>
@@ -55,18 +65,30 @@ function getCalender($year = '',$month = '')
                     if(($cb >= $currentMonthFirstDay+1 || $currentMonthFirstDay == 7) && $cb <= ($totalDaysOfMonthDisplay)){
                         //Current date
                         $currentDate = $dateYear.'-'.$dateMonth.'-'.$dayCount;
+                        // echo $fecha."--";
                         $eventNum = 0;
                         //Include db configuration file
                         include 'dbConfig.php';
                         //Get number of events based on the current date
                         $result = $db->query("SELECT title FROM events WHERE date = '".$currentDate."' AND status = 1");
+                        $result2 = $db->query("SELECT title FROM events WHERE date = '".$currentDate."' AND status = 0");
                         $eventNum = $result->num_rows;
+                        $eventNum2 = $result2->num_rows;
                         //Define date cell color
-                        if(strtotime($currentDate) == strtotime(date("Y-m-d"))){
+                        // if(strtotime($currentDate) == strtotime(date("Y-m-d"))){
+                        if(strtotime($currentDate) == strtotime(date("Y-m-d",$fecha))){
                             echo '<li date="'.$currentDate.'" class="grey date_cell">';
+                            if ($eventNum > 0) {
+                                echo "<a href=\"javascript:;\" onclick=\"getEvents('$currentDate');\" style =\"position:relative;top: 30px;right: 10px;\">ver events</a>";
+                            }
                         }elseif($eventNum > 0){
                             echo '<li date="'.$currentDate.'" class="light_sky date_cell">';
-                            echo "<a href=\"javascript:;\" onclick=\"getEvents('$currentDate');\" style =\"position:relative;top: 30px;right: 10px;\">view events</a>";
+                            echo "<a href=\"javascript:;\" onclick=\"getEvents('$currentDate');\" style =\"position:relative;top: 30px;right: 10px;\">ver events</a>";
+                        }elseif($eventNum2 > 0){
+                            echo '<li date="'.$currentDate.'" class="red date_cell">';
+                            if ($eventNum2 > 0) {
+                                echo "<a href=\"javascript:;\" onclick=\"getEvents('$currentDate');\" style =\"position:relative;top: 30px;right: 10px;\">ver events</a>";
+                            }
                         }else{
                             echo '<li date="'.$currentDate.'" class="date_cell">';
                         }
@@ -74,15 +96,11 @@ function getCalender($year = '',$month = '')
                         echo '<span>';
                         echo $dayCount;
                         echo '</span>';
-                        
                         //Hover event popup
                         echo '<div id="date_popup_'.$currentDate.'" class="date_popup_wrap none">';
                         echo '<div class="date_window">';
                         echo '<div class="popup_event">Events ('.$eventNum.')</div>';
-                        // echo ($eventNum > 0)?'<a href="javascript:;" onclick="getEvents('.$currentDate.');">view events</a>':'';
-                        // echo ($eventNum > 0)?'<a href="javascript:;" onclick="prueba();">view events</a>':'';
                         echo '</div></div>';
-                        // echo "'.$currentDate'";
                         echo '</li>';
                         $dayCount++;
             ?>
@@ -100,7 +118,7 @@ function getCalender($year = '',$month = '')
         function getCalendar(target_div,year,month){
             $.ajax({
                 type:'POST',
-                url:'functions.php',
+                url:'/SEP/functions.php',
                 data:'func=getCalender&year='+year+'&month='+month,
                 success:function(html){
                     // alert(html);
@@ -124,7 +142,7 @@ function getCalender($year = '',$month = '')
         function addEvent(date){
             $.ajax({
                 type:'POST',
-                url:'functions.php',
+                url:'/SEP/functions.php',
                 data:'func=addEvent&date='+date,
                 success:function(html){
                     $('#event_list').html(html);
@@ -133,14 +151,6 @@ function getCalender($year = '',$month = '')
             });
         }
            $(document).ready(function(){
-            // $('.date_cell').mouseenter(function(){
-            //     date = $(this).attr('date');
-            //     $(".date_popup_wrap").fadeOut();
-            //     $("#date_popup_"+date).fadeIn();    
-            // });
-            // $('.date_cell').mouseleave(function(){
-            //     $(".date_popup_wrap").fadeOut();        
-            // });
             $('.month_dropdown').on('change',function(){
                 getCalendar('calendar_div',$('.year_dropdown').val(),$('.month_dropdown').val());
             });
@@ -160,11 +170,15 @@ function getCalender($year = '',$month = '')
  */
 function getAllMonths($selected = ''){
     $options = '';
+    $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"); 
+    $f=6;
     for($i=1;$i<=12;$i++)
     {
         $value = ($i < 10)?'0'.$i:$i;
         $selectedOpt = ($value == $selected)?'selected':'';
-        $options .= '<option value="'.$value.'" '.$selectedOpt.' >'.date("F", mktime(0, 0, 0, $i+1, 0, 0)).'</option>';
+        // $options .= '<option value="'.$value.'" '.$selectedOpt.' >'.date("F", mktime(0, 0, 0, $i+1, 0, 0)).'</option>';
+        $options .= '<option value="'.$value.'" '.$selectedOpt.' >'.$meses[date('n')-$f].'</option>';
+        $f--;
     }
     return $options;
 }
@@ -187,16 +201,24 @@ function getYearList($selected = ''){
  */
 function getEvents($date = ''){
     //Include db configuration file
+    $dias = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sábado");
+    $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"); 
+    // echo $dias[date('w')]." ".date('d')." de ".$meses[date('n')-1]. " del ".date('Y') ;
     include 'dbConfig.php';
     $eventListHTML = '';
     $date = $date?$date:date("Y-m-d");
     //Get events based on the current date
-    $result = $db->query("SELECT title FROM events WHERE date = '".$date."' AND status = 1");
+    $result = $db->query("SELECT title,created FROM events WHERE date = '".$date."'");
     if($result->num_rows > 0){
-        $eventListHTML = '<h2>Events on '.date("l, d M Y",strtotime($date)).'</h2>';
+        setlocale(LC_TIME, "C");
+    $m=strftime("%m",strtotime($date))-1;
+    $f=strftime("%d",strtotime($date));
+    $d=strftime("%w",strtotime($date));
+        // $eventListHTML = '<h2>Events on '.date("l, d M Y",strftime("%V,%m,%Y",strtotime($date))).'</h2>';
+        $eventListHTML = '<h2>Eventos para '.$dias[$d]." ".$f." de ".$meses[$m]. " del ".date('Y').'</h2>';
         $eventListHTML .= '<ul>';
         while($row = $result->fetch_assoc()){ 
-            $eventListHTML .= '<li>'.$row['title'].'</li>';
+            $eventListHTML .= '<li>'.$row['title'].' Fecha/Hora '.$row['created'].' </li>';
         }
         $eventListHTML .= '</ul>';
     }

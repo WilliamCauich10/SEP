@@ -61,7 +61,7 @@ class Niv1 extends CI_Controller {
 				'profesion' => $profesion
 				);
 		 		// la insertamos mediante el modelo
-		       // $this-> Ingresalogin_model-> insertar($data);
+		       $this-> Ingresalogin_model-> insertar($data);
 		       //cerramos condición
 		   }
 		 
