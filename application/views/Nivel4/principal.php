@@ -48,6 +48,43 @@
 include_once('index2.php');
 ?>
 </div>
+<div style="position: relative;left: 800px;width: 1000px;right: 0px;height: 500px;bottom: 300px;">
+  <h1 style="width: 700px;margin-top: 0px;">Eventos programados para hoy</h1>
+  <?php 
+  $fecha =date("y-m-d");
+// echo date_format($date, 'Y-m-d H:i:s');
+  ?>
+  <table class="table table-hover" style="width: 500px;">
+  <tr>
+    <th>Evento</th>
+    <th>Hora</th>
+  </tr>
+  <?php
+        $query =$this-> db->where('date',$fecha);
+        $query =$this-> db->get('events');
+      if ($query -> num_rows()>0){?>
+      <?php foreach ($query-> result() as $query) {
+        $hora = date_create($query->created);
+        ?>
+      <tr class="info">
+        <td>
+          <?= $query->title ?>
+        </td>
+        <td>
+          <?= date_format($hora, 'H:i') ?>
+        </td>
+      </tr>
+    <?php }
+      }else{?>
+      <tr>
+        <td colspan="2">
+          Ningun Evento para hoy
+        </td>
+      </tr>
+    <?php }
+      ?>
+  </table>
+</div>
 <footer>
   <div class="PiePag" >
     <p>Av. Armada de México N° 176</p>

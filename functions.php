@@ -218,7 +218,8 @@ function getEvents($date = ''){
         $eventListHTML = '<h2>Eventos para '.$dias[$d]." ".$f." de ".$meses[$m]. " del ".date('Y').'</h2>';
         $eventListHTML .= '<ul>';
         while($row = $result->fetch_assoc()){ 
-            $eventListHTML .= '<li>'.$row['title'].' Fecha/Hora '.$row['created'].' </li>';
+            $hora = date_create($row['created']);
+            $eventListHTML .= '<li>'.$row['title'].' a las '.date_format($hora, 'H:i').' </li>';
         }
         $eventListHTML .= '</ul>';
     }
