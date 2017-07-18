@@ -53,6 +53,7 @@ include_once('index2.php');
   <?php 
   $fecha =date("y-m-d");
 // echo date_format($date, 'Y-m-d H:i:s');
+  echo $fecha;
   ?>
   <table class="table table-hover" style="width: 500px;">
   <tr>
