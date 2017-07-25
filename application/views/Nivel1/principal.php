@@ -7,6 +7,11 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="/SEP/css/menu.php" media="screen">
   <link rel="shortcut icon" href="/SEP/img/Icono.png">
+  <style type="text/css">
+    .Plantillas{
+      color: white;
+    }
+  </style>
 </head>
 <body>
 <nav class="navbar  navbar-default navbar-fixed-top" >
@@ -31,6 +36,29 @@
 <div class="container" style="margin-top:50px;height: 230px;">   
 
 </div>
+<center>
+  <table>
+    <tr>
+      <th colspan="2"><h1>Plantillas de captura de datos</h1></th>  
+    </tr>
+    <tr>
+      <td><h3>Esculas</h3></td>
+      <td><button type="button" class="btn btn-success"><a class="Plantillas" href="/SEP/Plantillas/Esculas.csv" download="PlantillaEsculas">Descargar</a></button></td>
+    </tr>
+    <tr>
+      <td><h3>Docentes</h3></td>
+      <td><button type="button" class="btn btn-success"><a class="Plantillas" href="/SEP/Plantillas/Docentes.csv" download="PlantillaDocentes">Descargar</a></button></td>
+    </tr>
+    <tr>
+      <td><h3>Alumnos</h3></td>
+      <td><button type="button" class="btn btn-danger"><a class="Plantillas" href="/SEP/Plantillas/.csv" download="PlantillaAlumnos">Descargar</a></button></td>
+    </tr>
+  </table>
+</center>
+<!-- <a href="/SEP/Plantillas/Docentes.csv" download="Reporte2Mayo2010">
+Descargar Archivo
+</a> -->
+
 <!-- Pie de pagina -->
 <footer>
   <div class="PiePag" >
