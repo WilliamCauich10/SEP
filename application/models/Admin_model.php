@@ -35,4 +35,14 @@ class Admin_model extends CI_Controller {
         if ($query -> num_rows()>0) return $query;
 		else return false; 
 	}
+	function actualizaUser($datas,$id){
+		$data = array(
+			'Nombre' => $datas['txtNom'],
+			'Usuario' => $datas['txtUser'],
+			'PW' => $datas['txtPW'],
+			'Rol' => $datas['txtRol']
+            );
+		$query =$this->db->where('ID', $id);
+		$query =$this->db->update('usuarios', $data);
+	}
 }

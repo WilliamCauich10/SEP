@@ -25,4 +25,23 @@ class Niv3 extends CI_Controller {
 		$data['prueba']= $this-> Admin_model-> ver();
 		$this->load->view('Nivel3/EditarUser',$data);	
 	}
+	function actualizaUsuarios(){
+		$datos ['id']= $this-> input-> post('txtID');
+		$id= $this-> input-> post('txtID');
+		$datos ['nomb']= $this-> input-> post('txtNom');
+		$datos ['usr']=$this -> input-> post('txtUser');
+		$datos ['pw']= $this-> input-> post('txtPW');
+		$datos ['rol']=$this -> input-> post('txtRol');
+		$datas = array(
+			'txtNom' => $this -> input-> post('txtNom'),
+			'txtUser' => $this -> input-> post('txtUser'),
+			'txtPW' => $this -> input-> post('txtPW'),
+			'txtRol' => $this -> input-> post('txtRol'),
+			);
+		$data['prueba']= $this-> Admin_model-> actualizaUser($datas,$datos['id']);
+		return $this-> Editar();
+		// echo "hola";
+		// echo $id;
+		// echo $datos ['id'];
+	}
 }

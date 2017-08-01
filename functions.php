@@ -171,7 +171,7 @@ function getCalender($year = '',$month = '')
 function getAllMonths($selected = ''){
     $options = '';
     $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"); 
-    $f=7;
+    $f=8;
     for($i=1;$i<=12;$i++)
     {
         $value = ($i < 10)?'0'.$i:$i;

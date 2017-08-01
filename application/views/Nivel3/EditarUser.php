@@ -7,11 +7,6 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="shortcut icon" href="/SEP/img/Icono.png">
   <link rel="stylesheet" href="/SEP/css/menu.php" media="screen">
-  <style type="text/css">
-    .editText{
-      padding: 5px;border: 1px solid #ccc; background: #f4f4f4
-    }
-  </style>
 </head>
 <body>
 <nav class="navbar  navbar-default navbar-fixed-top" >
@@ -41,21 +36,93 @@
 <table style="width: 702px;height: 202px;" class="table table-striped">
   <thead>
     <tr>
-      <th>nombre</th>
-      <th>usur</th>
-      <th>pw</th>
-      <th>rol</th>
+      <th>Nombre</th>
+      <th>Usuario</th>
+      <!-- <th>pw</th> -->
+      <th>Rol</th>
+      <th>Acción</th>
     </tr>
   </thead>
   <?php 
+  $nombre = array('name'=>'txtNom','id'=>'txtNom','type'=>'text');
+  $user = array('name'=>'txtUser','id'=>'txtUser','type'=>'text');
+  $pw = array('name'=>'txtPW','id'=>'txtPW','type'=>'text');
+  $rol = array('name'=>'txtRol','id'=>'txtRol','type'=>'text');
+  $id2 = array('name'=>'txtID','id'=>'txtID','type'=>'text','style'=>'visibility:hidden');
+  $idd = array('name'=> 'textid', 'id'=>'textid','style'=>'visibility:hidden');
   if ($prueba) {
-    foreach ($prueba-> result() as $prueba) {?>
+    foreach ($prueba-> result() as $prueba) {
+      $id=$prueba->ID;
+      ?>
     <tbody>
       <tr>
         <td><?= $prueba->Nombre; ?></td>
         <td><?= $prueba->Usuario;?> </td>
-        <td><?= $prueba->PW; ?></td>
+        <!-- <td><?= $prueba->PW; ?></td> -->
         <td><?= $prueba->Rol; ?></td>
+        
+        <!-- <td><button type="Submit" class="btn btn-danger">Editar</button></td> -->
+        <td>
+              <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal<?= $prueba->ID; ?>"> Editar</button>
+              <button type="Submit" class="btn btn-danger">Borrar</button>
+        </td>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal<?= $prueba->ID; ?>" role="dialog">
+          <div class="modal-dialog">
+          
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Editar Usuario <?= $prueba->Nombre; ?> </h4>
+              </div>
+              <div class="modal-body">
+              <?php
+            $queryID = $this-> db->where('ID',$id);
+            $queryID = $this-> db->get('usuarios');
+            foreach ($queryID-> result() as $queryID) {
+              // $queryID->IDA;  
+           }?>
+           <?= form_open("/Niv3/actualizaUsuarios") ?>
+                <?= form_input($id2, $prueba->ID) ?>
+           <center>
+                <label>Nombre 
+                <!-- <?= $prueba->ID; ?> -->
+               <br>
+                  <?=form_input($nombre,$prueba->Nombre) ?>
+               
+                </label>
+              <br>
+                 <label>Usuario
+                  <br>
+                  <?=form_input($user,$prueba->Usuario) ?>
+          
+                 </label>
+              <br>
+                 <label>Contraseña
+                    <br>
+                    <?=form_input($pw,$prueba->PW) ?>
+                 </label>
+              <br>
+                 <label>Rol
+                    <br>
+                    <?=form_input($rol,$prueba->Rol) ?>
+                 </label>
+                 </center>
+                <center>
+                  <button  type="submit"  class="btn btn-success">Guardar</button>
+                </center>
+                <?= form_close() ?>
+            
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        </td>
       </tr>
     </tbody>
   <?php }
@@ -64,7 +131,6 @@
     }
   ?>
 </table>
-ombre <span class="editText"> raasdas</span>
 </center>
 <footer>
   <div class="PiePag" >
@@ -75,17 +141,4 @@ ombre <span class="editText"> raasdas</span>
   </div>
 </footer>
 </body>
-<script type="text/javascript">
-  $(function(){
-      $('.editText').doubleclick(function(){
-        var text = $(this).text();
-        $(this).empty().html(<input type"text" value="'+text+'">).find('input').focus();
-      }).keypress(function(e){
-        if (e.keycode==2){
-          var text = $('input',this).val();
-          $(this).html(text);
-        }
-      });
-    });
-</script>
 </html>
