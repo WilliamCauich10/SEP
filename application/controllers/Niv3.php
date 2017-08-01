@@ -13,15 +13,16 @@ class Niv3 extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this-> load-> helper('form');
-		$this-> load-> model('Ingresalogin_model');
+		$this-> load-> model('Admin_model');
 	}
 		function Inicio(){
-		$this->load->view('Nivel2/principal');	
+		$this->load->view('Nivel3/principal');	
 	}
-	function CrearN2(){
-		$this->load->view('Nivel2/CrearN2');	
+	function Crear(){
+		$this->load->view('Nivel3/CrearUser');	
 	}
-	function ConsultaN2(){
-		$this->load->view('Nivel2/ConsultaN2');	
+	function Editar(){
+		$data['prueba']= $this-> Admin_model-> ver();
+		$this->load->view('Nivel3/EditarUser',$data);	
 	}
 }

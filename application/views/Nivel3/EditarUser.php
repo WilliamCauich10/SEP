@@ -7,6 +7,11 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="shortcut icon" href="/SEP/img/Icono.png">
   <link rel="stylesheet" href="/SEP/css/menu.php" media="screen">
+  <style type="text/css">
+    .editText{
+      padding: 5px;border: 1px solid #ccc; background: #f4f4f4
+    }
+  </style>
 </head>
 <body>
 <nav class="navbar  navbar-default navbar-fixed-top" >
@@ -29,64 +34,38 @@
   </ul>
 </div>
 </nav>
-  
-<div class="container" style="margin-top:50px;height: 230px;">  
 
+<div class="container" style="margin-top:50px;height: 230px;">          
 </div>
-<!-- <?= $usr ?>
-<?= $pw ?>
-<?= $Nivel ?>
- -->
-<!-- <a href="/SEP/index2.php"> asdasd</a> 
-
-<form action="importar" enctype="multipart/form-data" method="post">
-   <input id="archivo" accept=".csv" name="archivo" type="file" /> 
-   <input name="MAX_FILE_SIZE" type="hidden" value="20000" /> 
-   <input name="enviar" type="submit" value="Importar" />
-</form> -->
-<div style="position: relative; width: 100px;">
-<?php 
-include_once('index2.php');
-?>
-</div>
-<div style="position: relative;left: 800px;width: 1000px;right: 0px;height: 500px;bottom: 300px;">
-  <h1 style="width: 700px;margin-top: 0px;">Eventos programados para hoy</h1>
+<center>
+<table style="width: 702px;height: 202px;" class="table table-striped">
+  <thead>
+    <tr>
+      <th>nombre</th>
+      <th>usur</th>
+      <th>pw</th>
+      <th>rol</th>
+    </tr>
+  </thead>
   <?php 
-  $fecha =date("y-m-d");
-// echo date_format($date, 'Y-m-d H:i:s');
-  echo $fecha;
-  ?>
-  <table class="table table-hover" style="width: 500px;">
-  <tr>
-    <th>Evento</th>
-    <th>Hora</th>
-  </tr>
-  <?php
-        $query =$this-> db->where('date',$fecha);
-        $query =$this-> db->get('events');
-      if ($query -> num_rows()>0){?>
-      <?php foreach ($query-> result() as $query) {
-        $hora = date_create($query->created);
-        ?>
-      <tr class="info">
-        <td>
-          <?= $query->title ?>
-        </td>
-        <td>
-          <?= date_format($hora, 'H:i') ?>
-        </td>
-      </tr>
-    <?php }
-      }else{?>
+  if ($prueba) {
+    foreach ($prueba-> result() as $prueba) {?>
+    <tbody>
       <tr>
-        <td colspan="2">
-          Ningun Evento para hoy
-        </td>
+        <td><?= $prueba->Nombre; ?></td>
+        <td><?= $prueba->Usuario;?> </td>
+        <td><?= $prueba->PW; ?></td>
+        <td><?= $prueba->Rol; ?></td>
       </tr>
-    <?php }
-      ?>
-  </table>
-</div>
+    </tbody>
+  <?php }
+  }else{
+    echo "<p>No cuentas con Avances Programaticos</p>";
+    }
+  ?>
+</table>
+ombre <span class="editText"> raasdas</span>
+</center>
 <footer>
   <div class="PiePag" >
     <p>Av. Armada de México N° 176</p>
@@ -96,4 +75,17 @@ include_once('index2.php');
   </div>
 </footer>
 </body>
+<script type="text/javascript">
+  $(function(){
+      $('.editText').doubleclick(function(){
+        var text = $(this).text();
+        $(this).empty().html(<input type"text" value="'+text+'">).find('input').focus();
+      }).keypress(function(e){
+        if (e.keycode==2){
+          var text = $('input',this).val();
+          $(this).html(text);
+        }
+      });
+    });
+</script>
 </html>
