@@ -45,4 +45,17 @@ class Admin_model extends CI_Controller {
 		$query =$this->db->where('ID', $id);
 		$query =$this->db->update('usuarios', $data);
 	}
+	function crearUser($data){
+		$this-> db-> insert(
+			'usuarios',array(
+			'Nombre'=>$data['txtNom'],
+			'Usuario'=>$data['txtUser'],
+			'PW'=> $data['txtPW'],
+			'Rol'=> $data['txtRol']
+			)); 
+	}
+	function borrarUser($id){
+		$query =$this->db->where('ID', $id);
+		$query =$this->db->delete('usuarios'); 
+	}
 }

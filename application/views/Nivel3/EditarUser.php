@@ -44,12 +44,12 @@
     </tr>
   </thead>
   <?php 
-  $nombre = array('name'=>'txtNom','id'=>'txtNom','type'=>'text');
-  $user = array('name'=>'txtUser','id'=>'txtUser','type'=>'text');
-  $pw = array('name'=>'txtPW','id'=>'txtPW','type'=>'text');
-  $rol = array('name'=>'txtRol','id'=>'txtRol','type'=>'text');
-  $id2 = array('name'=>'txtID','id'=>'txtID','type'=>'text','style'=>'visibility:hidden');
-  $idd = array('name'=> 'textid', 'id'=>'textid','style'=>'visibility:hidden');
+      $nombre = array('name'=>'txtNom','id'=>'txtNom','type'=>'text');
+      $user = array('name'=>'txtUser','id'=>'txtUser','type'=>'text');
+      $pw = array('name'=>'txtPW','id'=>'txtPW','type'=>'text');
+      $rol = array('name'=>'txtRol','id'=>'txtRol','type'=>'text');
+      $id2 = array('name'=>'txtID','id'=>'txtID','type'=>'text','style'=>'visibility:hidden');
+      $idd = array('name'=> 'textid', 'id'=>'textid','style'=>'visibility:hidden');
   if ($prueba) {
     foreach ($prueba-> result() as $prueba) {
       $id=$prueba->ID;
@@ -64,7 +64,7 @@
         <!-- <td><button type="Submit" class="btn btn-danger">Editar</button></td> -->
         <td>
               <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal<?= $prueba->ID; ?>"> Editar</button>
-              <button type="Submit" class="btn btn-danger">Borrar</button>
+             <a href="/SEP/index.php/Niv3/borrarUser/<?= $id ?>"><button type="button" class="btn btn-danger">Borrar</button> </a>
         </td>
         <!-- Modal -->
         <div class="modal fade" id="myModal<?= $prueba->ID; ?>" role="dialog">
@@ -127,7 +127,7 @@
     </tbody>
   <?php }
   }else{
-    echo "<p>No cuentas con Avances Programaticos</p>";
+    echo "<p>No cuentas con personas</p>";
     }
   ?>
 </table>

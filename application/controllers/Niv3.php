@@ -40,8 +40,34 @@ class Niv3 extends CI_Controller {
 			);
 		$data['prueba']= $this-> Admin_model-> actualizaUser($datas,$datos['id']);
 		return $this-> Editar();
-		// echo "hola";
-		// echo $id;
-		// echo $datos ['id'];
+	}
+	function creaUsuarios(){
+		$datos ['nomb']= $this-> input-> post('txtNom');
+		$datos ['usr']=$this -> input-> post('txtUser');
+		$datos ['pw']= $this-> input-> post('txtPW');
+		$datos ['niv']= $this-> input-> post('Nivel');
+		switch ($datos['niv']) {
+			case 'Localidad':
+					$datos['Nivel']='Nivel1';
+				break;
+			case 'Estatal':
+					$datos['Nivel']='Nivel2';
+				break;
+			case 'Delegado':
+					$datos['Nivel']='Nivel4';
+				break;
+		}
+		$data = array(
+			'txtNom' => $this -> input-> post('txtNom'),
+			'txtUser' => $this -> input-> post('txtUser'),
+			'txtPW' => $this -> input-> post('txtPW'),
+			'txtRol' => $datos['Nivel'],
+			);
+		$data['prueba']= $this-> Admin_model-> crearUser($data);
+		return $this-> Editar();
+	}
+	function borrarUser($id){
+		$data['prueba']= $this-> Admin_model-> borrarUser($id);
+		return $this->Editar();
 	}
 }

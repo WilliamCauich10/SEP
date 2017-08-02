@@ -32,32 +32,38 @@
 
 <div class="container" style="margin-top:50px;height: 230px;">          
 </div>
-<form>
+<?php 
+    $nombre = array('name'=>'txtNom','id'=>'txtNom','type'=>'text','class'=>'form-control');
+    $usuario = array('name'=>'txtUser','id'=>'txtUser','type'=>'text','class'=>'form-control');
+    $pw = array('name'=>'txtPW','id'=>'txtPW','type'=>'password','class'=>'form-control');
+?>
+<?= form_open("/Niv3/creaUsuarios") ?>
    <div>
           <div class="col-xs-3">
             <label for="ex1">Nombre</label>
-            <input class="form-control" id="ex1" type="text">
+            <?= form_input($nombre) ?>
           </div>
       <div class="col-xs-3">
             <label for="ex2">Usuario</label>
-            <input class="form-control" id="ex2" type="text">
+            <?= form_input($usuario) ?>
       </div>
       <div class="col-xs-3">
             <label for="ex3">Contraseña</label>
-            <input class="form-control" id="ex3" type="password">
+            <?= form_input($pw) ?>
       </div>
       <div class="col-xs-3">
             <label for="sel1">Tipo:</label>
-            <select class="form-control" id="sel1">
-                <option>Localidad</option>
-                <option>Estatal</option>
+            <select class="form-control" id="Nivel" name="Nivel">
+                <option value="Localidad">Localidad</option>
+                <option value="Estatal">Estatal</option>
+                <option value="Delegado">Delegado</option>
             </select>
       </div>
   </div>
   <center>
       <button style="position: relative; top: 50px;" type="Submit" class="btn btn-success">Enviar</button>
   </center>
-</form>
+<?= form_close() ?>
 <footer>
   <div class="PiePag" >
     <p>Av. Armada de México N° 176</p>
