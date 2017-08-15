@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Agregar</title>
+	<title>Editar Indicador</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -17,10 +17,16 @@
   <div class="container-fluid">
     <ul class="nav navbar-nav" >
     <li><a href="/SEP/index.php/Niv3/Inicio"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
-    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-search"></span> Eveto <span class="caret"></span></a>
+    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-search"></span> Fechas <span class="caret"></span></a>
       <ul class="dropdown-menu" style="padding-top: 0px;padding-bottom: 0px; ">
-          <li><a href="/SEP/index.php/Niv3/crearAgen">Agregar</a></li>
-          <li><a href="/SEP/index.php/Niv3/editarAgen">Editar</a></li>
+          <li><a href="/SEP/index.php/Niv3/crearFecha">Agregar</a></li>
+          <li><a href="/SEP/index.php/Niv3/editarFecha">Editar</a></li>
+        </ul>
+    </li>
+    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-search"></span> Indicador <span class="caret"></span></a>
+      <ul class="dropdown-menu" style="padding-top: 0px;padding-bottom: 0px; ">
+          <li><a href="/SEP/index.php/Niv3/crearInd">Agregar</a></li>
+          <li><a href="/SEP/index.php/Niv3/editarInd">Editar</a></li>
         </ul>
     </li>
     <li><a href="/SEP/index.php/Niv3/Editar"><span class="glyphicon glyphicon-edit"></span> Editar</a></li>
@@ -33,36 +39,7 @@
 <div class="container" style="margin-top:50px;height: 230px;">  
 
 </div>
-	
-<?php 
-	$Titulo = array('name'=>'txtTitulo','id'=>'txtTitulo','type'=>'text');
-	$Fecha = array('name'=>'txtFec','id'=>'txtFec','type'=>'date');
-	$Hora = array('name'=>'txtHora','id'=>'txtHora','type'=>'time');
-?>	
-	<?= form_open("/Niv3/nuevoEven") ?>
-	<label>Titulo
-		<!-- <input type="text" name="Titulo"> -->
-		<?= form_input($Titulo) ?>
-	</label>
-	<label>Fecha
-		<!-- <input type="date" name=""> -->
-		<?= form_input($Fecha) ?>
-	</label>
-	<label>Hora
-		<!-- <input type="time" name=""> -->
-		<?= form_input($Hora) ?>
-	</label>
-	<!-- <label>Status
 
-	</label>
-		<label>	A
-			<input type="radio" name="">
-		</label>
-		<label>B
-			<input type="radio" name="">
-		</label> -->
-	<button type="submit">Agregar</button>
-	<?= form_close() ?>
 <footer>
   <div class="PiePag" >
     <p>Av. Armada de México N° 176</p>

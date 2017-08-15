@@ -73,7 +73,7 @@ legend.scheduler-border {
 	</label>
 	<button>Buscar</button>
 	
-		<table class="table table-condensed" style="width: 1000px;">
+		<table class="table table-striped" style="width: 1000px; font-size: 17px;">
 			<thead>
 				<tr>
 					<th>Indicador</th>
@@ -85,7 +85,7 @@ legend.scheduler-border {
 					
 					<?php }
 				?>
-					<th style="width: 160px;">Apciones</th>
+					<th style="width: 160px;">Opciones</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -114,7 +114,8 @@ legend.scheduler-border {
 					<?php }
 						}
 						// echo $Nom;
-						$rest = substr($Nom, -1);  
+						$rest = substr($Nom,0,5);  
+						// echo $rest;
 					 ?>
 						<td>
 						<!-- <button  type="button" class="btn btn-success"><span class="glyphicon glyphicon-pencil"></span></button> -->
@@ -133,7 +134,7 @@ legend.scheduler-border {
       <div class="modal-body">
       <?= form_open("Niv1/InsertValor") ?>
         <center>
-        	<table>
+        	<table >
         		<?php 
         			$Nomb = array('name'=>'txtNombre','id'=>'txtNombre','class'=>'texto','style'=>'visibility:hidden');
 					$Usuario = array('name'=>'txtUsuario','id'=>'txtUsuario','class'=>'texto','style'=>'visibility:hidden');
@@ -142,7 +143,7 @@ legend.scheduler-border {
 				foreach ($queryAñoEdit -> result() as $queryAñoEdit) { 
 						// Indicador
 						// valor
-						$queryResultado =$this-> db ->where('Nombre',"Indicador ".$rest); 
+						$queryResultado =$this-> db ->where('Nombre',$Nom); 
 						$queryResultado =$this-> db ->where('Año',$queryAñoEdit -> Años);
 						$queryResultado =$this-> db ->where('User',$usr);
 						$queryResultado =$this -> db -> get('indaño');
@@ -155,7 +156,7 @@ legend.scheduler-border {
 		        				<td><input  type="text" name="<?=$queryAñoEdit -> Años;?>" value="<?=$queryResultado -> Valor; ?>"  > </td>
 		        		  <?php } 
 		        			else{ ?>
-		        					<td><input style="cursor: no-drop;" type="text" name="<?=$queryAñoEdit -> Años;?>" readonly="readonly" value="<?=$queryResultado -> Valor; ?>"> </td>
+		        					<td><input style="cursor: no-drop; background-color: #e7e7e7; "type="text" name="<?=$queryAñoEdit -> Años;?>" readonly="readonly" value="<?=$queryResultado -> Valor; ?>"> </td>
 		        	      <?php }
 		        	  		}
         				}
@@ -167,11 +168,11 @@ legend.scheduler-border {
 		        				<td><input type="text" name="<?=$queryAñoEdit -> Años;?>" value="NA"> </td>
 		        		  <?php } 
 		        			else{ ?>
-		        					<td><input style="cursor: no-drop;" type="text" name="<?=$queryAñoEdit -> Años;?>" readonly="readonly" value="NA"> </td>
+		        					<td><input style="cursor: no-drop; background-color: #e7e7e7;" type="text" name="<?=$queryAñoEdit -> Años;?>" readonly="readonly" value="NA"> </td>
 		        	      <?php }
         				}
         			 ?>
-        		</tr>
+        						</tr>
 			<?php    
 				}
 				?>
@@ -193,41 +194,28 @@ legend.scheduler-border {
 	  </div>
 	</div>
 		<!-- fin del modal -->
-						<!-- <button onclick="Prueba('<?= $Nom ?>')" type="button" class="btn btn-success"><span class="glyphicon glyphicon-pencil"></span></button> -->
-						<button type="button" class="btn btn-success"><span class="glyphicon glyphicon-search"></span></button>
-						<button type="button" class="btn btn-success"><span class="glyphicon glyphicon-search"></button>
+		<a href="#" title="Header" data-toggle="popover" data-trigger="hover" data-content="<table border='1'>
+			<tr>
+				<td> Nomb</td>
+				<td> Formula</td>
+			</tr>
+		</table> <br><?= $Nom ?>">
+		<!--  -->
+		
+			<!--  -->
+			<button type="button" class="btn btn-info"><span class="glyphicon glyphicon-question-sign"></span></button>
+		</a>
 						</td>
 						<a href=""></a>
-					</tr>
 					<?php }
 				?>
-			</tbody>
+					  </tr>
+        </tbody>
 		</table>	
 	</fieldset>
 </center>
-<!-- tabla de editar -->
-<center>
-  <table>
-    <tr>
-      <th colspan="2"><h1>Plantillas de captura de datos</h1></th>  
-    </tr>
-    <tr>
-      <td><h3>Esculas</h3></td>
-      <td><button type="button" class="btn btn-success"><a class="Plantillas" href="/SEP/Plantillas/Esculas.csv" download="PlantillaEsculas">Descargar</a></button></td>
-    </tr>
-    <tr>
-      <td><h3>Docentes</h3></td>
-      <td><button type="button" class="btn btn-success"><a class="Plantillas" href="/SEP/Plantillas/Docentes.csv" download="PlantillaDocentes">Descargar</a></button></td>
-    </tr>
-    <tr>
-      <td><h3>Alumnos</h3></td>
-      <td><button type="button" class="btn btn-danger"><a class="Plantillas" href="/SEP/Plantillas/.csv" download="PlantillaAlumnos">Descargar</a></button></td>
-    </tr>
-  </table>
-</center>
-<!-- <a href="/SEP/Plantillas/Docentes.csv" download="Reporte2Mayo2010">
-Descargar Archivo
-</a> -->
+
+
 
 <!-- Pie de pagina -->
 <footer>
@@ -239,7 +227,11 @@ Descargar Archivo
   </div>
 </footer>
 </body>
- 
+ <script>
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover({ html : true });   
+});
+</script>
 <script type="text/javascript">
 	function Prueba(p2) {
 		// document.write(p2);

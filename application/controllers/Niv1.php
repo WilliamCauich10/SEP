@@ -23,30 +23,33 @@ class Niv1 extends CI_Controller {
 			foreach ($queryAño -> result() as $queryAño) { 
 				$Año = $queryAño->Años;
 				$queryAño1= $this->input->post($queryAño->Años);
-				if ($queryAño1=="NA") {
-					$queryAño1="0";
+				$Comp['comprobar'] = $this-> Nivel1_model-> consultaExiste($User,$Año,$Nom);
+				if ($Comp['comprobar']) {
 					$data = array(
 						'Nombre' => $Nom,
 						'Usuario' => $User,
 						'Valor' => $queryAño1,
 						"Año" => $Año,
 					);
-					$queryAño = $this-> Nivel1_model-> insertarValores($data);
-					// echo "Crea ".$queryAño1." ";
-				}else{
-					$data = array(
-						'Nombre' => $Nom,
-						'Usuario' => $User,
-						'Valor' => $queryAño1,
-						"Año" => $Año,
-					);
+					// echo "actualizaValores";
 					$queryAño = $this-> Nivel1_model-> actualizaValores($data,$Nom,$User,$Año);
-					// echo "Actualiza ".$queryAño1." ";
+				}else{
+					if ($queryAño1!="NA") {
+						// echo "si";
+						$data = array(
+							'Nombre' => $Nom,
+							'Usuario' => $User,
+							'Valor' => $queryAño1,
+							"Año" => $Año,
+						);
+						$queryAño = $this-> Nivel1_model-> insertarValores($data);
+					}else{
+						// echo "ño";
+					}
 				}
-				// echo "Año ->".$Año."<-";
 			}
-			// echo $Nom." ".$User;
-			$this->load->view('Nivel1/principal',$usr);
+			return $this ->Inicio($User);
+			// $this->load->view('Nivel1/principal',$usr);
 	}
 	function Captura($usr){
 		$data['usr']=$usr;

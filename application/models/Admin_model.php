@@ -45,6 +45,14 @@ class Admin_model extends CI_Controller {
 		$query =$this->db->where('ID', $id);
 		$query =$this->db->update('usuarios', $data);
 	}
+	function actualizaFechas($datas,$año){
+		$data = array(
+			'Años' => $datas['valaño'],
+			'Status' => $datas['valor']
+            );
+		$query =$this->db->where('Años', $año);
+		$query =$this->db->update('años', $data);
+	}
 	function crearUser($data){
 		$this-> db-> insert(
 			'usuarios',array(

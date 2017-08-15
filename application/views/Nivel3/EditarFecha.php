@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Editar Usuario</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<title>Editar Fecha</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="shortcut icon" href="/SEP/img/Icono.png">
@@ -35,91 +35,91 @@
   </ul>
 </div>
 </nav>
+  
+<div class="container" style="margin-top:50px;height: 230px;">  
 
-<div class="container" style="margin-top:50px;height: 230px;">          
 </div>
+
+<!--  -->
 <center>
-<table style="width: 702px;height: 202px;" class="table table-striped">
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Usuario</th>
-      <!-- <th>pw</th> -->
-      <th>Rol</th>
-      <th>Acción</th>
-    </tr>
-  </thead>
-    <tbody>
-  <?php 
-      $nombre = array('name'=>'txtNom','id'=>'txtNom','type'=>'text');
-      $user = array('name'=>'txtUser','id'=>'txtUser','type'=>'text');
-      $pw = array('name'=>'txtPW','id'=>'txtPW','type'=>'text');
-      $rol = array('name'=>'txtRol','id'=>'txtRol','type'=>'text');
-      $id2 = array('name'=>'txtID','id'=>'txtID','type'=>'text','style'=>'visibility:hidden');
-      $idd = array('name'=> 'textid', 'id'=>'textid','style'=>'visibility:hidden');
-  if ($prueba) {
-    foreach ($prueba-> result() as $prueba) {
-      $id=$prueba->ID;
-      ?>
+  <table style="width: 702px;height: 202px;" class="table table-striped">
+    <thead>
       <tr>
-        <td><?= $prueba->Nombre; ?></td>
-        <td><?= $prueba->Usuario;?> </td>
-        <!-- <td><?= $prueba->PW; ?></td> -->
-        <td><?= $prueba->Rol; ?></td>
-        
-        <!-- <td><button type="Submit" class="btn btn-danger">Editar</button></td> -->
-        <td>
-              <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal<?= $prueba->ID; ?>"> Editar</button>
-             <a href="/SEP/index.php/Niv3/borrarUser/<?= $id ?>"><button type="button" class="btn btn-danger">Borrar</button> </a>
-        </td>
-        <!-- Modal -->
-        <div class="modal fade" id="myModal<?= $prueba->ID; ?>" role="dialog">
+        <th>Año</th>
+        <th>Estatus</th>
+        <th style="width: 160px;">Accion</th>
+      </tr>
+    </thead>
+        <tbody>
+    <?php 
+        $ValAño = array('name'=>'txtValAño','id'=>'txtValAño','class'=>'texto','style'=>'visibility:hidden');
+        $ValorAño="";
+        $queryAños = $this -> db -> get('años');
+      foreach ($queryAños -> result() as $queryAños) { ?>
+          <tr>
+            <td><?= $queryAños -> Años; ?></td>
+            <?php 
+                  if ($queryAños -> Status ==1) {
+                    $ValorAño="Desactivado";
+                  }else{
+                    $ValorAño="Activado";
+                  }
+             ?>
+            <td><?= $ValorAño ?></td>
+            <td>
+              <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal<?= $queryAños->Años; ?>"> Editar</button>
+              <button type="button" class="btn btn-danger">Eliminar</button>
+            </td>
+            <!-- Modal -->
+        <div class="modal fade" id="myModal<?= $queryAños->Años; ?>" role="dialog">
           <div class="modal-dialog">
           
             <!-- Modal content-->
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Editar Usuario <?= $prueba->Nombre; ?> </h4>
+                <h4 class="modal-title">Editar Fecha <?= $queryAños -> Años; ?> </h4>
               </div>
               <div class="modal-body">
               <?php
-            $queryID = $this-> db->where('ID',$id);
-            $queryID = $this-> db->get('usuarios');
-            foreach ($queryID-> result() as $queryID) {
-              // $queryID->IDA;  
-           }?>
-           <?= form_open("/Niv3/actualizaUsuarios") ?>
-                <?= form_input($id2, $prueba->ID) ?>
+                $queryResult = $this-> db->where('Años',$queryAños -> Años);
+                $queryResult = $this-> db->get('años');
+                foreach ($queryResult-> result() as $queryResult) {
+              }?>
+           <?= form_open("/Niv3/actualizaFechas") ?>
+
            <center>
-                <label>Nombre 
-                <!-- <?= $prueba->ID; ?> -->
-               <br>
-                  <?=form_input($nombre,$prueba->Nombre) ?>
-               
+                <label>Año 
+                   <br>
+                   <input type="text" name="txtAños" value="<?= $queryResult -> Años; ?>">
                 </label>
               <br>
-                 <label>Usuario
-                  <br>
-                  <?=form_input($user,$prueba->Usuario) ?>
-          
-                 </label>
-              <br>
-                 <label>Contraseña
-                    <br>
-                    <?=form_input($pw,$prueba->PW) ?>
-                 </label>
-              <br>
-                 <label>Rol
-                    <br>
-                    <?=form_input($rol,$prueba->Rol) ?>
-                 </label>
-                 </center>
-                <center>
-                  <button  type="submit"  class="btn btn-success">Guardar</button>
-                </center>
+                <label>Estatus
+                   <br>
+                  <?php 
+                      if ($queryResult -> Status==0) {?>
+                          <label class="radio-inline">
+                            <input type="radio" name="radioStatus" value="0" checked>Activar
+                          </label>
+                          <label class="radio-inline">
+                            <input type="radio" name="radioStatus" value="1" >Desactivar
+                          </label>
+            <?php   }else{ ?>
+                          <label class="radio-inline">
+                            <input type="radio" name="radioStatus" value="0" >Activar
+                          </label>
+                          <label class="radio-inline">
+                            <input type="radio" name="radioStatus" value="1" checked>Desactivar
+                          </label>
+
+                <?php    } ?>
+                </label>
+            </center>
+            <center>
+              <?= form_input($ValAño,$queryAños -> Años) ?>
+              <button  type="submit"  class="btn btn-success">Guardar</button>
+            </center>
                 <?= form_close() ?>
-            
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -128,16 +128,14 @@
             
           </div>
         </div>
-        </td>
-  <?php }
-  }else{
-    echo "<p>No cuentas con personas</p>";
-    }
-  ?>
-      </tr>
-    </tbody>
-</table>
+      <?php  
+      }
+     ?>
+          </tr>
+        </tbody>
+  </table>
 </center>
+
 <footer>
   <div class="PiePag" >
     <p>Av. Armada de México N° 176</p>

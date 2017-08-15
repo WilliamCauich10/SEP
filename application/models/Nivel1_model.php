@@ -23,6 +23,14 @@ class Nivel1_model extends CI_Controller {
 			'Profesion'=> $data['profesion']
 			)); 
 	}
+	function consultaExiste($usr,$año,$nom){
+		$query = $this-> db->where('User',$usr);
+		$query = $this-> db->where('Año',$año);
+		$query = $this-> db->where('Nombre',$nom);
+		$query = $this-> db->get('indaño');
+		if ($query -> num_rows()>0) return $query;
+		else return false; 
+	}
 	function insertarValores($data){
 		$this-> db-> insert(
 			'indaño',array(

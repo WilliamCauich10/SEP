@@ -70,11 +70,29 @@ class Niv3 extends CI_Controller {
 		$data['prueba']= $this-> Admin_model-> borrarUser($id);
 		return $this->Editar();
 	}
-	function crearAgen(){
-		$this->load->view("Nivel3/CrearAgenda");
+	function crearInd(){
+		$this->load->view("Nivel3/CrearIndicador");
 	}
-	function editarAgen(){
-		$this->load->view("Nivel3/EditarAgenda");
+	function editarInd(){
+		$this->load->view("Nivel3/EditarIndicador");
+	}
+	function crearFecha(){
+		$this->load->view("Nivel3/CrearFecha");
+	}
+	function editarFecha(){
+		$this->load->view("Nivel3/EditarFecha");
+	}
+	function actualizaFechas(){
+		$año =$this ->input ->post('txtValAño');
+		$valaño = $this -> input->post('txtAños');
+		$valor = $_POST['radioStatus']; 
+		// echo $valor; 
+		$datas = array(
+			'valaño' => $valaño,
+			'valor' => $valor,
+			);
+		$data['prueba']= $this-> Admin_model-> actualizaFechas($datas,$año);
+		return $this->editarFecha();
 	}
 	function nuevoEven(){
 		$datos['titulo']=$this-> input->post('txtTitulo');
