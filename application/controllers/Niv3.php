@@ -70,4 +70,34 @@ class Niv3 extends CI_Controller {
 		$data['prueba']= $this-> Admin_model-> borrarUser($id);
 		return $this->Editar();
 	}
+	function crearAgen(){
+		$this->load->view("Nivel3/CrearAgenda");
+	}
+	function editarAgen(){
+		$this->load->view("Nivel3/EditarAgenda");
+	}
+	function nuevoEven(){
+		$datos['titulo']=$this-> input->post('txtTitulo');
+		$datos['fecha']=$this-> input->post('txtFec');
+		$datos['hora']=$this-> input->post('txtHora');
+		$Hoy=date('y-m-d');
+		$Fecha=$datos['fecha']." ".$datos['hora'];
+		$Estatus="1";
+		$data =array(
+			'txtTitulo' => $this-> input->post('txtTitulo'), 
+			'Hoy' => $Hoy, 
+			'Fecha' => $Fecha, 
+			'Fecha2' => $Fecha, 
+			'Estatus' => $Estatus, 
+			);
+		echo $datos['titulo'];
+		echo "<br>";
+		echo $Hoy;
+		echo "<br>";
+		echo $Fecha;
+		echo "<br>";
+		echo $Fecha;
+		echo "<br>";
+		echo $Estatus;
+	}
 }

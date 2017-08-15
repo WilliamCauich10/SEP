@@ -1,11 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 /**
- * Controlador de Nivel 4
+ * Controlador de Nivel 1
  * 
  *
  * Este controlador fue diseñado por 
- * el alumno Jose Ernesto Diaz Escobar
+ * el alumno Jose Ernesto Diaz Escobar y Mejorado en su mayoria por William Jesus Cauich Martin
  * del Instituto Tecnologico de Chetumal
  * para la Secretaria de Educación Publica
 */
@@ -13,21 +13,58 @@ class Niv1 extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this-> load-> helper('form');
-		$this-> load-> model('Ingresalogin_model');
+		$this-> load-> model('Nivel1_model');
 	}
-	function Captura(){
-		$this->load->view('Nivel1/Captura');
+	function InsertValor(){
+		$Nom= $this->input->post("txtNombre");
+		$User= $this->input->post("txtUsuario");
+		$usr=$User;
+		$queryAño = $this-> Nivel1_model-> años();
+			foreach ($queryAño -> result() as $queryAño) { 
+				$Año = $queryAño->Años;
+				$queryAño1= $this->input->post($queryAño->Años);
+				if ($queryAño1=="NA") {
+					$queryAño1="0";
+					$data = array(
+						'Nombre' => $Nom,
+						'Usuario' => $User,
+						'Valor' => $queryAño1,
+						"Año" => $Año,
+					);
+					$queryAño = $this-> Nivel1_model-> insertarValores($data);
+					// echo "Crea ".$queryAño1." ";
+				}else{
+					$data = array(
+						'Nombre' => $Nom,
+						'Usuario' => $User,
+						'Valor' => $queryAño1,
+						"Año" => $Año,
+					);
+					$queryAño = $this-> Nivel1_model-> actualizaValores($data,$Nom,$User,$Año);
+					// echo "Actualiza ".$queryAño1." ";
+				}
+				// echo "Año ->".$Año."<-";
+			}
+			// echo $Nom." ".$User;
+			$this->load->view('Nivel1/principal',$usr);
 	}
-	function Captura2(){
-		$this->load->view('Nivel1/Captura2');
+	function Captura($usr){
+		$data['usr']=$usr;
+		$this->load->view('Nivel1/Captura',$data);
+	}
+	function Captura2($usr){
+		$data['usr']=$usr;
+		$this->load->view('Nivel1/Captura2',$data);
 
 	}
-	function ConsultaNi1(){
-		$this->load->view('Nivel1/ConsultaNi1');
+	function ConsultaNi1($usr){
+		$data['usr']=$usr;
+		$this->load->view('Nivel1/ConsultaNi1',$data);
 
 	}
-	function Inicio(){
-		$this->load->view('Nivel1/principal');	
+	function Inicio($usr){
+		$data['usr']=$usr;
+		$this->load->view('Nivel1/principal',$data);	
 	}
 	function importar(){
 		//obtenemos el archivo .csv
@@ -61,7 +98,7 @@ class Niv1 extends CI_Controller {
 				'profesion' => $profesion
 				);
 		 		// la insertamos mediante el modelo
-		       $this-> Ingresalogin_model-> insertar($data);
+		       $this-> Nivel1_model-> insertar($data);
 		       //cerramos condición
 		   }
 		 

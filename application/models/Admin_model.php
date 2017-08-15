@@ -58,4 +58,14 @@ class Admin_model extends CI_Controller {
 		$query =$this->db->where('ID', $id);
 		$query =$this->db->delete('usuarios'); 
 	}
+	function creaAgen($data){
+		$this -> db->insert(
+			'events',array(
+				'title' => $data[''] ,
+				'date' => '' ,
+				'created'=>$data[''],
+				'modified' => $data[''] ,
+				'status' => $data[''] ,
+			));
+	}
 }

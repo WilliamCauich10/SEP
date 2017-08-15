@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>SEP</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<title>Agregar</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="shortcut icon" href="/SEP/img/Icono.png">
@@ -33,60 +33,36 @@
 <div class="container" style="margin-top:50px;height: 230px;">  
 
 </div>
-<!-- <?= $usr ?>
-<?= $pw ?>
-<?= $Nivel ?>
- -->
-<!-- <a href="/SEP/index2.php"> asdasd</a> 
-
-<form action="importar" enctype="multipart/form-data" method="post">
-   <input id="archivo" accept=".csv" name="archivo" type="file" /> 
-   <input name="MAX_FILE_SIZE" type="hidden" value="20000" /> 
-   <input name="enviar" type="submit" value="Importar" />
-</form> -->
-<div style="position: relative; width: 100px;">
+	
 <?php 
-include_once('index2.php');
-?>
-</div>
-<div style="position: relative;left: 800px;width: 1000px;right: 0px;height: 500px;bottom: 300px;">
-  <h1 style="width: 700px;margin-top: 0px;">Eventos programados para hoy</h1>
-  <?php 
-  $fecha =date("y-m-d");
-// echo date_format($date, 'Y-m-d H:i:s');
-  echo $fecha;
-  ?>
-  <table class="table table-hover" style="width: 500px;">
-  <tr>
-    <th>Evento</th>
-    <th>Hora</th>
-  </tr>
-  <?php
-        $query =$this-> db->where('date',$fecha);
-        $query =$this-> db->get('events');
-      if ($query -> num_rows()>0){?>
-      <?php foreach ($query-> result() as $query) {
-        $hora = date_create($query->created);
-        ?>
-      <tr class="info">
-        <td>
-          <?= $query->title ?>
-        </td>
-        <td>
-          <?= date_format($hora, 'H:i') ?>
-        </td>
-      </tr>
-    <?php }
-      }else{?>
-      <tr>
-        <td colspan="2">
-          Ningun Evento para hoy
-        </td>
-      </tr>
-    <?php }
-      ?>
-  </table>
-</div>
+	$Titulo = array('name'=>'txtTitulo','id'=>'txtTitulo','type'=>'text');
+	$Fecha = array('name'=>'txtFec','id'=>'txtFec','type'=>'date');
+	$Hora = array('name'=>'txtHora','id'=>'txtHora','type'=>'time');
+?>	
+	<?= form_open("/Niv3/nuevoEven") ?>
+	<label>Titulo
+		<!-- <input type="text" name="Titulo"> -->
+		<?= form_input($Titulo) ?>
+	</label>
+	<label>Fecha
+		<!-- <input type="date" name=""> -->
+		<?= form_input($Fecha) ?>
+	</label>
+	<label>Hora
+		<!-- <input type="time" name=""> -->
+		<?= form_input($Hora) ?>
+	</label>
+	<!-- <label>Status
+
+	</label>
+		<label>	A
+			<input type="radio" name="">
+		</label>
+		<label>B
+			<input type="radio" name="">
+		</label> -->
+	<button type="submit">Agregar</button>
+	<?= form_close() ?>
 <footer>
   <div class="PiePag" >
     <p>Av. Armada de México N° 176</p>

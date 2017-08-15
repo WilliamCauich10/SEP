@@ -16,12 +16,12 @@
   <img src="/SEP/img/SEPbanner.png" style="position: absolute;top: -10;bottom: 0px;width: 500px;height: 200px;right: 0px;left: 35%">
 </div>
     <ul class="nav navbar-nav">
-    <li><a href="/SEP/index.php/Niv1/Inicio"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
-    <li><a href="/SEP/index.php/Niv1/ConsultaNi1"><span class="glyphicon glyphicon-search"></span> Consulta</a></li>
+    <li><a href="/SEP/index.php/Niv1/Inicio/<?= $usr ?>"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
+    <li><a href="/SEP/index.php/Niv1/ConsultaNi1/<?= $usr ?>"><span class="glyphicon glyphicon-search"></span> Consulta</a></li>
     <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-pencil"></span>   Captura <span class="caret"></span></a>
       <ul class="dropdown-menu"  style="padding-top: 0px;padding-bottom: 0px;">
-          <li><a href="/SEP/index.php/Niv1/Captura">Indicadores</a></li>
-          <li><a href="/SEP/index.php/Niv1/Captura2">Indicadores Academicos</a></li>
+          <li><a href="/SEP/index.php/Niv1/Captura/<?= $usr ?>">Indicadores</a></li>
+          <li><a href="/SEP/index.php/Niv1/Captura2/<?= $usr ?>">Indicadores Academicos</a></li>
         </ul>
     </li>
     <li><a href="/SEP"><span class="glyphicon  glyphicon-log-out"></span> Salir </a></li>

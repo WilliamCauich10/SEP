@@ -19,8 +19,8 @@
     <li><a href="/SEP/index.php/Niv3/Inicio"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
     <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-search"></span> Eveto <span class="caret"></span></a>
       <ul class="dropdown-menu" style="padding-top: 0px;padding-bottom: 0px; ">
-          <li><a href="/SEP/index.php/">Agregar</a></li>
-          <li><a href="/SEP/index.php/">Editar</a></li>
+          <li><a href="/SEP/index.php/Niv3/crearAgen">Agregar</a></li>
+          <li><a href="/SEP/index.php/Niv3/editarAgen">Editar</a></li>
         </ul>
     </li>
     <li><a href="/SEP/index.php/Niv3/Editar"><span class="glyphicon glyphicon-edit"></span> Editar</a></li>
