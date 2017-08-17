@@ -3,7 +3,7 @@ header("Content-type: text/css");
 ?>
 .navbar{	
     height: 51px;
-	top: 200px;
+	top: 0px;
 	background-color: #393c3e;
 }
 .navbar-default .navbar-nav>li>a{

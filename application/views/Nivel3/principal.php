@@ -10,10 +10,10 @@
 </head>
 <body>
 <nav class="navbar  navbar-default navbar-fixed-top" >
-<div class="backstretch" style="left: 0px;top: 0px;overflow: hidden;margin: 0px;padding: 0px;height: 200px;width: 107%;z-index: -999999;position: fixed;bottom: 0px;right: 0px;">
+<!-- <div class="backstretch" style="left: 0px;top: 0px;overflow: hidden;margin: 0px;padding: 0px;height: 200px;width: 107%;z-index: -999999;position: fixed;bottom: 0px;right: 0px;">
   <img src="/SEP/img/BanerFinal.png" style="position: absolute; margin: 0px; padding: 0px; border: none; width: 100%; height: 100%; max-height: none; max-width: none; z-index: -9; left: -90px; top: 0px;">
   <img src="/SEP/img/SEPbanner.png" style="position: absolute;top: -10;bottom: 0px;width: 500px;height: 200px;right: 0px;left: 35%">
-</div>
+</div> -->
   <div class="container-fluid">
    <ul class="nav navbar-nav" >
     <li><a href="/SEP/index.php/Niv3/Inicio"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
@@ -36,7 +36,7 @@
 </div>
 </nav>
   
-<div class="container" style="margin-top:50px;height: 230px;">  
+<div class="container" style="margin-top:50px;height: 30px;">  
 
 </div>
 <!-- <?= $usr ?>

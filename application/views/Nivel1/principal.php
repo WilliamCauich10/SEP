@@ -12,8 +12,8 @@
       color: white;
     }
   </style>
-  <style type="text/css">
-  	fieldset.scheduler-border {
+  <style type="text/css"> 
+ fieldset.scheduler-border {
   	width: 1100px;
     border: 1px groove #ddd !important;
     padding: 0 1.4em 1.4em 1.4em !important;
@@ -28,15 +28,29 @@ legend.scheduler-border {
     text-align: left !important;
 
 }
+fieldset.scheduler-border2 {
+  	width: 220px;
+    border: 1px groove #ddd !important;
+    padding: 0 1.4em 1.4em 1.4em !important;
+    margin: 0 0 1.5em 0 !important;
+    -webkit-box-shadow:  0px 0px 0px 0px #000;
+            box-shadow:  0px 0px 0px 0px #000;
+}
+
+legend.scheduler-border2 {
+    font-size: 1.2em !important;
+    font-weight: bold !important;
+    text-align: left !important;
+
+}
+.popover{
+ max-width: 100%;
+}
   </style>
 </head>
 <body>
 
 <nav class="navbar  navbar-default navbar-fixed-top" >
-<div class="backstretch" style="left: 0px;top: 0px;overflow: hidden;margin: 0px;padding: 0px;height: 200px;width: 107%;z-index: -999999;position: fixed;bottom: 0px;right: 0px;">
-  <img src="/SEP/img/BanerFinal.png" style="position: absolute; margin: 0px; padding: 0px; border: none; width: 100%; height: 100%; max-height: none; max-width: none; z-index: -9; left: -90px; top: 0px;">
-  <img src="/SEP/img/SEPbanner.png" style="position: absolute;top: -10;bottom: 0px;width: 500px;height: 200px;right: 0px;left: 35%">
-</div>
     <ul class="nav navbar-nav">
     <li><a href="/SEP/index.php/Niv1/Inicio/<?= $usr ?>"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
 		<li><a href="/SEP/index.php/Niv1/ConsultaNi1/<?= $usr ?>"><span class="glyphicon glyphicon-search"></span> Consulta</a></li>
@@ -47,17 +61,17 @@ legend.scheduler-border {
         </ul>
     </li>
     <li><a href="/SEP"><span class="glyphicon  glyphicon-log-out"></span> Salir </a></li>
+    <li><a ><span class="glyphicon glyphicon glyphicon-user"> <?= $usr?> </a></li>
 	</ul>
 </div>
 </nav>
   
-<div class="container" style="margin-top:50px;height: 230px;">   
+<div class="container" style="margin-top:50px;height: 30px;">   
 
 </div>
-<center>	
-	<fieldset class="scheduler-border">
+<fieldset class="scheduler-border2">
 	<label>Mostrar </label>
-	<select name="Tipo">
+	<select name="Tipo" style="width: 182px;">
 		<option value="todos">All</option>
 		<?php 
 		$n2="";
@@ -68,11 +82,15 @@ legend.scheduler-border {
 			<?php } ?>
 	
 	</select>
+	<button>Buscar</button>
 	<label>Buscar
-		<input type="text" name="">
+		<input type="text" name="" style="width: 182px;">
 	</label>
 	<button>Buscar</button>
-	
+<!-- </fieldset> -->
+<!-- <center>	 -->
+	<fieldset class="scheduler-border" style="position: relative; left: 250px;bottom: 130px;">
+
 		<table class="table table-striped" style="width: 1000px; font-size: 17px;">
 			<thead>
 				<tr>
@@ -93,6 +111,10 @@ legend.scheduler-border {
 					$queryIndicador = $this -> db -> get('indicadores');
 					foreach ($queryIndicador -> result() as $queryIndicador) {
 						$Nom = $queryIndicador -> Nombre;
+						$Def =$queryIndicador -> Definición;
+						$Int =$queryIndicador -> Interpretación;
+						$Inf =$queryIndicador -> Información_requerida;
+						$For =$queryIndicador -> Forma_de_Calculo;
 					 ?>
 					<tr>
 						<td><?= $queryIndicador -> Nombre; ?></td>
@@ -150,13 +172,13 @@ legend.scheduler-border {
 						if ($queryResultado -> num_rows()>0){
 							foreach ($queryResultado ->result() as $queryResultado) { ?>	
 				        		<tr>
-				        		<th style="position: relative;left: auto;right: 25px;bottom: 0px;height: 40px;"><?= $queryAñoEdit -> Años; ?>	
+				        		<th style="position: relative;left: auto;right: 25px;bottom: 0px;height: 40px;"> <?= $queryAñoEdit -> Años; ?>	
 				        			<?php
 		        				if ($queryAñoEdit ->Status ==0) { ?>
 		        				<td><input  type="text" name="<?=$queryAñoEdit -> Años;?>" value="<?=$queryResultado -> Valor; ?>"  > </td>
 		        		  <?php } 
 		        			else{ ?>
-		        					<td><input style="cursor: no-drop; background-color: #e7e7e7; "type="text" name="<?=$queryAñoEdit -> Años;?>" readonly="readonly" value="<?=$queryResultado -> Valor; ?>"> </td>
+		        					<td><input style="cursor: no-drop; background-color: #e7e7e7;" type="text" name="<?=$queryAñoEdit -> Años;?>" readonly="readonly" value="<?=$queryResultado -> Valor; ?>"> </td>
 		        	      <?php }
 		        	  		}
         				}
@@ -194,12 +216,30 @@ legend.scheduler-border {
 	  </div>
 	</div>
 		<!-- fin del modal -->
-		<a href="#" title="Header" data-toggle="popover" data-trigger="hover" data-content="<table border='1'>
+		<a href="#" title="<?= $Nom ?>" data-placement="bottom" data-toggle="popover" data-trigger="hover" data-content="
+		 <table border='1' style='width: 600px;'>
 			<tr>
-				<td> Nomb</td>
-				<td> Formula</td>
+				<th style='width: 160px;  background-color: green; '>Nombre del Indicador</th>
+				<td><?= $Nom ?></td>
 			</tr>
-		</table> <br><?= $Nom ?>">
+			<tr>
+				<th style='background-color: green;' >Definición</th>
+				<td><?= $Def ?></td>
+			</tr>
+			<tr>
+				<th style='background-color: green;'>Interpretación</th>
+				<td><?= $Int ?></td>
+			</tr>
+			<tr>
+				<th style='background-color: green;'>Información requerida </th>
+				<td> <?= $Inf ?> </td>
+			</tr>
+			<tr>
+				<th style=' background-color: green;'>Formula de Calculo</th>
+				<td><?= $For ?></td>
+			</tr>
+		</table>
+		" >
 		<!--  -->
 		
 			<!--  -->
@@ -213,8 +253,8 @@ legend.scheduler-border {
         </tbody>
 		</table>	
 	</fieldset>
-</center>
-
+<!-- </center> -->
+</fieldset>
 
 
 <!-- Pie de pagina -->
