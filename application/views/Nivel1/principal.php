@@ -125,6 +125,7 @@ legend.scheduler-border2 {
 					// }
 						$queryValor = $this-> db->where('Nombre',$queryIndicador -> Nombre);
 						$queryValor = $this-> db->where('Año',$queryAño2 -> Años);
+						$queryValor = $this-> db->where('User',$usr);
 						$queryValor = $this -> db -> get('IndAño');
 						if ($queryValor -> num_rows()>0){
 						foreach ($queryValor -> result() as $queryValor) {?>
@@ -187,10 +188,10 @@ legend.scheduler-border2 {
 				        		<th style="position: relative;left: auto;right: 25px;bottom: 0px;height: 40px;"><?= $queryAñoEdit -> Años; ?>	
 				        	<?php
 		        				if ($queryAñoEdit ->Status ==0) { ?>
-		        				<td><input type="text" name="<?=$queryAñoEdit -> Años;?>" value="NA"> </td>
+		        				<td><input type="text" name="<?=$queryAñoEdit -> Años;?>" value="-"> </td>
 		        		  <?php } 
 		        			else{ ?>
-		        					<td><input style="cursor: no-drop; background-color: #e7e7e7;" type="text" name="<?=$queryAñoEdit -> Años;?>" readonly="readonly" value="NA"> </td>
+		        					<td><input style="cursor: no-drop; background-color: #e7e7e7;" type="text" name="<?=$queryAñoEdit -> Años;?>" readonly="readonly" value="-"> </td>
 		        	      <?php }
         				}
         			 ?>
