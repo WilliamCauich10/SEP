@@ -251,12 +251,17 @@ legend.scheduler-border2 {
 				?>
 					  </tr>
         </tbody>
-		</table>	
+		</table>
+		<?= form_open("DercargaPDF/Descarga") ?>
+		 <input type="text" name="user" style="visibility: hidden;" value="<?= $usr ?>">
+		<center>
+			<button>Dercargar PDF</button>
+		</center>	
+		<?= form_close() ?>
 	</fieldset>
 <!-- </center> -->
 </fieldset>
-
-
+<center> <h1>cobach </h1> </center>
 <!-- Pie de pagina -->
 <footer>
   <div class="PiePag" >
