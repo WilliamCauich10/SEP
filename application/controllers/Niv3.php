@@ -15,13 +15,16 @@ class Niv3 extends CI_Controller {
 		$this-> load-> helper('form');
 		$this-> load-> model('Admin_model');
 	}
-		function Inicio(){
-		$this->load->view('Nivel3/principal');	
+	function Inicio($usr){
+		$data['usr']=$usr;
+		$this->load->view('Nivel3/principal',$data);	
 	}
-	function Crear(){
-		$this->load->view('Nivel3/CrearUser');	
+	function Crear($usr){
+		$data['usr']=$usr;
+		$this->load->view('Nivel3/CrearUser',$data);	
 	}
-	function Editar(){
+	function Editar($usr){
+		$data['usr']=$usr;
 		$data['prueba']= $this-> Admin_model-> ver();
 		$this->load->view('Nivel3/EditarUser',$data);	
 	}
@@ -39,7 +42,7 @@ class Niv3 extends CI_Controller {
 			'txtRol' => $this -> input-> post('txtRol'),
 			);
 		$data['prueba']= $this-> Admin_model-> actualizaUser($datas,$datos['id']);
-		return $this-> Editar();
+		return $this-> Editar($datos);
 	}
 	function creaUsuarios(){
 		$datos ['nomb']= $this-> input-> post('txtNom');
@@ -64,23 +67,30 @@ class Niv3 extends CI_Controller {
 			'txtRol' => $datos['Nivel'],
 			);
 		$data['prueba']= $this-> Admin_model-> crearUser($data);
-		return $this-> Editar();
+		return $this-> Editar($datos);
 	}
+	// falta el usr 
 	function borrarUser($id){
 		$data['prueba']= $this-> Admin_model-> borrarUser($id);
 		return $this->Editar();
 	}
-	function crearInd(){
-		$this->load->view("Nivel3/CrearIndicador");
+	// incompleto
+	function crearInd($usr){
+		$data['usr']=$usr;
+		$this->load->view("Nivel3/CrearIndicador",$data);
 	}
-	function editarInd(){
-		$this->load->view("Nivel3/EditarIndicador");
+	// incompleto
+	function editarInd($usr){
+		$data['usr']=$usr;
+		$this->load->view("Nivel3/EditarIndicador",$data);
 	}
-	function crearFecha(){
-		$this->load->view("Nivel3/CrearFecha");
+	function crearFecha($usr){
+		$data['usr']=$usr;
+		$this->load->view("Nivel3/CrearFecha",$data);
 	}
-	function editarFecha(){
-		$this->load->view("Nivel3/EditarFecha");
+	function editarFecha($usr){
+		$data['usr']=$usr;
+		$this->load->view("Nivel3/EditarFecha",$data);
 	}
 	function actualizaFechas(){
 		$año =$this ->input ->post('txtValAño');
@@ -93,29 +103,5 @@ class Niv3 extends CI_Controller {
 			);
 		$data['prueba']= $this-> Admin_model-> actualizaFechas($datas,$año);
 		return $this->editarFecha();
-	}
-	function nuevoEven(){
-		$datos['titulo']=$this-> input->post('txtTitulo');
-		$datos['fecha']=$this-> input->post('txtFec');
-		$datos['hora']=$this-> input->post('txtHora');
-		$Hoy=date('y-m-d');
-		$Fecha=$datos['fecha']." ".$datos['hora'];
-		$Estatus="1";
-		$data =array(
-			'txtTitulo' => $this-> input->post('txtTitulo'), 
-			'Hoy' => $Hoy, 
-			'Fecha' => $Fecha, 
-			'Fecha2' => $Fecha, 
-			'Estatus' => $Estatus, 
-			);
-		echo $datos['titulo'];
-		echo "<br>";
-		echo $Hoy;
-		echo "<br>";
-		echo $Fecha;
-		echo "<br>";
-		echo $Fecha;
-		echo "<br>";
-		echo $Estatus;
 	}
 }

@@ -15,9 +15,15 @@ class Niv1 extends CI_Controller {
 		$this-> load-> helper('form');
 		$this-> load-> model('Nivel1_model');
 	}
+	function Busqueda(){
+		$data['usr'] = $this -> input ->post("user");
+		$Bus = $this -> input ->post("Tipo");
+		$data['busq']=$this -> input ->post("Tipo");
+		$this->load->view('Nivel1/principal',$data);		
+	}
 	function InsertValor(){
-		$Nom= $this->input->post("txtNombre");
-		$User= $this->input->post("txtUsuario");
+		$Nom= $this-> input->post("txtNombre");
+		$User= $this-> input->post("txtUsuario");
 		$usr=$User;
 		$queryAño = $this-> Nivel1_model-> años();
 			foreach ($queryAño -> result() as $queryAño) { 
@@ -67,6 +73,7 @@ class Niv1 extends CI_Controller {
 	}
 	function Inicio($usr){
 		$data['usr']=$usr;
+		$data['busq']="todos";
 		$this->load->view('Nivel1/principal',$data);	
 	}
 	function importar(){

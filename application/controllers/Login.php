@@ -32,6 +32,7 @@ class Login extends CI_Controller {
 			switch ($rol) {
 		        case 'Nivel1':
 		        	$datos['Nivel']='Nivel1';
+		        	$datos['busq']="todos";
 		     		$this->load->view('Nivel1/principal',$datos);       
 		            break;
 		        case 'Nivel2':
