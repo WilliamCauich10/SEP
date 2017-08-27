@@ -26,6 +26,11 @@
     <!-- Custom Theme Style -->
     <link href="/SEP/build/css/custom.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="/SEP/img/Icono.png">
+<style type="text/css">
+.modal{
+   max-width: 100%;
+}
+</style>
   </head>
 
   <body class="nav-md">
@@ -57,7 +62,7 @@
                <h3>General</h3>
                 <ul class="nav side-menu">
                   <li><a href="/SEP/index.php/Niv3/Inicio/<?= $usr ?>"><i class="fa fa-home"></i>Inicio </a> </li>
-                  <li><a href="#"><i class="fa fa-search"></i> Fechas <span class="fa fa-chevron-down"></span></a> 
+                  <li><a href="#"><i class="fa fa-calendar"></i> Fechas <span class="fa fa-chevron-down"></span></a> 
                     <ul class="nav child_menu">
                       <li><a href="/SEP/index.php/Niv3/crearFecha/<?= $usr ?>"> Agregar </a></li>
                       <li><a href="/SEP/index.php/Niv3/editarFecha/<?= $usr ?>"> Editar </a></li>
@@ -70,7 +75,7 @@
                     </ul>
                   </li>
                   <!-- <li><a href="/SEP/index.php/Niv1/Captura2/<?= $usr ?>"><i class="fa fa-cloud-upload"></i> Subir Archivos </a> </li> -->
-                  <li><a><i class="fa fa-cloud-download"></i> Usuarios <span class="fa fa-chevron-down"></span></a>
+                  <li><a href="#"><i class="fa fa-users"></i> Usuarios <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="/SEP/index.php/Niv3/Crear/<?= $usr ?>"> Agregar </a></li>
                       <li><a href="/SEP/index.php/Niv3/Editar/<?= $usr ?>"> Editar </a></li>
@@ -126,7 +131,92 @@
 
         <!-- page content -->
         <div class="right_col" role="main">
-
+          <table  class="table table-striped">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Definición</th>
+              <th>Interpretación</th>
+              <th>Información</th>
+              <th>Forma de calculo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php 
+              $queryIndicadores = $this -> db -> get('indicadores');
+                  foreach ($queryIndicadores -> result() as $queryIndicadores ) { ?>
+                  <tr>
+                    <td><?= $queryIndicadores -> Nombre ?></td>
+                    <td><?= $queryIndicadores -> Definición ?></td>
+                    <td><?= $queryIndicadores -> Interpretación ?></td>
+                    <td><?= $queryIndicadores -> Información_requerida ?></td>
+                    <td><?= $queryIndicadores -> Forma_de_Calculo ?></td>
+                    <?= form_open("/Niv3/borrarIndica") ?>
+                     <input type="text" name="user" style="visibility: hidden;" value="<?= $usr ?>">
+                     <input type="text" name="id" style="visibility: hidden;" value="<?=  $queryIndicadores->ID; ?>">
+                    <td>
+                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal<?= $queryIndicadores->ID; ?>"> Editar</button>
+                     <button type="submit" class="btn btn-danger">Eliminar</button>
+                    <?= form_close() ?>
+                    </td>
+                    <!-- Modal -->
+                    <div  class="modal fade" id="myModal<?= $queryIndicadores->ID; ?>" role="dialog">
+                      <div class="modal-dialog" style="width: 752px;">
+                      
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title"><?= $queryIndicadores -> Nombre ?> </h4>
+                          </div>
+                          <div class="modal-body">
+                          <?= form_open("/Niv3/actualizaIndicador") ?>
+                            <center>
+                              <label>Nombre 
+                              <br>
+                                <input style="width: 270px" type="text" name="txtNombre" value="<?= $queryIndicadores->Nombre; ?>">
+                              </label>    
+                            <br>
+                              <label>Definición 
+                              <br>
+                                <textarea rows="3" style="width: 270px" name="txtDefinicion"><?=$queryIndicadores->Definición; ?></textarea>
+                              </label>
+                              <label style="position: relative; left: 70px">Información
+                              <br>
+                              <textarea rows="3" style="width: 270px" name="txtInformacion"><?=$queryIndicadores->Información_requerida; ?></textarea>
+                              </label>
+                            <br>
+                              <label>Interpretación
+                              <br>
+                                <textarea rows="3" style="width: 270px" name="txtInterpretacion"><?=$queryIndicadores->Interpretación; ?></textarea>
+                              </label>
+                              <label style="position: relative; left: 70px">Formula
+                              <br>,
+                              <textarea rows="3" style="width: 270px" name="txtFormula"><?= $queryIndicadores->Forma_de_Calculo; ?></textarea>
+                              </label>
+                            </center>
+                        <center>
+                           <input type="text" name="user" style="visibility: hidden;" value="<?= $usr ?>">
+                           <input type="text" name="id" style="visibility: hidden;" value="<?= $queryIndicadores->ID; ?>">
+                           <br>
+                          <button  type="submit"  class="btn btn-success">Guardar</button>
+                        </center>
+                            <?= form_close() ?>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                        
+                      </div>
+                    </div>
+                    <!-- fin modal -->
+                  </tr>
+            <?php
+                }
+            ?>
+          </tbody>
+          </table>
         </div>
         <!-- footer content -->
         <footer>

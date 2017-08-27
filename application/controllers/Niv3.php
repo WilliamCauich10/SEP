@@ -15,6 +15,7 @@ class Niv3 extends CI_Controller {
 		$this-> load-> helper('form');
 		$this-> load-> model('Admin_model');
 	}
+	// vistas 
 	function Inicio($usr){
 		$data['usr']=$usr;
 		$this->load->view('Nivel3/principal',$data);	
@@ -23,26 +24,27 @@ class Niv3 extends CI_Controller {
 		$data['usr']=$usr;
 		$this->load->view('Nivel3/CrearUser',$data);	
 	}
+	// incompleto
+	function crearInd($usr){
+		$data['usr']=$usr;
+		$this->load->view("Nivel3/CrearIndicador",$data);
+	}
+	function crearFecha($usr){
+		$data['usr']=$usr;
+		$this->load->view("Nivel3/CrearFecha",$data);
+	}
 	function Editar($usr){
 		$data['usr']=$usr;
 		$data['prueba']= $this-> Admin_model-> ver();
 		$this->load->view('Nivel3/EditarUser',$data);	
 	}
-	function actualizaUsuarios(){
-		$datos ['id']= $this-> input-> post('txtID');
-		$id= $this-> input-> post('txtID');
-		$datos ['nomb']= $this-> input-> post('txtNom');
-		$datos ['usr']=$this -> input-> post('txtUser');
-		$datos ['pw']= $this-> input-> post('txtPW');
-		$datos ['rol']=$this -> input-> post('txtRol');
-		$datas = array(
-			'txtNom' => $this -> input-> post('txtNom'),
-			'txtUser' => $this -> input-> post('txtUser'),
-			'txtPW' => $this -> input-> post('txtPW'),
-			'txtRol' => $this -> input-> post('txtRol'),
-			);
-		$data['prueba']= $this-> Admin_model-> actualizaUser($datas,$datos['id']);
-		return $this-> Editar($datos);
+	function editarFecha($usr){
+		$data['usr']=$usr;
+		$this->load->view("Nivel3/EditarFecha",$data);
+	}
+	function editarInd($usr){
+		$data['usr']=$usr;
+		$this->load->view("Nivel3/EditarIndicador",$data);	
 	}
 	function creaUsuarios(){
 		$datos ['nomb']= $this-> input-> post('txtNom');
@@ -69,39 +71,67 @@ class Niv3 extends CI_Controller {
 		$data['prueba']= $this-> Admin_model-> crearUser($data);
 		return $this-> Editar($datos);
 	}
-	// falta el usr 
-	function borrarUser($id){
+	// Borrado
+	function borrarUser(){
+		$usr =$this ->input ->post('user');
+		$id =$this ->input ->post('id');
 		$data['prueba']= $this-> Admin_model-> borrarUser($id);
-		return $this->Editar();
+		return $this->Editar($usr);
 	}
-	// incompleto
-	function crearInd($usr){
-		$data['usr']=$usr;
-		$this->load->view("Nivel3/CrearIndicador",$data);
+	function borrarFecha(){
+		$usr =$this ->input ->post('user');
+		$año =$this ->input ->post('año');
+		$data['prueba']= $this-> Admin_model-> borrarFecha($año);
+		return $this->editarFecha($usr);	
 	}
-	// incompleto
-	function editarInd($usr){
-		$data['usr']=$usr;
-		$this->load->view("Nivel3/EditarIndicador",$data);
+	function borrarIndica(){
+		$usr =$this ->input ->post('user');
+		$id =$this ->input ->post('id');
+		$data['prueba']= $this-> Admin_model-> borrarIndicador($id);
+		return $this -> editarInd($usr);
+		// echo "eliminar el indicador ".$id." del usuario ".$usr;
 	}
-	function crearFecha($usr){
-		$data['usr']=$usr;
-		$this->load->view("Nivel3/CrearFecha",$data);
-	}
-	function editarFecha($usr){
-		$data['usr']=$usr;
-		$this->load->view("Nivel3/EditarFecha",$data);
-	}
+	// Actualiza edita
 	function actualizaFechas(){
+		$usr =$this ->input ->post('txtUsuario');
 		$año =$this ->input ->post('txtValAño');
 		$valaño = $this -> input->post('txtAños');
 		$valor = $_POST['radioStatus']; 
-		// echo $valor; 
 		$datas = array(
 			'valaño' => $valaño,
 			'valor' => $valor,
 			);
 		$data['prueba']= $this-> Admin_model-> actualizaFechas($datas,$año);
-		return $this->editarFecha();
+		return $this->editarFecha($usr);
+	}
+	function actualizaUsuarios(){
+		$usr =$this ->input ->post('txtUsuario');
+		$datos ['id']= $this-> input-> post('txtID');
+		$id= $this-> input-> post('txtID');
+		$datos ['nomb']= $this-> input-> post('txtNom');
+		$datos ['usuario']=$this -> input-> post('txtUser');
+		$datos ['pw']= $this-> input-> post('txtPW');
+		$datos ['rol']=$this -> input-> post('txtRol');
+		$datas = array(
+			'txtNom' => $this -> input-> post('txtNom'),
+			'txtUser' => $this -> input-> post('txtUser'),
+			'txtPW' => $this -> input-> post('txtPW'),
+			'txtRol' => $this -> input-> post('txtRol'),
+			);
+		$data['prueba']= $this-> Admin_model-> actualizaUser($datas,$datos['id']);
+		return $this-> Editar($usr);
+	}
+	function actualizaIndicador(){
+		$usr =$this ->input ->post('user');
+		$ID =$this -> input ->post('id');	
+		$data = array(
+			"nomb" => $this -> input ->post('txtNombre'),	
+			"defi" => $this -> input ->post('txtDefinicion'),
+			"info" => $this -> input ->post('txtInformacion'),
+			"inte" => $this -> input ->post('txtInterpretacion'),
+			"form" => $this -> input ->post('txtFormula'),
+			);
+		$data['prueba']= $this-> Admin_model-> actualizaIndicador($ID,$data);
+		return $this->editarInd($usr);
 	}
 }

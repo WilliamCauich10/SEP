@@ -60,7 +60,7 @@
                 <h3>General</h3>
                 <ul class="nav side-menu">
                   <li><a href="/SEP/index.php/Niv3/Inicio/<?= $usr ?>"><i class="fa fa-home"></i>Inicio </a> </li>
-                  <li><a href="#"><i class="fa fa-search"></i> Fechas <span class="fa fa-chevron-down"></span></a> 
+                  <li><a href="#"><i class="fa fa-calendar"></i> Fechas <span class="fa fa-chevron-down"></span></a> 
                     <ul class="nav child_menu">
                       <li><a href="/SEP/index.php/Niv3/crearFecha/<?= $usr ?>"> Agregar </a></li>
                       <li><a href="/SEP/index.php/Niv3/editarFecha/<?= $usr ?>"> Editar </a></li>
@@ -73,7 +73,7 @@
                     </ul>
                   </li>
                   <!-- <li><a href="/SEP/index.php/Niv1/Captura2/<?= $usr ?>"><i class="fa fa-cloud-upload"></i> Subir Archivos </a> </li> -->
-                  <li><a><i class="fa fa-cloud-download"></i> Usuarios <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-users"></i> Usuarios <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="/SEP/index.php/Niv3/Crear/<?= $usr ?>"> Agregar </a></li>
                       <li><a href="/SEP/index.php/Niv3/Editar/<?= $usr ?>"> Editar </a></li>
@@ -129,7 +129,7 @@
 
         <!-- page content -->
         <div class="right_col" role="main">
-          <div class="">
+          <!-- <div class="">
             <div class="page-title">
               <div class="title_left">
                 <h3>Calendar <small>Click to add/edit events</small></h3>
@@ -179,7 +179,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
         <!-- footer content -->
         <footer>
@@ -200,7 +200,7 @@
     <!--  -->
 
     <!-- calendar modal -->
-    <div id="CalenderModalNew" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <!-- <div id="CalenderModalNew" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
 
@@ -270,7 +270,7 @@
     </div>
 
     <div id="fc_create" data-toggle="modal" data-target="#CalenderModalNew"></div>
-    <div id="fc_edit" data-toggle="modal" data-target="#CalenderModalEdit"></div>
+    <div id="fc_edit" data-toggle="modal" data-target="#CalenderModalEdit"></div> -->
     <!-- /calendar modal -->
 <!--  -->
     <!-- jQuery -->

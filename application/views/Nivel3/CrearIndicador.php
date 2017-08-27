@@ -57,7 +57,7 @@
                 <h3>General</h3>
                 <ul class="nav side-menu">
                   <li><a href="/SEP/index.php/Niv3/Inicio/<?= $usr ?>"><i class="fa fa-home"></i>Inicio </a> </li>
-                  <li><a href="#"><i class="fa fa-search"></i> Fechas <span class="fa fa-chevron-down"></span></a> 
+                  <li><a href="#"><i class="fa fa-calendar"></i> Fechas <span class="fa fa-chevron-down"></span></a> 
                     <ul class="nav child_menu">
                       <li><a href="/SEP/index.php/Niv3/crearFecha/<?= $usr ?>"> Agregar </a></li>
                       <li><a href="/SEP/index.php/Niv3/editarFecha/<?= $usr ?>"> Editar </a></li>
@@ -70,7 +70,7 @@
                     </ul>
                   </li>
                   <!-- <li><a href="/SEP/index.php/Niv1/Captura2/<?= $usr ?>"><i class="fa fa-cloud-upload"></i> Subir Archivos </a> </li> -->
-                  <li><a><i class="fa fa-cloud-download"></i> Usuarios <span class="fa fa-chevron-down"></span></a>
+                  <li><a href="#"><i class="fa fa-users"></i> Usuarios <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="/SEP/index.php/Niv3/Crear/<?= $usr ?>"> Agregar </a></li>
                       <li><a href="/SEP/index.php/Niv3/Editar/<?= $usr ?>"> Editar </a></li>
@@ -126,7 +126,25 @@
 
         <!-- page content -->
         <div class="right_col" role="main">
-
+          <?= form_open() ?>
+            <label>Nombre
+              <input type="text" name="txtNombre">
+            </label>
+            <label>Definición
+              <input type="text" name="txtDefi">
+            </label>
+            <label>Interpretación
+              <input type="text" name="txtInter">
+            </label>
+            <label>Información
+              <input type="text" name="txtInfo">
+            </label>
+            <label>Forma de Calculo
+              <input type="text" name="txtCalc">
+            </label>
+            <br>
+            <button>Enviar</button>
+          <?= form_close() ?>
         </div>
         <!-- footer content -->
         <footer>

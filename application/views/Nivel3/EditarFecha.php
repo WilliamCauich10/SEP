@@ -57,7 +57,7 @@
                 <h3>General</h3>
                 <ul class="nav side-menu">
                   <li><a href="/SEP/index.php/Niv3/Inicio/<?= $usr ?>"><i class="fa fa-home"></i>Inicio </a> </li>
-                  <li><a href="#"><i class="fa fa-search"></i> Fechas <span class="fa fa-chevron-down"></span></a> 
+                  <li><a href="#"><i class="fa fa-calendar"></i> Fechas <span class="fa fa-chevron-down"></span></a> 
                     <ul class="nav child_menu">
                       <li><a href="/SEP/index.php/Niv3/crearFecha/<?= $usr ?>"> Agregar </a></li>
                       <li><a href="/SEP/index.php/Niv3/editarFecha/<?= $usr ?>"> Editar </a></li>
@@ -70,7 +70,7 @@
                     </ul>
                   </li>
                   <!-- <li><a href="/SEP/index.php/Niv1/Captura2/<?= $usr ?>"><i class="fa fa-cloud-upload"></i> Subir Archivos </a> </li> -->
-                  <li><a><i class="fa fa-cloud-download"></i> Usuarios <span class="fa fa-chevron-down"></span></a>
+                  <li><a href="#"><i class="fa fa-users"></i> Usuarios <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="/SEP/index.php/Niv3/Crear/<?= $usr ?>"> Agregar </a></li>
                       <li><a href="/SEP/index.php/Niv3/Editar/<?= $usr ?>"> Editar </a></li>
@@ -132,11 +132,12 @@
                   <tr>
                     <th>Año</th>
                     <th>Estatus</th>
-                    <th style="width: 160px;">Accion</th>
+                    <th style="width: 180px;">Accion</th>
                   </tr>
                 </thead>
                     <tbody>
                 <?php 
+                    $Usuario = array('name'=>'txtUsuario','id'=>'txtUsuario','class'=>'texto','style'=>'visibility:hidden');
                     $ValAño = array('name'=>'txtValAño','id'=>'txtValAño','class'=>'texto','style'=>'visibility:hidden');
                     $ValorAño="";
                     $queryAños = $this -> db -> get('años');
@@ -151,9 +152,13 @@
                               }
                          ?>
                         <td><?= $ValorAño ?></td>
+                     <?= form_open("/Niv3/borrarFecha") ?>
+                           <input type="text" name="user" style="visibility: hidden;" value="<?= $usr ?>">
+                           <input type="text" name="año" style="visibility: hidden;" value="<?=  $queryAños->Años; ?>">
                         <td>
                           <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal<?= $queryAños->Años; ?>"> Editar</button>
-                          <button type="button" class="btn btn-danger">Eliminar</button>
+                          <button type="submit" class="btn btn-danger">Eliminar</button>
+                          <?= form_close() ?>
                         </td>
                         <!-- Modal -->
                     <div class="modal fade" id="myModal<?= $queryAños->Años; ?>" role="dialog">
@@ -172,7 +177,7 @@
                             foreach ($queryResult-> result() as $queryResult) {
                           }?>
                        <?= form_open("/Niv3/actualizaFechas") ?>
-
+                          <?= form_input($Usuario,$usr) ?>
                        <center>
                             <label>Año 
                                <br>

@@ -57,7 +57,7 @@
                <h3>General</h3>
                 <ul class="nav side-menu">
                   <li><a href="/SEP/index.php/Niv3/Inicio/<?= $usr ?>"><i class="fa fa-home"></i>Inicio </a> </li>
-                  <li><a href="#"><i class="fa fa-search"></i> Fechas <span class="fa fa-chevron-down"></span></a> 
+                  <li><a href="#"><i class="fa fa-calendar"></i> Fechas <span class="fa fa-chevron-down"></span></a> 
                     <ul class="nav child_menu">
                       <li><a href="/SEP/index.php/Niv3/crearFecha/<?= $usr ?>"> Agregar </a></li>
                       <li><a href="/SEP/index.php/Niv3/editarFecha/<?= $usr ?>"> Editar </a></li>
@@ -70,7 +70,7 @@
                     </ul>
                   </li>
                   <!-- <li><a href="/SEP/index.php/Niv1/Captura2/<?= $usr ?>"><i class="fa fa-cloud-upload"></i> Subir Archivos </a> </li> -->
-                  <li><a><i class="fa fa-cloud-download"></i> Usuarios <span class="fa fa-chevron-down"></span></a>
+                  <li><a href="#"><i class="fa fa-users"></i> Usuarios <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="/SEP/index.php/Niv3/Crear/<?= $usr ?>"> Agregar </a></li>
                       <li><a href="/SEP/index.php/Niv3/Editar/<?= $usr ?>"> Editar </a></li>
@@ -138,6 +138,7 @@
             </thead>
               <tbody>
             <?php 
+                $Usuario = array('name'=>'txtUsuario','id'=>'txtUsuario','class'=>'texto','style'=>'visibility:hidden');
                 $nombre = array('name'=>'txtNom','id'=>'txtNom','type'=>'text');
                 $user = array('name'=>'txtUser','id'=>'txtUser','type'=>'text');
                 $pw = array('name'=>'txtPW','id'=>'txtPW','type'=>'text');
@@ -151,13 +152,15 @@
                 <tr>
                   <td><?= $prueba->Nombre; ?></td>
                   <td><?= $prueba->Usuario;?> </td>
-                  <!-- <td><?= $prueba->PW; ?></td> -->
                   <td><?= $prueba->Rol; ?></td>
+                  <?= form_open("/Niv3/borrarUser") ?>
+                           <input type="text" name="user" style="visibility: hidden;" value="<?= $usr ?>">
+                           <input type="text" name="id" style="visibility: hidden;" value="<?= $prueba->ID; ?>">
                   
-                  <!-- <td><button type="Submit" class="btn btn-danger">Editar</button></td> -->
                   <td>
                         <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal<?= $prueba->ID; ?>"> Editar</button>
-                       <a href="/SEP/index.php/Niv3/borrarUser/<?= $id ?>"><button type="button" class="btn btn-danger">Borrar</button> </a>
+                       <button type="submit" class="btn btn-danger">Borrar</button> 
+                       <?= form_close() ?>
                   </td>
                   <!-- Modal -->
                   <div class="modal fade" id="myModal<?= $prueba->ID; ?>" role="dialog">
@@ -177,6 +180,7 @@
                         // $queryID->IDA;  
                      }?>
                      <?= form_open("/Niv3/actualizaUsuarios") ?>
+                      <?= form_input($Usuario,$usr) ?>
                           <?= form_input($id2, $prueba->ID) ?>
                      <center>
                           <label>Nombre 

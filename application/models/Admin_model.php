@@ -53,6 +53,17 @@ class Admin_model extends CI_Controller {
 		$query =$this->db->where('Años', $año);
 		$query =$this->db->update('años', $data);
 	}
+	function actualizaIndicador($id,$datas){
+		$data = array(
+			"Nombre" => $datas['nomb'],
+			"Definición" => $datas['defi'],
+			"Interpretación" => $datas['info'],
+			"Información_requerida" => $datas['inte'],
+			"Forma_de_Calculo" => $datas['form'],
+            );
+		$query =$this->db->where('ID', $id);
+		$query =$this->db->update('indicadores', $data);
+	}
 	function crearUser($data){
 		$this-> db-> insert(
 			'usuarios',array(
@@ -65,6 +76,14 @@ class Admin_model extends CI_Controller {
 	function borrarUser($id){
 		$query =$this->db->where('ID', $id);
 		$query =$this->db->delete('usuarios'); 
+	}
+	function borrarFecha($id){
+		$query =$this->db->where('Años', $id);
+		$query =$this->db->delete('años'); 
+	}
+	function borrarIndicador($id){
+		$query =$this->db->where('ID', $id);
+		$query =$this->db->delete('indicadores'); 
 	}
 	function creaAgen($data){
 		$this -> db->insert(
