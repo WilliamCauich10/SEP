@@ -22,10 +22,10 @@ class Niv4 extends CI_Controller {
 	function IES(){
 		$this->load->view('Nivel4/IES');
 	}
-	function Inicio(){
-		$this->load->view('Nivel4/principal');	
-		// $this->load->view('index2.php')
-		// include_once('index2.php');
+	function Inicio($usr){
+		$data['usr']=$usr;
+		// $data['busq']="todos";
+		$this->load->view('Nivel4/principal',$data);	
 	}
 	function Filtros1(){
 		$WhereEscuela =$this->input->post('Escuelas1');
