@@ -58,7 +58,7 @@ class DercargaPDF extends CI_Controller {
 				$Años2['Años2']=$this-> Descarga_model-> años();
 				foreach ($Años2['Años2']-> result() as $Años2['Años2']) { 
 					$año = $Años2['Años2']-> Años;
-					$Valor['Valor']=$this-> Descarga_model-> resultado($Indicadores['Indicadores']-> Nombre,$Años2['Años2']-> Años);
+					$Valor['Valor']=$this-> Descarga_model-> resultado($Indicadores['Indicadores']-> Nombre,$Años2['Años2']-> Años,$Nom);
 
 					if ($Valor['Valor']){
 						foreach ($Valor['Valor'] -> result() as $Valor['Valor']) {

@@ -57,6 +57,12 @@
                <h3>General</h3>
                 <ul class="nav side-menu">
                   <li><a href="/SEP/index.php/Niv3/Inicio/<?= $usr ?>"><i class="fa fa-home"></i>Inicio </a> </li>
+                  <li><a href="#"><i class="fa fa-calendar"></i>Agenda<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="/SEP/index.php/Niv3/crearAgen/<?= $usr ?>">Agregar</a></li>
+                      <li><a href="/SEP/index.php/Niv3/editarAgen/<?= $usr ?>">Editar</a></li>
+                    </ul>
+                  </li>
                   <li><a href="#"><i class="fa fa-calendar"></i> Fechas <span class="fa fa-chevron-down"></span></a> 
                     <ul class="nav child_menu">
                       <li><a href="/SEP/index.php/Niv3/crearFecha/<?= $usr ?>"> Agregar </a></li>

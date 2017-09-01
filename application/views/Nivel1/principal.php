@@ -313,6 +313,12 @@
       <button>Dercargar PDF</button>
     </center> 
     <?= form_close() ?>
+    <?= form_open("DescargaEXCEL/Descarga") ?>
+     <input type="text" name="user" style="visibility: hidden;" value="<?= $usr ?>">
+    <center>
+      <button>Dercargar Excel</button>
+    </center> 
+    <?= form_close() ?>
   </fieldset>
    </div>
         <!-- footer content -->

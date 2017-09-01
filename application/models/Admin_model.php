@@ -73,6 +73,13 @@ class Admin_model extends CI_Controller {
 			'Rol'=> $data['txtRol']
 			)); 
 	}
+	function crearFech($data){
+		$this-> db-> insert(
+			'años',array(
+			'Status' => $data['txtStatus'],
+			'Años' => $data['txtAño'],
+			)); 	
+	}
 	function borrarUser($id){
 		$query =$this->db->where('ID', $id);
 		$query =$this->db->delete('usuarios'); 

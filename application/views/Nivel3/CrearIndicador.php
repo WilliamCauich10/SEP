@@ -57,6 +57,12 @@
                 <h3>General</h3>
                 <ul class="nav side-menu">
                   <li><a href="/SEP/index.php/Niv3/Inicio/<?= $usr ?>"><i class="fa fa-home"></i>Inicio </a> </li>
+                  <li><a href="#"><i class="fa fa-calendar"></i>Agenda<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="/SEP/index.php/Niv3/crearAgen/<?= $usr ?>">Agregar</a></li>
+                      <li><a href="/SEP/index.php/Niv3/editarAgen/<?= $usr ?>">Editar</a></li>
+                    </ul>
+                  </li>
                   <li><a href="#"><i class="fa fa-calendar"></i> Fechas <span class="fa fa-chevron-down"></span></a> 
                     <ul class="nav child_menu">
                       <li><a href="/SEP/index.php/Niv3/crearFecha/<?= $usr ?>"> Agregar </a></li>
@@ -127,23 +133,32 @@
         <!-- page content -->
         <div class="right_col" role="main">
           <?= form_open() ?>
+          <center>
             <label>Nombre
               <input type="text" name="txtNombre">
             </label>
+            <br>
             <label>Definición
-              <input type="text" name="txtDefi">
+            <br>
+              <textarea rows="5" style="width: 300px;" name="txtDefi"></textarea>
             </label>
+            <label style="margin-left: 150px;">Información
+            <br>
+              <textarea rows="5" style="width: 300px;" name="txtInfo"></textarea>
+            </label>
+            <br>
+
             <label>Interpretación
-              <input type="text" name="txtInter">
+            <br>
+              <textarea rows="5" style="width: 300px;" name="txtInter"></textarea>
             </label>
-            <label>Información
-              <input type="text" name="txtInfo">
-            </label>
-            <label>Forma de Calculo
-              <input type="text" name="txtCalc">
+            <label style="margin-left: 150px;">Forma de Calculo
+            <br>
+            <textarea rows="5" style="width: 300px;" name="txtCalc"></textarea>
             </label>
             <br>
             <button>Enviar</button>
+          </center>
           <?= form_close() ?>
         </div>
         <!-- footer content -->

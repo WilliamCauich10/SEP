@@ -33,6 +33,10 @@ class Niv3 extends CI_Controller {
 		$data['usr']=$usr;
 		$this->load->view("Nivel3/CrearFecha",$data);
 	}
+	function crearAgen($usr){
+		$data['usr']=$usr;
+		$this->load->view("Nivel3/CrearEvento",$data);	
+	}
 	function Editar($usr){
 		$data['usr']=$usr;
 		$data['prueba']= $this-> Admin_model-> ver();
@@ -46,6 +50,11 @@ class Niv3 extends CI_Controller {
 		$data['usr']=$usr;
 		$this->load->view("Nivel3/EditarIndicador",$data);	
 	}
+	function editarAgen($usr){
+		$data['usr']=$usr;
+		$this->load->view("Nivel3/EditarEvento",$data);	
+	}
+	// Crear
 	function creaUsuarios(){
 		$datos ['nomb']= $this-> input-> post('txtNom');
 		$datos ['usr']=$this -> input-> post('txtUser');
@@ -70,6 +79,15 @@ class Niv3 extends CI_Controller {
 			);
 		$data['prueba']= $this-> Admin_model-> crearUser($data);
 		return $this-> Editar($datos);
+	}
+	function creaFecha(){
+		$usr=$this -> input-> post('user');
+		$data = array(
+			'txtStatus' => $this -> input-> post('Tipo'),
+			'txtAño' => $this -> input-> post('txtAño'),
+			);
+		$data['prueba']= $this-> Admin_model-> crearFech($data);
+		return $this-> editarFecha($usr);
 	}
 	// Borrado
 	function borrarUser(){

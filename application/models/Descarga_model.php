@@ -24,7 +24,8 @@ class Descarga_model extends CI_Controller {
 		if ($query -> num_rows()>0) return $query;
 		else return false; 
 	}
-	function resultado($Nombre,$Años){
+	function resultado($Nombre,$Años,$Usuario){
+		$query = $this-> db->where('User',$Usuario);
 		$query = $this-> db->where('Nombre',$Nombre);
 		$query = $this-> db->where('Año',$Años);
 		$query = $this -> db -> get('IndAño');
