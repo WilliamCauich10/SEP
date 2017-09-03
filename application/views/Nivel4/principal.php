@@ -31,7 +31,7 @@
     <link href="/SEP/vendors/fullcalendar/dist/fullcalendar.print.css" rel="stylesheet" media="print">
   </head>
 
-  <body class="nav-sm">
+  <body class="nav-md">
     <div class="container body">
       <div class="main_container">
         <div class="col-md-3 left_col">
@@ -60,6 +60,50 @@
                 <h3>General</h3>
                 <ul class="nav side-menu">
                   <li><a href="/SEP/index.php/Niv4/Inicio/<?= $usr ?>"><i class="fa fa-home"></i>Inicio </a> </li>
+                  <li><a href="/SEP/index.php/Niv4/Indicadores/<?= $usr ?>"><i class=" fa fa-file-text"></i>Indicadores</a></li>
+                  <li><a><i class="fa fa-search"></i> Filtrar <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li>
+                      <?= form_open("Niv4/FiltrosEscuelas") ?>
+                        <label>Esculas</label>
+                        <select name="FiltroEsculas" style="width: 182px;">
+                            <option value="todos">All</option>
+                            <?php 
+                              $queryEscuelaFiltro = $this-> db->where('NivelEducativo',"Media Superior");
+                              $queryEscuelaFiltro = $this-> db->or_where('NivelEducativo',"Superior");
+                              $queryEscuelaFiltro = $this-> db->or_where('NivelEducativo',"Basica");
+                              $queryEscuelaFiltro = $this -> db -> get('usuarios');
+                              foreach ($queryEscuelaFiltro -> result() as $queryEscuelaFiltro) { ?>
+                                <option value="<?= $queryEscuelaFiltro -> Nombre; ?>"><?= $queryEscuelaFiltro -> Nombre; ?></option>
+                              
+                              <?php } ?>
+                        </select>
+                        <button type="Submit">Buscar</button>
+                        <input type="text" name="user" style="visibility: hidden;" value="<?= $usr ?>">
+                        <?= form_close() ?>
+                      </li>
+                      <li>
+                        <?= form_open("Niv4/FiltrosNiveles") ?>
+                        <label>Niveles Educativos</label>
+                        <select name="FiltroNivel" style="width: 182px;">
+                            <option value="todosniv">All</option>
+                            <?php 
+                              $queryEscuelaFiltro = $this-> db->where('NivelEducativo',"Media Superior");
+                              $queryEscuelaFiltro = $this-> db->or_where('NivelEducativo',"Superior");
+                              $queryEscuelaFiltro = $this-> db->or_where('NivelEducativo',"Basica");
+                              $queryEscuelaFiltro = $this-> db->group_by('NivelEducativo');
+                              $queryEscuelaFiltro = $this -> db -> get('usuarios');
+                              foreach ($queryEscuelaFiltro -> result() as $queryEscuelaFiltro) { ?>
+                                <option value="<?= $queryEscuelaFiltro -> NivelEducativo; ?>"><?= $queryEscuelaFiltro -> NivelEducativo; ?></option>
+                              
+                              <?php } ?>
+                        </select>
+                        <button type="Submit">Buscar</button>
+                        <input type="text" name="user" style="visibility: hidden;" value="<?= $usr ?>">
+                        <?= form_close() ?>
+                      </li>
+                    </ul>
+                  </li>
               </div>
 
             </div>

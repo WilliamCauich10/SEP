@@ -40,7 +40,8 @@ class Admin_model extends CI_Controller {
 			'Nombre' => $datas['txtNom'],
 			'Usuario' => $datas['txtUser'],
 			'PW' => $datas['txtPW'],
-			'Rol' => $datas['txtRol']
+			'Rol' => $datas['txtRol'],
+			'NivelEducativo' => $datas['txtNiv']
             );
 		$query =$this->db->where('ID', $id);
 		$query =$this->db->update('usuarios', $data);
@@ -70,7 +71,8 @@ class Admin_model extends CI_Controller {
 			'Nombre'=>$data['txtNom'],
 			'Usuario'=>$data['txtUser'],
 			'PW'=> $data['txtPW'],
-			'Rol'=> $data['txtRol']
+			'Rol'=> $data['txtRol'],
+			'NivelEducativo'=> $data['NivelEducativo']
 			)); 
 	}
 	function crearFech($data){

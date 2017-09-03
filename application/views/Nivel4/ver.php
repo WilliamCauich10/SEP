@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Usuario </title>
+    <title>Delegado </title>
 
     <!-- Bootstrap si-->
     <link href="/SEP/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -26,6 +26,9 @@
     <!-- Custom Theme Style -->
     <link href="/SEP/build/css/custom.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="/SEP/img/Icono.png">
+      <!-- FullCalendar -->
+    <link href="/SEP/vendors/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet">
+    <link href="/SEP/vendors/fullcalendar/dist/fullcalendar.print.css" rel="stylesheet" media="print">
   </head>
 
   <body class="nav-md">
@@ -54,32 +57,51 @@
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
-              <h3>General</h3>
+                <h3>General</h3>
                 <ul class="nav side-menu">
-                  <li><a href="/SEP/index.php/Niv3/Inicio/<?= $usr ?>"><i class="fa fa-home"></i>Inicio </a> </li>
-                  <li><a href="#"><i class="fa fa-calendar"></i>Agenda<span class="fa fa-chevron-down"></span></a>
+                  <li><a href="/SEP/index.php/Niv4/Inicio/<?= $usr ?>"><i class="fa fa-home"></i>Inicio </a> </li>
+                  <li><a href="/SEP/index.php/Niv4/Indicadores/<?= $usr ?>"><i class=" fa fa-file-text"></i>Indicadores</a></li>
+                  <li><a><i class="fa fa-search"></i> Filtrar <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="/SEP/index.php/Niv3/crearAgen/<?= $usr ?>">Agregar</a></li>
-                      <li><a href="/SEP/index.php/Niv3/editarAgen/<?= $usr ?>">Editar</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#"><i class="fa fa-calendar"></i> Fechas <span class="fa fa-chevron-down"></span></a> 
-                    <ul class="nav child_menu">
-                      <li><a href="/SEP/index.php/Niv3/crearFecha/<?= $usr ?>"> Agregar </a></li>
-                      <li><a href="/SEP/index.php/Niv3/editarFecha/<?= $usr ?>"> Editar </a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#"><i class="fa fa-search"></i> Indicador <span class="fa fa-chevron-down"></span></a> 
-                    <ul class="nav child_menu">
-                      <li><a href="/SEP/index.php/Niv3/crearInd/<?= $usr ?>"> Agregar </a></li>
-                      <li><a href="/SEP/index.php/Niv3/editarInd/<?= $usr ?>"> Editar </a></li>
-                    </ul>
-                  </li>
-                  <!-- <li><a href="/SEP/index.php/Niv1/Captura2/<?= $usr ?>"><i class="fa fa-cloud-upload"></i> Subir Archivos </a> </li> -->
-                  <li><a href="#"><i class="fa fa-users"></i> Usuarios <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="/SEP/index.php/Niv3/Crear/<?= $usr ?>"> Agregar </a></li>
-                      <li><a href="/SEP/index.php/Niv3/Editar/<?= $usr ?>"> Editar </a></li>
+                      <li>
+                      <?= form_open("Niv4/FiltrosEscuelas") ?>
+                        <label>Esculas</label>
+                        <select name="FiltroEsculas" style="width: 182px;">
+                            <option value="todos">All</option>
+                            <?php 
+                              $queryEscuelaFiltro = $this-> db->where('NivelEducativo',"Media Superior");
+                              $queryEscuelaFiltro = $this-> db->or_where('NivelEducativo',"Superior");
+                              $queryEscuelaFiltro = $this-> db->or_where('NivelEducativo',"Basica");
+                              $queryEscuelaFiltro = $this -> db -> get('usuarios');
+                              foreach ($queryEscuelaFiltro -> result() as $queryEscuelaFiltro) { ?>
+                                <option value="<?= $queryEscuelaFiltro -> Nombre; ?>"><?= $queryEscuelaFiltro -> Nombre; ?></option>
+                              
+                              <?php } ?>
+                        </select>
+                        <button type="Submit">Buscar</button>
+                        <input type="text" name="user" style="visibility: hidden;" value="<?= $usr ?>">
+                        <?= form_close() ?>
+                      </li>
+                      <li>
+                        <?= form_open("Niv4/FiltrosNiveles") ?>
+                        <label>Niveles Educativos</label>
+                        <select name="FiltroNivel" style="width: 182px;">
+                            <option value="todosniv">All</option>
+                            <?php 
+                              $queryEscuelaFiltro = $this-> db->where('NivelEducativo',"Media Superior");
+                              $queryEscuelaFiltro = $this-> db->or_where('NivelEducativo',"Superior");
+                              $queryEscuelaFiltro = $this-> db->or_where('NivelEducativo',"Basica");
+                              $queryEscuelaFiltro = $this-> db->group_by('NivelEducativo');
+                              $queryEscuelaFiltro = $this -> db -> get('usuarios');
+                              foreach ($queryEscuelaFiltro -> result() as $queryEscuelaFiltro) { ?>
+                                <option value="<?= $queryEscuelaFiltro -> NivelEducativo; ?>"><?= $queryEscuelaFiltro -> NivelEducativo; ?></option>
+                              
+                              <?php } ?>
+                        </select>
+                        <button type="Submit">Buscar</button>
+                        <input type="text" name="user" style="visibility: hidden;" value="<?= $usr ?>">
+                        <?= form_close() ?>
+                      </li>
                     </ul>
                   </li>
               </div>
@@ -132,47 +154,72 @@
 
         <!-- page content -->
         <div class="right_col" role="main">
-            <?php 
-                $nombre = array('name'=>'txtNom','id'=>'txtNom','type'=>'text','class'=>'form-control');
-                $usuario = array('name'=>'txtUser','id'=>'txtUser','type'=>'text','class'=>'form-control');
-                $pw = array('name'=>'txtPW','id'=>'txtPW','type'=>'password','class'=>'form-control');
-            ?>
-            <?= form_open("/Niv3/creaUsuarios") ?>
-               <div>
-                      <div class="col-xs-3">
-                        <label for="ex1">Nombre</label>
-                        <?= form_input($nombre) ?>
-                      </div>
-                  <div class="col-xs-3">
-                        <label for="ex2">Usuario</label>
-                        <?= form_input($usuario) ?>
-                  </div>
-                  <div class="col-xs-3">
-                        <label for="ex3">Contraseña</label>
-                        <?= form_input($pw) ?>
-                  </div>
-                  <div class="col-xs-3">
-                        <label for="sel1">Tipo:</label>
-                        <select class="form-control" id="Nivel" name="Nivel">
-                            <option value="Localidad">Localidad</option>
-                            <option value="Estatal">Estatal</option>
-                            <option value="Delegado">Delegado</option>
-                        </select>
-                  </div>
-                  <div class="col-xs-3">
-                        <label for="sel1">Nivel Educativo:</label>
-                        <select class="form-control" id="NivelEducativo" name="NivelEducativo">
-                            <option value="Basica">Basica</option>
-                            <option value="Media Superior">Media Superior</option>
-                            <option value="Superior">Superior</option>
-                        </select>
-                  </div>
-              </div>
-              <input type="text" name="user" style="visibility: hidden;" value="<?= $usr ?>">
-              <center>
-                  <button style="position: relative; top: 50px;" type="Submit" class="btn btn-success">Enviar</button>
-              </center>
-            <?= form_close() ?>
+          <h1><?= $nom ?></h1>
+          <table class="table table-striped" style="width: 1000px; font-size: 17px;"  >
+            <thead>
+              <tr>
+                <th>Indicador</th>
+                <th style=" width:150px;">Formula</th>
+               <?php 
+                    $queryAño = $this -> db -> get('años');
+                    foreach ($queryAño -> result() as $queryAño) { ?>
+                    
+                      <th style=" width:70px;"><?= $queryAño -> Años; ?></th>
+                    
+                    <?php }
+                  ?>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+              <?php 
+                  $queryIndicador = $this -> db -> get('indicadores');
+                    foreach ($queryIndicador -> result() as $queryIndicador) {
+               ?>
+                <td><?= htmlentities($queryIndicador -> Nombre) ?></td>
+                <td><?= $queryIndicador -> Forma_de_Calculo; ?></td>
+                   <?php 
+                      $queryAño2 = $this -> db -> get('años');
+                    foreach ($queryAño2 -> result() as $queryAño2) {
+                        $año = $queryAño2 -> Años;
+                      $queryValor = $this-> db->where('Nombre',$queryIndicador -> Nombre);
+                      $queryValor = $this-> db->where('Año',$queryAño2 -> Años);
+                      $queryValor = $this-> db->where('User',$nom);
+                      $queryValor = $this -> db -> get('IndAño');
+                      if ($queryValor -> num_rows()>0){
+                      foreach ($queryValor -> result() as $queryValor) {?>
+                        <td align="center"><?= $queryValor -> Valor; ?></td>
+                      <?php } 
+                      } else{ 
+                    ?>
+                      <td align="center">-</td>
+                    <?php }
+                      }
+                    
+                     ?>
+              </tr>
+                <?php } ?>
+            </tbody>
+          </table>
+
+           <center>
+      <table>
+        <tr>
+          <?= form_open("DercargaPDF/Descarga") ?>
+           <input type="text" name="user" style="visibility: hidden;" value="<?= $nom ?>">
+          <td>
+            <button type="Submit" class="btn btn-round btn-primary"><i class="fa fa-print"></i> Dercargar PDF <i class="fa fa-file-pdf-o"></i></button>
+          </td>
+          <?= form_close() ?>
+          <?= form_open("DescargaEXCEL/Descarga") ?>
+            <input type="text" name="user" style="visibility: hidden;" value="<?= $nom ?>">
+          <td>
+            <button type="Submit" class="btn btn-round btn-primary"><i class="fa fa-print"></i> Dercargar Excel <i class="fa fa-file-excel-o"></i></button>
+          </td>
+          <?= form_close() ?>
+        </tr>
+      </table>
+    </center> 
         </div>
         <!-- footer content -->
         <footer>
@@ -190,6 +237,7 @@
       </div>
     </div>
 
+    
     <!-- jQuery -->
     <script src="/SEP/vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
@@ -227,7 +275,9 @@
     <!-- bootstrap-daterangepicker -->
     <script src="/SEP/vendors/moment/min/moment.min.js"></script>
     <script src="/SEP/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
-
+ <!-- FullCalendar -->
+    <script src="/SEP/vendors/moment/min/moment.min.js"></script>
+    <script src="/SEP/vendors/fullcalendar/dist/fullcalendar.min.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="/SEP/build/js/custom.min.js"></script>
   

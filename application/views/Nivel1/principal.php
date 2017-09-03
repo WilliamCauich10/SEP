@@ -307,18 +307,24 @@
             </tr>
         </tbody>
     </table>
-    <?= form_open("DercargaPDF/Descarga") ?>
-     <input type="text" name="user" style="visibility: hidden;" value="<?= $usr ?>">
     <center>
-      <button>Dercargar PDF</button>
+      <table>
+        <tr>
+          <?= form_open("DercargaPDF/Descarga") ?>
+           <input type="text" name="user" style="visibility: hidden;" value="<?= $usr ?>">
+          <td>
+            <button type="Submit" class="btn btn-round btn-primary"><i class="fa fa-print"></i> Dercargar PDF <i class="fa fa-file-pdf-o"></i></button>
+          </td>
+          <?= form_close() ?>
+          <?= form_open("DescargaEXCEL/Descarga") ?>
+            <input type="text" name="user" style="visibility: hidden;" value="<?= $usr ?>">
+          <td>
+            <button type="Submit" class="btn btn-round btn-primary"><i class="fa fa-print"></i> Dercargar Excel <i class="fa fa-file-excel-o"></i></button>
+          </td>
+          <?= form_close() ?>
+        </tr>
+      </table>
     </center> 
-    <?= form_close() ?>
-    <?= form_open("DescargaEXCEL/Descarga") ?>
-     <input type="text" name="user" style="visibility: hidden;" value="<?= $usr ?>">
-    <center>
-      <button>Dercargar Excel</button>
-    </center> 
-    <?= form_close() ?>
   </fieldset>
    </div>
         <!-- footer content -->

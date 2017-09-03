@@ -1,469 +1,284 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<title>Indicadores</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="/SEP/css/indicadores.php" media="screen">
-    <link rel="stylesheet" href="/SEP/css/menu.php" media="screen">
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Delegado </title>
+
+    <!-- Bootstrap si-->
+    <link href="/SEP/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome si -->
+    <link href="/SEP/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="/SEP/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="/SEP/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <!-- bootstrap-progressbar -->
+    <link href="/SEP/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <!-- JQVMap -->
+    <link href="/SEP/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
+    <!-- bootstrap-daterangepicker -->
+    <link href="/SEP/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <!-- Custom Theme Style -->
+    <link href="/SEP/build/css/custom.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="/SEP/img/Icono.png">
-</head>
-<body>
-<nav class="navbar  navbar-default navbar-fixed-top" >
-<!-- <div class="backstretch" style="left: 0px;top: 0px;overflow: hidden;margin: 0px;padding: 0px;height: 200px;width: 107%;z-index: -999999;position: fixed;bottom: 0px;right: 0px;">
-  <img src="/SEP/img/BanerFinal.png" style="position: absolute; margin: 0px; padding: 0px; border: none; width: 100%; height: 100%; max-height: none; max-width: none; z-index: -9; left: -90px; top: 0px;">
-  <img src="/SEP/img/SEPbanner.png" style="position: absolute;top: -10;bottom: 0px;width: 500px;height: 200px;right: 0px;left: 35%">
-</div> -->
-  <div class="container-fluid">
-    <ul class="nav navbar-nav">
-    <li><a href="/SEP/index.php/Niv4/Inicio"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
-		<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-search"></span>   Consulta  <span class="caret"></span></a>
-      <ul class="dropdown-menu" style="padding-top: 0px;padding-bottom: 0px;">
-          <li><a href="/SEP/index.php/Niv4/Indicadores">EMS</a></li>
-          <li><a href="/SEP/index.php/Niv4/IES">IES</a></li>
-        </ul>
-    </li>
-    <li><a href="#"><span class="glyphicon glyphicon-plus-sign"></span> Informacion General</a></li>
-    <li><a href="/SEP"><span class="glyphicon  glyphicon-log-out"></span> Salir </a></li>
-	</ul>
-</div>
-</nav>
-  <!-- va a fuerza -->
-<div class="container" style="margin-top:50px;height: 30px;">  
+      <!-- FullCalendar -->
+    <link href="/SEP/vendors/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet">
+    <link href="/SEP/vendors/fullcalendar/dist/fullcalendar.print.css" rel="stylesheet" media="print">
+  </head>
 
-</div>
-<br>
-<br>
-<center>
-  <table >
-   <tr>
-    <th colspan="3"> <center>Indicadores Calculados</center></th>
-  </tr>
-  <tr>
-    <th colspan="3"><center> Indicadores Por Institución</center></th>
-  </tr>
-    <tr class="IndicadorTamaño">
-      <td class="Indicador">
-        <label>
-          Indicador Alumnos
-        </label>
-      </td>
-      <td class="Botones">
-         <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#Indicador1">Ver</button>
-      </td>
-      <td class="Reportes"></td>
-    </tr>
-    <tr class="IndicadorTamaño">
-      <td>
-        <label>
-          Indicador Docentes
-        </label>
-      </td>
-      <td>
-        <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#Indicador2">Ver</button>
-      </td>
-      <td>Reporte</td>
-    </tr>
-    <tr class="IndicadorTamaño">
-      <td>
-        <label>
-          Indicador Directivos
-        </label>
-      </td>
-      <td>
-        <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#Indicador3">Ver</button>
-      </td>
-      <td>historico</td>
-    </tr>
-    <tr class="IndicadorTamaño">
-      <td>
-        <label>
-          Indicador Escuela 
-        </label>
-      </td>
-      <td>
-        <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#Indicador4">Ver</button>
-      </td>
-      <td></td>
-    </tr>
-  </table>
-</center>
-<!-- Indicador 1 -->
-<div id="Indicador1" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+              <a class="site_title"><i class="fa fa-user"></i> <span><?= $usr?></span></a>
+            </div>
+            <div class="clearfix"></div>
+            <!-- menu profile quick info -->
+            <div class="profile clearfix">
+              <div class="profile_pic">
+                <!-- <img src="images/img.jpg" alt="..." class="img-circle profile_img"> -->
+              </div>
+              <div class="profile_info">
+                <span>Bienvenido,</span>
+                <h2><?= $usr?></h2>
+              </div>
+            </div>
+            <!-- /menu profile quick info -->
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Selecciona el filtrado Alumnos</h4>
-      </div>
-      <div class="modal-body">
-      <?= form_open("Niv4/Filtros1") ?>
-        <label>Selecionar escuela </label>
-        <select name="Escuelas1" class="materias">
-              <option value="Todos" selected="selected">Todas</option>
-                <option value="Bachilleres"> Bachilleres 1</option>
-            </select>
-        <br>
-         <label>
-          Todos 
-          <?= form_checkbox('Todos','Todos',true) ?>
-        </label>
-        <br>
+            <br />
+
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+              <div class="menu_section">
+                <h3>General</h3>
+                <ul class="nav side-menu">
+                  <li><a href="/SEP/index.php/Niv4/Inicio/<?= $usr ?>"><i class="fa fa-home"></i>Inicio </a> </li>
+                  <li><a href="/SEP/index.php/Niv4/Indicadores/<?= $usr ?>"><i class=" fa fa-file-text"></i>Indicadores</a></li>
+                  <li><a><i class="fa fa-search"></i> Filtrar <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li>
+                      <?= form_open("Niv4/FiltrosEscuelas") ?>
+                        <label>Esculas</label>
+                        <select name="FiltroEsculas" style="width: 182px;">
+                            <option value="todos">All</option>
+                            <?php 
+                              $queryEscuelaFiltro = $this-> db->where('NivelEducativo',"Media Superior");
+                              $queryEscuelaFiltro = $this-> db->or_where('NivelEducativo',"Superior");
+                              $queryEscuelaFiltro = $this-> db->or_where('NivelEducativo',"Basica");
+                              $queryEscuelaFiltro = $this -> db -> get('usuarios');
+                              foreach ($queryEscuelaFiltro -> result() as $queryEscuelaFiltro) { ?>
+                                <option value="<?= $queryEscuelaFiltro -> Nombre; ?>"><?= $queryEscuelaFiltro -> Nombre; ?></option>
+                              
+                              <?php } ?>
+                        </select>
+                        <button type="Submit">Buscar</button>
+                        <input type="text" name="user" style="visibility: hidden;" value="<?= $usr ?>">
+                        <?= form_close() ?>
+                      </li>
+                      <li>
+                        <?= form_open("Niv4/FiltrosNiveles") ?>
+                        <label>Niveles Educativos</label>
+                        <select name="FiltroNivel" style="width: 182px;">
+                            <option value="todosniv">All</option>
+                            <?php 
+                              $queryEscuelaFiltro = $this-> db->where('NivelEducativo',"Media Superior");
+                              $queryEscuelaFiltro = $this-> db->or_where('NivelEducativo',"Superior");
+                              $queryEscuelaFiltro = $this-> db->or_where('NivelEducativo',"Basica");
+                              $queryEscuelaFiltro = $this-> db->group_by('NivelEducativo');
+                              $queryEscuelaFiltro = $this -> db -> get('usuarios');
+                              foreach ($queryEscuelaFiltro -> result() as $queryEscuelaFiltro) { ?>
+                                <option value="<?= $queryEscuelaFiltro -> NivelEducativo; ?>"><?= $queryEscuelaFiltro -> NivelEducativo; ?></option>
+                              
+                              <?php } ?>
+                        </select>
+                        <button type="Submit">Buscar</button>
+                        <input type="text" name="user" style="visibility: hidden;" value="<?= $usr ?>">
+                        <?= form_close() ?>
+                      </li>
+                    </ul>
+                  </li>
+              </div>
+
+            </div>
+            <!-- /sidebar menu -->
+            <!-- /menu footer buttons -->
+            <div class="sidebar-footer hidden-small">
+              <a data-toggle="tooltip" data-placement="top" title="Settings">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Lock">
+                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Logout" href="/SEP">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+              </a>
+            </div>
+            <!-- /menu footer buttons -->
+          </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+          <div class="nav_menu">
+            <nav>
+              <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+              </div>
+
+              <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <!-- <img src="images/img.jpg" alt=""> -->
+                    <i class="fa fa-user"></i>
+                    <?= $usr ?>  <span class=" fa fa-angle-down"></span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-usermenu pull-right">
+                    <li><a href="/SEP"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
         <center>
-          <table>
-            <tr>
-              <td style="width: 250px;">
-                <label>
-                  <?= form_checkbox('Genero','Genero',false) ?>
-                  Genero 
-                </label>
-              </td>
-              <td style="width: 250px;">
-                <label>
-                  <?= form_checkbox('Grado','Grado',false) ?>
-                  Grado 
-                </label>
-              </td>
+          <table style="text-align: center; width: 800px" class="table table-striped">
+            <thead>
+            <tr >
+              <th colspan="5" style="text-align: center;">Escuelas</th>
             </tr>
-            <tr>
-              <td>
-                  <label>
-                    <?= form_checkbox('Edad','Edad',false) ?>
-                    Edad 
-                  </label>      
-              </td>
-              <td>
-                <label>
-                  <?= form_checkbox('Becario','Becario',false) ?>
-                  Becario 
-                </label>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label>
-                  <?= form_checkbox('Indigena','Indigena',false) ?>
-                  Indigena 
-                </label>  
-              </td>
-              <td>
-                <label>
-                  <?= form_checkbox('NEE','NEE',false) ?>
-                  NEE 
-                </label>      
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label>
-                  <?= form_checkbox('Trabajo','Trabajo',false) ?>
-                  Trabajo remunerado 
-                </label>
-              </td>
-              <td>
-                <label>
-                  <?= form_checkbox('Modalidad','Modalidad',false) ?>
-                  Modalidad 
-                </label>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label>
-                  <?= form_checkbox('Turno','Turno',false) ?>
-                  Turno 
-                </label>
-              </td>
-              <td>
-                <label>
-                  <?= form_checkbox('Promedio','Promedio',false) ?>
-                  Promedio Ciclo anterior
-                </label>
-              </td>
-            </tr>
-          </table>
+              <tr>
+                <th style="text-align: center;">Nombre</th>
+                <th style="text-align: center;">Nivel Educativo</th>
+                <th style="text-align: center;">ver</th>
+                <th colspan="2" style="text-align: center;">Descargar</th>
+              </tr>
+            </thead>
+            <tbody>
+            <?php 
+            if ($filtroMaestro=='1') {
+              if ($filtro!="todosniv") {
+                $queryEscuelas = $this-> db->where('NivelEducativo',$filtro);
+              }elseif ($filtro=='todosniv'){
+                $queryEscuelas = $this-> db->where('NivelEducativo',"Media Superior");
+                $queryEscuelas = $this-> db->or_where('NivelEducativo',"Superior");
+                $queryEscuelas = $this-> db->or_where('NivelEducativo',"Basica");
+              }
+            }elseif ($filtroMaestro=='2'){
+              if ($filtro2!="todos") {
+                $queryEscuelas = $this-> db->where('Nombre',$filtro2);
+              }elseif ($filtro2=='todos') {
+                $queryEscuelas = $this-> db->where('NivelEducativo',"Media Superior");
+                $queryEscuelas = $this-> db->or_where('NivelEducativo',"Superior");
+                $queryEscuelas = $this-> db->or_where('NivelEducativo',"Basica");
+              }
+            }
+              $queryEscuelas = $this -> db -> get('usuarios');
+              foreach ($queryEscuelas -> result() as $queryEscuelas) {
+             ?>
+              <tr>
+                <td><?= $queryEscuelas->Nombre; ?></td>
+                <td><?= $queryEscuelas->NivelEducativo; ?></td>
+                <?= form_open("Niv4/Ver") ?>
+                <td>
+                <input type="text" name="user" style="visibility: hidden; width: 10px;" value="<?= $usr ?>">
+                <input type="text" name="Nombre" style="visibility: hidden; width: 10px;" value="<?= $queryEscuelas->Usuario; ?>">
+                  <button type="Submit">ver</button>
+                </td>
+                <?= form_close() ?>
+                <?= form_open("DercargaPDF/Descarga") ?>
+                <!-- <td style="width: 102px"> -->
+                <td>
+                 <input type="text" name="user" style="visibility: hidden;  width: 10px;" value="<?= $queryEscuelas->Usuario; ?>">
+                  <button type="Submit" class="btn btn-round btn-primary"> PDF <i class="fa fa-file-pdf-o"></i></button>
+                </td>
+                <?= form_close() ?>
+                <?= form_open("DescargaEXCEL/Descarga") ?>
+                <!-- <td style="width: 102px"> -->
+                <td>
+                  <input type="text" name="user" style="visibility: hidden; width: 10px;" value="<?= $queryEscuelas->Usuario; ?>">
+                  <button type="Submit" class="btn btn-round btn-primary"> Excel <i class="fa fa-file-excel-o"></i></button>
+                </td>
+                <?= form_close() ?>
+              </tr>
+              <?php } ?>
+            </tbody>
+          </table>  
         </center>
-        <center>
-          <button type="Submit" class="btn btn-success">Imprimir</button>
-        </center>
-      <?= form_close() ?>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+        </div>
+        <!-- footer content -->
+        <footer>
+          <div class="pull-center">
+            <center>
+              <p>Av. Armada de México N° 176</p>
+          <p>Esq. Presa de la Amistad Col. Campestre C.P. 77040  Chetumal, Q. Roo.</p>
+          <p>Teléfono:(01 983) 832 79 25 Fax: 832 32 91</p>
+          <p> <a href="delegacion.qroo@nube.sep.gob.mx">delegacion.qroo@nube.sep.gob.mx</a></p>
+            </center>
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
       </div>
     </div>
 
-  </div>
-</div>
-<!-- fin Indicador 1 -->
-<!-- Indicador 2  -->
-<div id="Indicador2" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Selecciona el filtrado Docentes </h4>
-      </div>
-      <div class="modal-body">
-      <?= form_open("Niv4/Filtros2") ?>
-        <label>Selecionar escuela </label>
-        <select name="Escuelas2" class="materias">
-              <option value="Todos" selected="selected">Todas</option>
-                <option value="Bachilleres"> Bachilleres 1</option>
-            </select>
-        <br>
-         <label>
-          Todos 
-          <?= form_checkbox('Todos2','Todos2',true) ?>
-        </label>
-        <br>
-        <center>
-          <table>
-            <tr>
-              <td style="width: 250px;">
-                <label>
-                  <?= form_checkbox('Escuela','Escuela',false) ?>
-                  Escuela 
-                </label>
-              </td>
-              <td style="width: 250px;">
-                <label>
-                  <?= form_checkbox('Turno','Turno',false) ?>
-                  Turno 
-                </label>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                  <label>
-                    <?= form_checkbox('Edad2','Edad2',false) ?>
-                    Edad
-                  </label>      
-              </td>
-              <td>
-                <label>
-                  <?= form_checkbox('Nivel','Nivel',false) ?>
-                  Nivel de estudios
-                </label>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label>
-                  <?= form_checkbox('Años','Años',false) ?>
-                  Años como docente 
-                </label>  
-              </td>
-              <td>
-                <label>
-                  <?= form_checkbox('Asignatura','Asignatura',false) ?>
-                  Asignatura 1 y 2
-                </label>      
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label>
-                  <?= form_checkbox('Empleo','Empleo',false) ?>
-                  Otro Empleo
-                </label>
-              </td>
-              <td>
-              </td>
-            </tr>
-          </table>
-        </center>
-        <center>
-          <button type="Submit" class="btn btn-success">Imprimir</button>
-        </center>
-      <?= form_close() ?>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-
-  </div>
-</div>
-<!-- Fin  indicador 2 -->
-<!-- Indicador 3  -->
-<div id="Indicador3" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Selecciona el filtrado Directivos</h4>
-      </div>
-      <div class="modal-body">
-      <?= form_open("Niv4/Filtros3") ?>
-        <label>Selecionar escuela </label>
-        <select name="Escuelas3" class="materias">
-              <option value="Todos" selected="selected">Todas</option>
-                <option value="Bachilleres"> Bachilleres 1</option>
-            </select>
-        <br>
-         <label>
-          Todos 
-          <?= form_checkbox('Todos3','Todos3',true) ?>
-        </label>
-        <br>
-        <center>
-          <table>
-            <tr>
-              <td style="width: 250px;">
-                <label>
-                  <?= form_checkbox('Escuela3','Escuela3',false) ?>
-                  Escuela 
-                </label>
-              </td>
-              <td style="width: 250px;">
-                <label>
-                  <?= form_checkbox('Turno3','Turno3',false) ?>
-                  Turno 
-                </label>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                  <label>
-                    <?= form_checkbox('Edad3','Edad3',false) ?>
-                    Edad
-                  </label>      
-              </td>
-              <td>
-                <label>
-                  <?= form_checkbox('Nivel3','Nivel3',false) ?>
-                  Nivel de estudios
-                </label>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label>
-                  <?= form_checkbox('Años3','Años3',false) ?>
-                  Años como directivo
-                </label>  
-              </td>
-              <td>
-                <label>
-                  <?= form_checkbox('Empleo3','Empleo3',false) ?>
-                  Otro Empleo
-                </label>
-              </td>
-            </tr>
-          </table>
-        </center>
-        <center>
-          <button type="Submit" class="btn btn-success">Imprimir</button>
-        </center>
-      <?= form_close() ?>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-
-  </div>
-</div>
-<!-- Fin indicador 3 -->
-<!-- Indicador 4  -->
-<div id="Indicador4" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Selecciona el filtrado Esculas</h4>
-      </div>
-      <div class="modal-body">
-      <?= form_open("Niv4/Filtros4") ?>
-        <label>Selecionar escuela </label>
-        <select name="Escuelas4" class="materias">
-              <option value="Todos" selected="selected">Todas</option>
-                <option value="Bachilleres"> Bachilleres 1</option>
-            </select>
-        <br>
-         <label>
-          Todos 
-          <?= form_checkbox('Todos4','Todos4',true) ?>
-        </label>
-        <br>
-        <center>
-          <table>
-            <tr>
-              <td style="width: 250px;">
-                <label>
-                  <?= form_checkbox('Localidad','Localidad',false) ?>
-                  Localidad (tamaño)
-                </label>
-              </td>
-              <td style="width: 250px;">
-                <label>
-                  <?= form_checkbox('Municipio','Municipio',false) ?>
-                  Municipio 
-                </label>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                  <label>
-                    <?= form_checkbox('Aulas','Aulas',false) ?>
-                    Cantidad de Aulas
-                  </label>      
-              </td>
-              <td>
-                <label>
-                  <?= form_checkbox('Pupitres','Pupitres',false) ?>
-                  Cantidad de pupitres
-                </label>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label>
-                  <?= form_checkbox('Planea','Planea',false) ?>
-                  Planea
-                </label>  
-              </td>
-              <td>
-                <label>
-                  <?= form_checkbox('Ceneval','Ceneval',false) ?>
-                  Ceneval
-                </label>
-              </td>
-            </tr>
-          </table>
-        </center>
-        <center>
-          <button type="Submit" class="btn btn-success">Imprimir</button>
-        </center>
-      <?= form_close() ?>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-
-  </div>
-</div>
-<!-- Fin indicador 4 -->
-
-<!-- Pie de pagina -->
-<footer>
-  <div class="PiePag" >
-    <p>Av. Armada de México N° 176</p>
-    <p>Esq. Presa de la Amistad Col. Campestre C.P. 77040  Chetumal, Q. Roo.</p>
-    <p>Teléfono:(01 983) 832 79 25 Fax: 832 32 91</p>
-    <p> <a href="">delegacion.qroo@nube.sep.gob.mx</a></p>
-  </div>
-</footer>
-</body>
+    
+    <!-- jQuery -->
+    <script src="/SEP/vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="/SEP/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="/SEP/vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="/SEP/vendors/nprogress/nprogress.js"></script>
+    <!-- Chart.js -->
+    <script src="/SEP/vendors/Chart.js/dist/Chart.min.js"></script>
+    <!-- gauge.js -->
+    <script src="/SEP/vendors/gauge.js/dist/gauge.min.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="/SEP/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <!-- iCheck -->
+    <script src="/SEP/vendors/iCheck/icheck.min.js"></script>
+    <!-- Skycons -->
+    <script src="/SEP/vendors/skycons/skycons.js"></script>
+    <!-- Flot -->
+    <script src="/SEP/vendors/Flot/jquery.flot.js"></script>
+    <script src="/SEP/vendors/Flot/jquery.flot.pie.js"></script>
+    <script src="/SEP/vendors/Flot/jquery.flot.time.js"></script>
+    <script src="/SEP/vendors/Flot/jquery.flot.stack.js"></script>
+    <script src="/SEP/vendors/Flot/jquery.flot.resize.js"></script>
+    <!-- Flot plugins -->
+    <script src="/SEP/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+    <script src="/SEP/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+    <script src="/SEP/vendors/flot.curvedlines/curvedLines.js"></script>
+    <!-- DateJS -->
+    <script src="/SEP/vendors/DateJS/build/date.js"></script>
+    <!-- JQVMap -->
+    <script src="/SEP/vendors/jqvmap/dist/jquery.vmap.js"></script>
+    <script src="/SEP/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script src="/SEP/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="/SEP/vendors/moment/min/moment.min.js"></script>
+    <script src="/SEP/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+ <!-- FullCalendar -->
+    <script src="/SEP/vendors/moment/min/moment.min.js"></script>
+    <script src="/SEP/vendors/fullcalendar/dist/fullcalendar.min.js"></script>
+    <!-- Custom Theme Scripts -->
+    <script src="/SEP/build/js/custom.min.js"></script>
+  
+  </body>
 </html>

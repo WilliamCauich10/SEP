@@ -11,7 +11,7 @@ class DescargaEXCEL extends CI_Controller {
 		$data['usr']= $this->input->post("user");
 		// $data['items']=$items;
 		$data['page_title']='Indicadores';
-		$data['filename']='prueba'.date("dmyhis");
+		$data['filename']="IndicadorExcel".$data['usr'].date("dmyhis");
 		// echo "hola";
 		$this->load->view('Nivel1/p',$data);
 	}

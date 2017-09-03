@@ -16,8 +16,12 @@ class Niv4 extends CI_Controller {
 		$this-> load-> database();
 		$this-> load-> model('Ingresalogin_model');
 	}
-	function Indicadores(){
-		$this->load->view('Nivel4/indicadores');
+	function Indicadores($usr){
+		$data['usr']=$usr;
+		$data['filtro']="todosniv";
+		$data['filtroMaestro']='1';
+		// $data['filtro2']="todos";
+		$this->load->view('Nivel4/indicadores',$data);
 	}
 	function IES(){
 		$this->load->view('Nivel4/IES');
@@ -26,6 +30,24 @@ class Niv4 extends CI_Controller {
 		$data['usr']=$usr;
 		// $data['busq']="todos";
 		$this->load->view('Nivel4/principal',$data);	
+	}
+	function FiltrosEscuelas(){
+		$data['usr'] = $this -> input ->post('user');
+		$data['filtroMaestro']="2";
+		$data['filtro2'] = $this -> input ->post('FiltroEsculas');
+		// echo $data['filtro2'];
+		$this->load->view('Nivel4/indicadores',$data);
+	}
+	function FiltrosNiveles(){
+		$data['usr'] = $this -> input ->post('user');
+		$data['filtro'] = $this -> input ->post('FiltroNivel');
+		$data['filtroMaestro']="1";
+		$this->load->view('Nivel4/indicadores',$data);
+	}
+	function Ver(){
+		$data['usr'] = $this -> input ->post('user');
+		$data['nom'] = $this -> input ->post('Nombre');
+		$this->load->view('Nivel4/ver',$data);
 	}
 	function Filtros1(){
 		$WhereEscuela =$this->input->post('Escuelas1');

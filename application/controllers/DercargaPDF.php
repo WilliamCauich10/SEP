@@ -72,7 +72,12 @@ class DercargaPDF extends CI_Controller {
 		}
 		$html.=	"</tbody>
 		</table>
-		</div>";
+		</div>
+		<htmlpagefooter name=\"MyCustomFooter\">
+			<p style=\"text-align: center;\"><b>Toda copia en PAPEL es un “Documento No Controlado” </b></p>
+	
+</htmlpagefooter>
+		";
 		 $pdfFilePath = "Indicadores".$Nom.$hoy.".pdf";
         $this->load->library('M_pdf');
         $mpdf = new mPDF('c', 'A4-L');  

@@ -56,10 +56,12 @@ class Niv3 extends CI_Controller {
 	}
 	// Crear
 	function creaUsuarios(){
+		$usr=$this -> input-> post('user');
 		$datos ['nomb']= $this-> input-> post('txtNom');
-		$datos ['usr']=$this -> input-> post('txtUser');
+		$datos ['usrr']=$this -> input-> post('txtUser');
 		$datos ['pw']= $this-> input-> post('txtPW');
 		$datos ['niv']= $this-> input-> post('Nivel');
+		$datos ['nivedu']= $this-> input-> post('NivelEducativo');
 		switch ($datos['niv']) {
 			case 'Localidad':
 					$datos['Nivel']='Nivel1';
@@ -76,9 +78,11 @@ class Niv3 extends CI_Controller {
 			'txtUser' => $this -> input-> post('txtUser'),
 			'txtPW' => $this -> input-> post('txtPW'),
 			'txtRol' => $datos['Nivel'],
+			'NivelEducativo'=> $this-> input-> post('NivelEducativo'),
 			);
+		// echo $datos['nivedu'];
 		$data['prueba']= $this-> Admin_model-> crearUser($data);
-		return $this-> Editar($datos);
+		return $this-> Editar($usr);
 	}
 	function creaFecha(){
 		$usr=$this -> input-> post('user');
@@ -130,11 +134,13 @@ class Niv3 extends CI_Controller {
 		$datos ['usuario']=$this -> input-> post('txtUser');
 		$datos ['pw']= $this-> input-> post('txtPW');
 		$datos ['rol']=$this -> input-> post('txtRol');
+		$datos ['niv']=$this -> input-> post('txtNiv');
 		$datas = array(
 			'txtNom' => $this -> input-> post('txtNom'),
 			'txtUser' => $this -> input-> post('txtUser'),
 			'txtPW' => $this -> input-> post('txtPW'),
 			'txtRol' => $this -> input-> post('txtRol'),
+			'txtNiv' => $this -> input-> post('txtNiv'),
 			);
 		$data['prueba']= $this-> Admin_model-> actualizaUser($datas,$datos['id']);
 		return $this-> Editar($usr);

@@ -137,8 +137,8 @@
               <tr>
                 <th>Nombre</th>
                 <th>Usuario</th>
-                <!-- <th>pw</th> -->
                 <th>Rol</th>
+                <th>Nivel</th>
                 <th>Acción</th>
               </tr>
             </thead>
@@ -149,6 +149,7 @@
                 $user = array('name'=>'txtUser','id'=>'txtUser','type'=>'text');
                 $pw = array('name'=>'txtPW','id'=>'txtPW','type'=>'text');
                 $rol = array('name'=>'txtRol','id'=>'txtRol','type'=>'text');
+                $niv = array('name'=>'txtNiv','id'=>'txtNiv','type'=>'text');
                 $id2 = array('name'=>'txtID','id'=>'txtID','type'=>'text','style'=>'visibility:hidden');
                 $idd = array('name'=> 'textid', 'id'=>'textid','style'=>'visibility:hidden');
             if ($prueba) {
@@ -159,6 +160,7 @@
                   <td><?= $prueba->Nombre; ?></td>
                   <td><?= $prueba->Usuario;?> </td>
                   <td><?= $prueba->Rol; ?></td>
+                  <td><?= $prueba->NivelEducativo; ?></td>
                   <?= form_open("/Niv3/borrarUser") ?>
                            <input type="text" name="user" style="visibility: hidden;" value="<?= $usr ?>">
                            <input type="text" name="id" style="visibility: hidden;" value="<?= $prueba->ID; ?>">
@@ -210,6 +212,11 @@
                            <label>Rol
                               <br>
                               <?=form_input($rol,$prueba->Rol) ?>
+                           </label>
+                        <br>
+                           <label>Nivel Educativo
+                              <br>
+                             <?= form_input($niv,$prueba->NivelEducativo) ?>
                            </label>
                            </center>
                           <center>
